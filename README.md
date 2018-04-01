@@ -1,5 +1,7 @@
 # WIFIOnOff
 
+[![Build Status](https://travis-ci.org/peastone/WIFIOnOff.svg?branch=master)](https://travis-ci.org/peastone/WIFIOnOff)
+
 ## Motivation
 This repository was inspired by the article ["Bastelfreundlich"](https://www.heise.de/ct/ausgabe/2018-2-Steckdose-mit-eingebautem-ESP8266-mit-eigener-Firmware-betreiben-3929796.html) by the German computer magazine "c't".
 The article there is pretty much introductory. If you speak German and you have difficulties to get started, you can have a look there.
