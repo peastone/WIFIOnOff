@@ -40,11 +40,8 @@ cache:
 addons:
   apt:
     packages:
-      - doxygen
-      - doxygen-doc
-      - doxygen-latex
-      - doxygen-gui
       - graphviz
+      - cmake3
 install:
   - pip install -U platformio
   - platformio update

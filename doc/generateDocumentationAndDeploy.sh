@@ -41,6 +41,18 @@ echo 'Setting up the script...'
 # Exit with nonzero exit code if anything fails
 set -e
 
+# Install latest Doxygen from git
+git clone https://github.com/doxygen/doxygen.git
+cd doxygen
+mkdir build
+cd build
+cmake -G "Unix Makefiles" ..
+make
+sudo make install
+cd ..
+cd ..
+rm doxygen
+
 # Download plantuml and move it to /usr/share/plantuml/
 wget https://downloads.sourceforge.net/project/plantuml/plantuml.jar
 sudo mkdir /usr/share/plantuml/
