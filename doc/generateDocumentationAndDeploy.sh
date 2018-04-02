@@ -51,7 +51,7 @@ make
 sudo make install
 cd ..
 cd ..
-rm -r doxygen
+rm -rf doxygen
 
 # Download plantuml and move it to /usr/share/plantuml/
 wget https://downloads.sourceforge.net/project/plantuml/plantuml.jar
