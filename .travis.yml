@@ -40,7 +40,6 @@ cache:
 addons:
   apt:
     packages:
-      - plantuml
       - doxygen
       - doxygen-doc
       - doxygen-latex
