@@ -22,12 +22,38 @@
 language: python
 python:
   - "2.7"
+# This will run on Travis' 'new' container-based infrastructure
 sudo: false
+# Blacklist
+branches:
+  except:
+    - gh-pages
+# Environment variables
+env:
+  global:
+    - GH_REPO_NAME: WIFIOnOff
+    - DOXYFILE: $TRAVIS_BUILD_DIR/doc/
+    - GH_REPO_REF: github.com/peastone/WIFIOnOff.git
 cache:
   directories:
     - "~/.platformio"
+# Install dependencies
+addons:
+  apt:
+    packages:
+      - plantuml
+      - doxygen
+      - doxygen-doc
+      - doxygen-latex
+      - doxygen-gui
+      - graphviz
 install:
   - pip install -U platformio
   - platformio update
 script:
   - platformio ci --project-conf=platformio.ini src
+
+after_success:
+  - cd $TRAVIS_BUILD_DIR
+  - chmod u+x doc/generateDocumentationAndDeploy.sh
+  - ./doc/generateDocumentationAndDeploy.sh
