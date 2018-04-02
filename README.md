@@ -35,7 +35,7 @@ The whole procedure may also be done with [PlatformIO](https://platformio.org/).
 7. Enjoy the web interface, MQTT and the physical button. Toggle the relay.
 
 ## Last advice
-Please read the [manual](https://peastone.github.io/WIFIOnOff/). It is pretty detailed and should answer most of your questions. Only the latest version is provided. All versions can be generated with [Doxygen](https://www.stack.nl/~dimitri/doxygen/).
+Please read the manual([HTML](https://peastone.github.io/WIFIOnOff/), [PDF](https://peastone.github.io/WIFIOnOff/refman.pdf)). It is pretty detailed and should answer most of your questions. Only the latest version is provided. All versions can be generated with [Doxygen](https://www.stack.nl/~dimitri/doxygen/).
 
 ## Also thanks to
 - Jeroen de Bruijn for his [gist](https://gist.github.com/vidavidorra/548ffbcdae99d752da02) on how to auto-deploy Doxygen documentation on Github pages with Travis CI
