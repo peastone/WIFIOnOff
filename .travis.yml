@@ -22,8 +22,7 @@
 language: python
 python:
   - "2.7"
-# This will run on Travis' 'new' container-based infrastructure
-sudo: false
+sudo: true
 # Blacklist
 branches:
   except:

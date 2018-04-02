@@ -41,6 +41,11 @@ echo 'Setting up the script...'
 # Exit with nonzero exit code if anything fails
 set -e
 
+# Download plantuml and move it to /usr/share/plantuml/
+wget https://downloads.sourceforge.net/project/plantuml/plantuml.jar
+sudo mkdir /usr/share/plantuml/
+sudo mv plantuml.jar /usr/share/plantuml/
+
 # Create a clean working directory for this script.
 mkdir code_docs
 cd code_docs
