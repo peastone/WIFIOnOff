@@ -90,7 +90,6 @@ if [ -d "latex" ]; then
   cd latex
   make
   cd ..
-  cp latex/
   cp latex/refman.pdf .
   rm -r latex
 fi
