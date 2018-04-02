@@ -76,12 +76,25 @@ echo "" > .nojekyll
 
 ################################################################################
 ##### Generate the Doxygen code documentation and log the output.          #####
+echo 'Doxygen version:'
+doxygen -v
+
 echo 'Generating Doxygen code documentation...'
 # Redirect both stderr and stdout to the log file AND the console.
 doxygen $DOXYFILE 2>&1 | tee doxygen.log
 
 ################################################################################
 ##### Upload the documentation to the gh-pages branch of the repository.   #####
+# Generate latex documentation
+if [ -d "latex" ]; then
+  cd latex
+  make
+  cd ..
+  cp latex/
+  cp latex/refman.pdf .
+  rm -r latex
+fi
+
 # Only upload if Doxygen successfully created the documentation.
 # Check this by verifying that the html directory and the file html/index.html
 # both exist. This is a good indication that Doxygen did it's work.
