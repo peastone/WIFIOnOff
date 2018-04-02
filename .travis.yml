@@ -42,6 +42,12 @@ addons:
     packages:
       - graphviz
       - cmake3
+      - ghostscript
+      - latex-xcolor
+      - texlive-extra-utils
+      - texlive-font-utils
+      - texlive-fonts-recommended
+      - texlive-latex-extra
 install:
   - pip install -U platformio
   - platformio update
