@@ -1,0 +1,4 @@
+<map id="restoreMQTTConfigurationFromEEPROM" name="restoreMQTTConfigurationFromEEPROM">
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#a104eb4efa9523edca8048af6e38d235f" title="Setter function for MQTT server / broker mqttServer. " alt="" coords="257,5,372,32"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#aad359baa91c446e57ccd6d77ebf49b5d" title="Setter function for stateMQTTConfigured. " alt="" coords="229,56,400,83"/>
+</map>

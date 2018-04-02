@@ -1,0 +1,5 @@
+<map id="initEEPROM" name="initEEPROM">
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#a6e14ea51750122bd7a906b9dcf896c53" title="This function stores the EEPROM_version_number in EEPROM. " alt="" coords="153,5,351,32"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a1dd9db8c49797d8536247d1fba49cfe7" title="This function calculates the CRC value of the values in the EEPROM with the help of function calculat..." alt="" coords="211,56,293,83"/>
+<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a16ef77fe42b6e5a700dd2445f0aaa24f" title="This function calculates a CRC checksum for the EEPROM. It is taken from: https://www.arduino.cc/en/Tutorial/EEPROMCrc. " alt="" coords="400,56,499,83"/>
+</map>

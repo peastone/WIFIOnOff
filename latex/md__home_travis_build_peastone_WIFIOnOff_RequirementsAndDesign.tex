@@ -1,0 +1,38 @@
+\subsection*{Features Implemented}
+
+
+\begin{DoxyItemize}
+\item W\-P\-S Push Button Configuration\-: I really ask myself, why Wi\-Fi Protected Setup is used so infrequently. It is convenient and you just need to push a button on your router and on your device. Many routers also offer the opportunity to press the push button over the web interface. So, you don't even have to walk. This is a must-\/have feature.
+\item H\-T\-T\-P interface\-: The user must be able to control the W\-I\-F\-I\-On\-Off with a simple web interface. You don't want to walk to switch the caffee machine on or off. This is a must-\/have feature. It is also needed for M\-Q\-T\-T support.
+\item M\-Q\-T\-T support\-: If configured over the H\-T\-T\-P interface, the W\-I\-F\-I\-On\-Off publishes the state of the relay and subscribes to a command channel. This is a nice-\/to-\/have feature. It is very interesting to experiment with M\-Q\-T\-T to produce internet-\/of-\/things-\/like networks. In future, this feature might become more important.
+\item Arduino O\-T\-A\-: With over-\/the-\/air updates enabled, the W\-I\-F\-I\-On\-Off can be flashed wirelessly. This is a nice-\/to-\/have feature. One can still flash over serial wire, but O\-T\-A is so much more convenient. This feature is N\-O\-T recommeded to be used in an untrusted environment.
+\end{DoxyItemize}
+
+\subsection*{Features Not to Be Implemented}
+
+
+\begin{DoxyItemize}
+\item Cloud\-: The W\-I\-F\-I\-On\-Off does not need a cloud or an external internet connection to be useful. This is quite nice as your device does not become worthless, if the your cloud service provider discontinues service. It also offers some advantage in terms of data protection. You are still free to use external service providers.
+\item Timer\-: I tried to follow the U\-N\-I\-X philosophy when designing this program. The W\-I\-F\-I\-On\-Off does one thing well\-: toggling the relay. It can be connected with other devices by M\-Q\-T\-T. If you want to implement a timer, you can do this, as a script on a separate computer connected to the M\-Q\-T\-T broker. You also get a G\-U\-I for free with an M\-Q\-T\-T smartphone app.
+\end{DoxyItemize}
+
+\subsection*{Use Case Diagram}
+
+title W\-I\-F\-I\-On\-Off -\/ Use Case Diagram
+
+rectangle W\-I\-F\-I\-On\-Off \{ (Toggle relay by pushing a button) as P\-H\-Y\-T\-O\-G (Toggle relay by web U\-I) as W\-E\-B\-T\-O\-G (Connect to Wi\-Fi by W\-P\-S) as C\-O\-N\-N\-E\-C\-T (Configure M\-Q\-T\-T) as C\-O\-N\-F\-I\-G\-M\-Q\-T\-T (Publish) as M\-Q\-T\-T\-\_\-\-P\-U\-B (Subscribe) as M\-Q\-T\-T\-\_\-\-S\-U\-B (Arduino O\-T\-A) as O\-T\-A \}
+
+\-:User\-: \-:M\-Q\-T\-T broker\-: as M\-Q\-T\-T\-\_\-\-Broker \-:Developer\-:
+
+User --$>$ P\-H\-Y\-T\-O\-G User --$>$ W\-E\-B\-T\-O\-G User --$>$ C\-O\-N\-N\-E\-C\-T User --$>$ C\-O\-N\-F\-I\-G\-M\-Q\-T\-T M\-Q\-T\-T\-\_\-\-Broker --$>$ M\-Q\-T\-T\-\_\-\-P\-U\-B M\-Q\-T\-T\-\_\-\-S\-U\-B --$>$ M\-Q\-T\-T\-\_\-\-Broker Developer --$>$ O\-T\-A 
+
+\section*{Boundary Conditions}
+
+
+\begin{DoxyItemize}
+\item X\-S\-S protection\-: The H\-T\-T\-P web interface accepts user input which must be sanitized. The approach that is used in this project is whitelisting. The goal is to prevent X\-S\-S attacks. For more information about X\-S\-S, look \href{https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting}{\tt here}\-\_\-\-Prevention\-\_\-\-Cheat\-\_\-\-Sheet).
+\end{DoxyItemize}
+
+\section*{Button interaction}
+
+title User with button interaction -\/ Activity Diagram start \-:User presses and holds the button; \-:User waits T\-I\-M\-E; \-:User releases the button; if (T\-I\-M\-E $>$ T\-R\-I\-G\-G\-E\-R\-\_\-\-T\-I\-M\-E\-\_\-\-F\-A\-C\-T\-O\-R\-Y\-\_\-\-R\-E\-S\-E\-T) then (yes) \-:Perform factory reset; elseif (T\-I\-M\-E $>$ T\-R\-I\-G\-G\-E\-R\-\_\-\-T\-I\-M\-E\-\_\-\-W\-I\-F\-I\-\_\-\-D\-A\-T\-A\-\_\-\-R\-E\-S\-E\-T) then (yes) \-:Reset W\-I\-F\-I configuration; else if (T\-I\-M\-E $>$ T\-R\-I\-G\-G\-E\-R\-\_\-\-T\-I\-M\-E\-\_\-\-W\-P\-S) then (yes) if (W\-I\-F\-I configured) then (yes) else (no) \-:Perform W\-P\-S; endif else () \-:Toggle relay; endif stop  

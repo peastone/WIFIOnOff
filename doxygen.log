@@ -1,4 +1,19 @@
-Error: file `/home/travis/build/peastone/WIFIOnOff/doc/' not found
+Warning: ignoring unsupported tag `ALLOW_UNICODE_NAMES    =' at line 79, file /home/travis/build/peastone/WIFIOnOff/doc/Doxyfile
+Warning: ignoring unsupported tag `TOC_INCLUDE_HEADINGS   =' at line 314, file /home/travis/build/peastone/WIFIOnOff/doc/Doxyfile
+Warning: ignoring unsupported tag `GROUP_NESTED_COMPOUNDS =' at line 371, file /home/travis/build/peastone/WIFIOnOff/doc/Doxyfile
+Warning: ignoring unsupported tag `HIDE_COMPOUND_REFERENCE=' at line 543, file /home/travis/build/peastone/WIFIOnOff/doc/Doxyfile
+Warning: ignoring unsupported tag `WARN_AS_ERROR          =' at line 767, file /home/travis/build/peastone/WIFIOnOff/doc/Doxyfile
+Warning: ignoring unsupported tag `HTML_DYNAMIC_MENUS     =' at line 1239, file /home/travis/build/peastone/WIFIOnOff/doc/Doxyfile
+Warning: ignoring unsupported tag `LATEX_EXTRA_STYLESHEET =' at line 1754, file /home/travis/build/peastone/WIFIOnOff/doc/Doxyfile
+Warning: ignoring unsupported tag `LATEX_TIMESTAMP        =' at line 1821, file /home/travis/build/peastone/WIFIOnOff/doc/Doxyfile
+Warning: ignoring unsupported tag `RTF_SOURCE_CODE        =' at line 1887, file /home/travis/build/peastone/WIFIOnOff/doc/Doxyfile
+Warning: ignoring unsupported tag `MAN_SUBDIR             =' at line 1922, file /home/travis/build/peastone/WIFIOnOff/doc/Doxyfile
+Warning: ignoring unsupported tag `DOCBOOK_PROGRAMLISTING =' at line 1985, file /home/travis/build/peastone/WIFIOnOff/doc/Doxyfile
+Warning: ignoring unsupported tag `PLANTUML_JAR_PATH      =' at line 2415, file /home/travis/build/peastone/WIFIOnOff/doc/Doxyfile
+Warning: ignoring unsupported tag `PLANTUML_CFG_FILE      =' at line 2420, file /home/travis/build/peastone/WIFIOnOff/doc/Doxyfile
+Warning: ignoring unsupported tag `PLANTUML_INCLUDE_PATH  =' at line 2425, file /home/travis/build/peastone/WIFIOnOff/doc/Doxyfile
+Adding custom extension mapping: .ino will be treated as language c++
+Adding custom extension mapping: .no_extension will be treated as language md
 Searching for include files...
 Searching for example files...
 Searching for images...
@@ -7,9 +22,14 @@ Searching for msc files...
 Searching for dia files...
 Searching for files to exclude
 Searching for files to process...
-Searching for files in directory /home/travis/build/peastone/WIFIOnOff/code_docs/WIFIOnOff
+Searching for files in directory /home/travis/build/peastone/WIFIOnOff
+Searching for files in directory /home/travis/build/peastone/WIFIOnOff/src
 Reading and parsing tag files
 Parsing files
+Reading /home/travis/build/peastone/WIFIOnOff/README.md...
+Reading /home/travis/build/peastone/WIFIOnOff/RequirementsAndDesign.md...
+Preprocessing /home/travis/build/peastone/WIFIOnOff/src/WIFIOnOff.ino...
+Parsing file /home/travis/build/peastone/WIFIOnOff/src/WIFIOnOff.ino...
 Building group list...
 Building directory list...
 Building namespace list...
@@ -62,13 +82,115 @@ Generating style sheet...
 Generating search indices...
 Generating example documentation...
 Generating file sources...
+Parsing code for file /home/travis/build/peastone/WIFIOnOff/README.md...
+Parsing code for file /home/travis/build/peastone/WIFIOnOff/RequirementsAndDesign.md...
+Parsing code for file /home/travis/build/peastone/WIFIOnOff/src/WIFIOnOff.ino...
 Generating file documentation...
+Generating docs for file /home/travis/build/peastone/WIFIOnOff/README.md...
+Generating docs for file /home/travis/build/peastone/WIFIOnOff/RequirementsAndDesign.md...
+Generating docs for file /home/travis/build/peastone/WIFIOnOff/src/WIFIOnOff.ino...
+Generating caller graph for function calculate_crc
+Generating call graph for function checkCRC
+Generating caller graph for function checkCRC
+Generating caller graph for function checkEEPROMVersionNumber
+Generating caller graph for function checkMQTTConnected
+Generating caller graph for function checkWiFiConfigured
+Generating caller graph for function checkWiFiConnected
+Generating call graph for function configureMQTT
+Generating caller graph for function configureMQTT
+Generating caller graph for function configureOutputs
+Generating call graph for function configureWebServer
+Generating caller graph for function configureWebServer
+Generating call graph for function connectRelay
+Generating caller graph for function connectRelay
+Generating call graph for function connectToWiFi
+Generating caller graph for function connectToWiFi
+Generating call graph for function disconnectRelay
+Generating caller graph for function disconnectRelay
+Generating call graph for function feedbackEEPROMInit
+Generating caller graph for functi/home/travis/build/peastone/WIFIOnOff/RequirementsAndDesign.md:15: warning: Found unknown command `\startuml'
+/home/travis/build/peastone/WIFIOnOff/RequirementsAndDesign.md:39: warning: Found unknown command `\enduml'
+/home/travis/build/peastone/WIFIOnOff/RequirementsAndDesign.md:47: warning: Found unknown command `\startuml'
+/home/travis/build/peastone/WIFIOnOff/RequirementsAndDesign.md:66: warning: Found unknown command `\enduml'
+on feedbackEEPROMInit
+Generating call graph for function feedbackQuickBlink
+Generating caller graph for function feedbackQuickBlink
+Generating call graph for function feedbackWIFIisConnecting
+Generating caller graph for function feedbackWIFIisConnecting
+Generating caller graph for function getClientID
+Generating caller graph for function getMQTTOutgoingTopic
+Generating caller graph for function getMQTTServer
+Generating caller graph for function getStateLEDOn
+Generating caller graph for function getStateMQTTConfigured
+Generating caller graph for function getStateRelayConnected
+Generating caller graph for function getUserActionFeedbackRequest
+Generating call graph for function initEEPROM
+Generating caller graph for function initEEPROM
+Generating caller graph for function isNotWhitelisted
+Generating call graph for function loop
+Generating call graph for function mqttConnect
+Generating caller graph for function mqttConnect
+Generating call graph for function mqttControlRelay
+Generating caller graph for function mqttControlRelay
+Generating call graph for function mqttPublish
+Generating caller graph for function mqttPublish
+Generating call graph for function mqttServerValid
+Generating caller graph for function mqttServerValid
+Generating call graph for function performFactoryReset
+Generating caller graph for function performFactoryReset
+Generating call graph for function performWPS
+Generating caller graph for function performWPS
+Generating call graph for function pressHandler
+Generating caller graph for function pressHandler
+Generating caller graph for function renderFooter
+Generating caller graph for function renderHeader
+Generating caller graph for function renderMQTTServerSettings
+Generating caller graph for function renderRelay
+Generating call graph for function restoreMQTTConfigurationFromEEPROM
+Generating caller graph for function restoreMQTTConfigurationFromEEPROM
+Generating caller graph for function retrieveCRC
+Generating call graph for function saveMQTTConfigurationToEEPROM
+Generating caller graph for function saveMQTTConfigurationToEEPROM
+Generating caller graph for function setFactoryResetRequested
+Generating caller graph for function setMQTTIncomingTopic
+Generating caller graph for function setMQTTOutgoingTopic
+Generating caller graph for function setMQTTServer
+Generating caller graph for function setStateMQTTConfigured
+Generating call graph for function setup
+Generating call graph for function setupEEPROM
+Generating caller graph for function setupEEPROM
+Generating call graph for function setupMDNS
+Generating caller graph for function setupMDNS
+Generating caller graph for function setUserActionFeedbackRequest
+Generating call graph for function setWiFiConfigured
+Generating caller graph for function setWiFiConfigured
+Generating caller graph for function setWifiResetRequested
+Generating caller graph for function setWPSRequest
+Generating call graph for function storeCRC
+Generating caller graph for function storeCRC
+Generating caller graph for function storeEEPROMVersionNumber
+Generating caller graph for function switchOffLED
+Generating caller graph for function switchOnLED
+Generating call graph for function toggleLED
+Generating caller graph for function toggleLED
+Generating call graph for function toggleRelay
+Generating caller graph for function toggleRelay
+Generating caller graph for function unsetFactoryResetRequested
+Generating caller graph for function unsetUserActionFeedbackRequest
+Generating call graph for function unsetWiFiConfigured
+Generating caller graph for function unsetWiFiConfigured
+Generating caller graph for function unsetWifiResetRequested
+Generating caller graph for function unsetWPSRequest
 Generating page documentation...
+Generating docs for page md__home_travis_build_peastone_WIFIOnOff_README...
+Generating docs for page md__home_travis_build_peastone_WIFIOnOff_RequirementsAndDesign...
+Generating docs for page todo...
 Generating group documentation...
 Generating class documentation...
 Generating namespace index...
 Generating graph info page...
 Generating directory documentation...
+Generating dependency graph for directory /home/travis/build/peastone/WIFIOnOff/src
 Generating index page...
 Generating page index...
 Generating module index...
@@ -77,10 +199,198 @@ Generating namespace member index...
 Generating annotated compound index...
 Generating alphabetical compound index...
 Generating hierarchical class index...
+Generating graphical class hierarchy...
 Generating member index...
 Generating file index...
 Generating file member index...
 Generating example index...
 finalizing index lists...
-lookup cache used 0/65536 hits=0 misses=0
+Running dot...
+Generating dot graphs using 3 parallel threads...
+Running dot for graph 1/181
+Running dot for graph 2/181
+Running dot for graph 3/181
+Running dot for graph 4/181
+Running dot for graph 5/181
+Running dot for graph 6/181
+Running dot for graph 7/181
+Running dot for graph 8/181
+Running dot for graph 9/181
+Running dot for graph 10/181
+Running dot for graph 11/181
+Running dot for graph 12/181
+Running dot for graph 13/181
+Running dot for graph 14/181
+Running dot for graph 15/181
+Running dot for graph 16/181
+Running dot for graph 17/181
+Running dot for graph 18/181
+Running dot for graph 19/181
+Running dot for graph 20/181
+Running dot for graph 21/181
+Running dot for graph 22/181
+Running dot for graph 23/181
+Running dot for graph 24/181
+Running dot for graph 25/181
+Running dot for graph 26/181
+Running dot for graph 27/181
+Running dot for graph 28/181
+Running dot for graph 29/181
+Running dot for graph 30/181
+Running dot for graph 31/181
+Running dot for graph 32/181
+Running dot for graph 33/181
+Running dot for graph 34/181
+Running dot for graph 35/181
+Running dot for graph 36/181
+Running dot for graph 37/181
+Running dot for graph 38/181
+Running dot for graph 39/181
+Running dot for graph 40/181
+Running dot for graph 41/181
+Running dot for graph 42/181
+Running dot for graph 43/181
+Running dot for graph 44/181
+Running dot for graph 45/181
+Running dot for graph 46/181
+Running dot for graph 47/181
+Running dot for graph 48/181
+Running dot for graph 49/181
+Running dot for graph 50/181
+Running dot for graph 51/181
+Running dot for graph 52/181
+Running dot for graph 53/181
+Running dot for graph 54/181
+Running dot for graph 55/181
+Running dot for graph 56/181
+Running dot for graph 57/181
+Running dot for graph 58/181
+Running dot for graph 59/181
+Running dot for graph 60/181
+Running dot for graph 61/181
+Running dot for graph 62/181
+Running dot for graph 63/181
+Running dot for graph 64/181
+Running dot for graph 65/181
+Running dot for graph 66/181
+Running dot for graph 67/181
+Running dot for graph 68/181
+Running dot for graph 69/181
+Running dot for graph 70/181
+Running dot for graph 71/181
+Running dot for graph 72/181
+Running dot for graph 73/181
+Running dot for graph 74/181
+Running dot for graph 75/181
+Running dot for graph 76/181
+Running dot for graph 77/181
+Running dot for graph 78/181
+Running dot for graph 79/181
+Running dot for graph 80/181
+Running dot for graph 81/181
+Running dot for graph 82/181
+Running dot for graph 83/181
+Running dot for graph 84/181
+Running dot for graph 85/181
+Running dot for graph 86/181
+Running dot for graph 87/181
+Running dot for graph 88/181
+Running dot for graph 89/181
+Running dot for graph 90/181
+Running dot for graph 91/181
+Running dot for graph 92/181
+Running dot for graph 93/181
+Running dot for graph 94/181
+Running dot for graph 95/181
+Running dot for graph 96/181
+Running dot for graph 97/181
+Running dot for graph 98/181
+Running dot for graph 99/181
+Running dot for graph 100/181
+Running dot for graph 101/181
+Running dot for graph 102/181
+Running dot for graph 103/181
+Running dot for graph 104/181
+Running dot for graph 105/181
+Running dot for graph 106/181
+Running dot for graph 107/181
+Running dot for graph 108/181
+Running dot for graph 109/181
+Running dot for graph 110/181
+Running dot for graph 111/181
+Running dot for graph 112/181
+Running dot for graph 113/181
+Running dot for graph 114/181
+Running dot for graph 115/181
+Running dot for graph 116/181
+Running dot for graph 117/181
+Running dot for graph 118/181
+Running dot for graph 119/181
+Running dot for graph 120/181
+Running dot for graph 121/181
+Running dot for graph 122/181
+Running dot for graph 123/181
+Running dot for graph 124/181
+Running dot for graph 125/181
+Running dot for graph 126/181
+Running dot for graph 127/181
+Running dot for graph 128/181
+Running dot for graph 129/181
+Running dot for graph 130/181
+Running dot for graph 131/181
+Running dot for graph 132/181
+Running dot for graph 133/181
+Running dot for graph 134/181
+Running dot for graph 135/181
+Running dot for graph 136/181
+Running dot for graph 137/181
+Running dot for graph 138/181
+Running dot for graph 139/181
+Running dot for graph 140/181
+Running dot for graph 141/181
+Running dot for graph 142/181
+Running dot for graph 143/181
+Running dot for graph 144/181
+Running dot for graph 145/181
+Running dot for graph 146/181
+Running dot for graph 147/181
+Running dot for graph 148/181
+Running dot for graph 149/181
+Running dot for graph 150/181
+Running dot for graph 151/181
+Running dot for graph 152/181
+Running dot for graph 153/181
+Running dot for graph 154/181
+Running dot for graph 155/181
+Running dot for graph 156/181
+Running dot for graph 157/181
+Running dot for graph 158/181
+Running dot for graph 159/181
+Running dot for graph 160/181
+Running dot for graph 161/181
+Running dot for graph 162/181
+Running dot for graph 163/181
+Running dot for graph 164/181
+Running dot for graph 165/181
+Running dot for graph 166/181
+Running dot for graph 167/181
+Running dot for graph 168/181
+Running dot for graph 169/181
+Running dot for graph 170/181
+Running dot for graph 171/181
+Running dot for graph 172/181
+Running dot for graph 173/181
+Running dot for graph 174/181
+Running dot for graph 175/181
+Running dot for graph 176/181
+Running dot for graph 177/181
+Running dot for graph 178/181
+Running dot for graph 179/181
+Running dot for graph 180/181
+Running dot for graph 181/181
+Patching output file 1/4
+Patching output file 2/4
+Patching output file 3/4
+Patching output file 4/4
+lookup cache used 113/65536 hits=255 misses=113
 finished...

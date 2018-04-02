@@ -1,0 +1,4 @@
+<map id="renderMQTTServerSettings" name="renderMQTTServerSettings">
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#a50409543b7c4c4fb48e60ec35fbda3f3" title="This function is used configure the webserver. The webserver is configured by defining callback funct..." alt="" coords="235,5,375,32"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a7dfd9b79bc5a37d7df40207afbc5431f" title="This function is executed once at the startup of the microcontroller. " alt="" coords="425,5,479,32"/>
+</map>

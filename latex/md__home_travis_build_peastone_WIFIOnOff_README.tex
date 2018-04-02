@@ -1,0 +1,51 @@
+\href{https://travis-ci.org/peastone/WIFIOnOff}{\tt !\mbox{[}Build Status\mbox{]}(https\-://travis-\/ci.\-org/peastone/\-W\-I\-F\-I\-On\-Off.\-svg?branch=master)} \href{https://www.gnu.org/licenses/gpl-3.0}{\tt !\mbox{[}License\-: G\-P\-L v3\mbox{]}(https\-://img.\-shields.\-io/badge/\-License-\/\-G\-P\-L\%20v3-\/blue.\-svg)}
+
+\subsection*{Motivation}
+
+This repository was inspired by the article \href{https://www.heise.de/ct/ausgabe/2018-2-Steckdose-mit-eingebautem-ESP8266-mit-eigener-Firmware-betreiben-3929796.html}{\tt \char`\"{}\-Bastelfreundlich\char`\"{}} by the German computer magazine \char`\"{}c't\char`\"{}. The article there is pretty much introductory. If you speak German and you have difficulties to get started, you can have a look there.
+
+\subsection*{Caution\-: Dragons ahead}
+
+The relay in the Sonoff S20 E\-U can only handle 10 A. Do N\-O\-T plug in devices with draw more current. The maximum amount of current is also noted on the backside of the Sonoff S20 E\-U. It may differ in other variants sold, so have a look.
+
+Never program the Sonoff S20, if it is connected to the mains. In Germany, that's 230 volts and you don't want to get an electric shock, which might even kill you.
+
+That put ahead, go forward and be cautious!
+
+\subsection*{Flash it}
+
+
+\begin{DoxyEnumerate}
+\item Install Arduino I\-D\-E \href{https://www.arduino.cc/en/Guide/HomePage}{\tt (instructions)}.
+\item Install Arduino core for E\-S\-P8266 \href{https://github.com/esp8266/Arduino#installing-with-boards-manager}{\tt (instructions)}.
+\item Install the library \href{https://www.arduino.cc/en/Guide/Libraries#toc2}{\tt (instructions)} for \href{https://github.com/256dpi/arduino-mqtt/}{\tt M\-Q\-T\-T from Joël Gähwiler}.
+\item Get yourself a F\-T\-D\-I-\/232-\/\-U\-S\-B-\/\-T\-T\-L converter and some jumper wires.
+\item Connect the F\-T\-D\-I to the Sonoff S20 (Pins from top to button\-: G\-N\-D, T\-X, R\-X, 3.\-3\-V; Top is located right underneath the socket. Pin connection may vary for other variants or over time. You flash at your own risk.).
+\item Build the software and flash it.
+\end{DoxyEnumerate}
+
+The whole procedure may also be done with \href{https://platformio.org/}{\tt Platform\-I\-O}. It should be easy to find out the analogous steps for yourself.
+
+\subsection*{Use it}
+
+
+\begin{DoxyEnumerate}
+\item Close the Sonoff S20. B\-E cautious! The device M\-U\-S\-T be absolutely closed. You are working at your own risk here. If the device is open, you risk getting an electric shock or worse. If in doubt, ask an expert!
+\item Plug the Sonoff S20 into the mains.
+\item Press the button until it flashes the first time. Press the button of the router immediately after that. The W\-P\-S procedure starts.
+\item Find the device with an m\-D\-N\-S mobile phone app.
+\item Open the web interface by entering the m\-D\-N\-S name into your browser.
+\item Configure M\-Q\-T\-T, if wanted.
+\item Enjoy the web interface, M\-Q\-T\-T and the physical button. Toggle the relay.
+\end{DoxyEnumerate}
+
+\subsection*{Last advice}
+
+Please read the \href{https://peastone.github.io/WIFIOnOff/}{\tt manual}. It is pretty detailed and should answer most of your questions. Only the latest version is provided. All versions can be generated with \href{https://www.stack.nl/~dimitri/doxygen/}{\tt Doxygen}.
+
+\subsection*{Also thanks to}
+
+
+\begin{DoxyItemize}
+\item Jeroen de Bruijn for his \href{https://gist.github.com/vidavidorra/548ffbcdae99d752da02}{\tt gist} on how to auto-\/deploy Doxygen documentation on Github pages with Travis C\-I 
+\end{DoxyItemize}

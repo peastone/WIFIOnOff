@@ -1,0 +1,5 @@
+<map id="mqttPublish" name="mqttPublish">
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#af5189bf4d6c6b3d4a90bf76335456740" title="Get MQTT connection state. " alt="" coords="149,5,307,32"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#aefabc9bd763a51753669e6c249140abc" title="This function is used to get the connection state of the relay with the mains. It returns stateRelayC..." alt="" coords="144,56,312,83"/>
+<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a92b654456d82f73760cda8b83c5a0ca6" title="Getter function for mqttOutgoingTopic. " alt="" coords="147,107,309,133"/>
+</map>

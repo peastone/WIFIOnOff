@@ -1,0 +1,14 @@
+<map id="performWPS" name="performWPS">
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#ac782bcb28cf6c4cf77d8a408fe02c2f9" title="This function is a setter function which sets WiFi to not configured, which means that WPS is necessa..." alt="" coords="152,56,296,83"/>
+<area shape="rect" id="node6" href="$WIFIOnOff_8ino.html#a31eed9b3718a60b96c1fea76590a3fc5" title="This function tries to connect to WIFI. " alt="" coords="169,107,279,133"/>
+<area shape="rect" id="node12" href="$WIFIOnOff_8ino.html#a3ebcee2a9d20137810223c6813e54787" title="This function is a setter function which sets WiFi to configured, which means that WPS has already be..." alt="" coords="159,5,289,32"/>
+<area shape="rect" id="node13" href="$WIFIOnOff_8ino.html#a86eebd69aeee5bbb5e648fc099b4b360" title="Setter function to unset wpsRequested. " alt="" coords="157,157,291,184"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a1dd9db8c49797d8536247d1fba49cfe7" title="This function calculates the CRC value of the values in the EEPROM with the help of function calculat..." alt="" coords="394,5,475,32"/>
+<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#a0e963d26058822266a054c999cf33ece" title="Setter function to unsset wifiResetRequested. " alt="" coords="347,56,522,83"/>
+<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a16ef77fe42b6e5a700dd2445f0aaa24f" title="This function calculates a CRC checksum for the EEPROM. It is taken from: https://www.arduino.cc/en/Tutorial/EEPROMCrc. " alt="" coords="573,5,672,32"/>
+<area shape="rect" id="node7" href="$WIFIOnOff_8ino.html#a29d61ce203f552333381a79f4993da69" title="This function is called to give the user feedback that WIFI is about to connect. It will blink at a m..." alt="" coords="345,107,525,133"/>
+<area shape="rect" id="node8" href="$WIFIOnOff_8ino.html#aeaf97294d049f17c3eef4add9a4df1ec" title="This function is used to toggle the LED. Indirectly, it keeps track of the internal state stateLEDOn..." alt="" coords="581,107,664,133"/>
+<area shape="rect" id="node9" href="$WIFIOnOff_8ino.html#af4164c2bb2661c7427bd66ecd2f8aace" title="This function is used to get the state of the LED. It returns stateLEDOn. " alt="" coords="720,56,835,83"/>
+<area shape="rect" id="node10" href="$WIFIOnOff_8ino.html#a6a76f6c6d6e85f2215f0451b12f1db54" title="This function is used to switch the LED off. It keeps track of the internal state stateLEDOn..." alt="" coords="725,107,829,133"/>
+<area shape="rect" id="node11" href="$WIFIOnOff_8ino.html#a46be1cdf6842e46fb3ba46a60f024aa0" title="This function is used to switch the LED on. It keeps track of the internal state stateLEDOn. " alt="" coords="726,157,829,184"/>
+</map>

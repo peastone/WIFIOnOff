@@ -1,0 +1,4 @@
+<map id="unsetUserActionFeedbackRequest" name="unsetUserActionFeedbackRequest">
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#aed631ac5d7f4338966a6a187e1057258" title="This function is called to give the user feedback about the menu the user selected. It will blink fast for a short period of time. The user has the choice to release and select the menu or to wait for the next menu. By counting the feedbackQuickBlink()&#45;events, the user can determine which menu is selected, when the button is released now. " alt="" coords="280,5,419,32"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a0b33edabd7f1c4e4a0bf32c67269be2f" title="This function is executed in a loop after setup(void) has been called. " alt="" coords="467,5,514,32"/>
+</map>

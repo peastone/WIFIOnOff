@@ -1,0 +1,25 @@
+<map id="configureWebServer" name="configureWebServer">
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#a6eda13f766d5d36ba8bcbe7c252c2ab8" title="This function is used to connect the relay to the mains. It keeps track of the internal state stateRe..." alt="" coords="662,102,765,129"/>
+<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#af5189bf4d6c6b3d4a90bf76335456740" title="Get MQTT connection state. " alt="" coords="979,26,1136,53"/>
+<area shape="rect" id="node6" href="$WIFIOnOff_8ino.html#aefabc9bd763a51753669e6c249140abc" title="This function is used to get the connection state of the relay with the mains. It returns stateRelayC..." alt="" coords="973,381,1141,407"/>
+<area shape="rect" id="node8" href="$WIFIOnOff_8ino.html#ae850a8f5a550a31d8433eddf41a11d44" title="This function is used to disconnect the relay from the mains. It keeps track of the internal state st..." alt="" coords="654,159,773,186"/>
+<area shape="rect" id="node10" href="$WIFIOnOff_8ino.html#a1ec8a91d3b174c2cfee9eaf852f11c1e" title="This function returns the first part of a HTML file which is reused for all responses. " alt="" coords="263,215,363,242"/>
+<area shape="rect" id="node11" href="$WIFIOnOff_8ino.html#a1c9dd84a6d6ca1ea206f310605cc049d" title="This function returns the middle part of a HTML file to. " alt="" coords="267,266,359,293"/>
+<area shape="rect" id="node12" href="$WIFIOnOff_8ino.html#a12a8bd3c3a1288633c3eade6ee8e77cf" title="This function returns the last part of a HTML file which is reused for all responses. " alt="" coords="266,317,361,343"/>
+<area shape="rect" id="node13" href="$WIFIOnOff_8ino.html#afc46fe517d2d628cdf59870d4f09060c" title="Getter function for stateMQTTConfigured. " alt="" coords="228,367,399,394"/>
+<area shape="rect" id="node14" href="$WIFIOnOff_8ino.html#a3251df1e6168789bae584b4063d5a59d" title="This function is used to check whether mqttServer is valid. Therefore, it is checked that the..." alt="" coords="256,418,371,445"/>
+<area shape="rect" id="node16" href="$WIFIOnOff_8ino.html#a0914c7b7faa1375475836dc6115f1077" title="Getter function for MQTT server / broker mqttServer. " alt="" coords="256,469,371,495"/>
+<area shape="rect" id="node17" href="$WIFIOnOff_8ino.html#a104eb4efa9523edca8048af6e38d235f" title="Setter function for MQTT server / broker mqttServer. " alt="" coords="256,519,371,546"/>
+<area shape="rect" id="node18" href="$WIFIOnOff_8ino.html#aad359baa91c446e57ccd6d77ebf49b5d" title="Setter function for stateMQTTConfigured. " alt="" coords="228,570,399,597"/>
+<area shape="rect" id="node19" href="$WIFIOnOff_8ino.html#a006d783b06cfbafe0c614692c894e2ec" title="Store MQTT server / broker name (mqttServer) and state (configured or not, stateMQTTConfigured) in EE..." alt="" coords="195,671,432,698"/>
+<area shape="rect" id="node22" href="$WIFIOnOff_8ino.html#a3a04a0e88b0687b8c017addfed120950" title="Configure new MQTT server / broker. This will. " alt="" coords="257,114,369,141"/>
+<area shape="rect" id="node24" href="$WIFIOnOff_8ino.html#a4dfcb1cefe2bee38d172e3f327c1a72d" title="This function returns the middle part of a HTML file to. " alt="" coords="223,722,404,749"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a46be1cdf6842e46fb3ba46a60f024aa0" title="This function is used to switch the LED on. It keeps track of the internal state stateLEDOn. " alt="" coords="822,77,925,103"/>
+<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a92e8e72a8c9bd699aefa63b65c4bc30c" title="With the call of this function, mqttClient publishes the state of the relay (getStateRelayConnected()..." alt="" coords="828,127,919,154"/>
+<area shape="rect" id="node7" href="$WIFIOnOff_8ino.html#a92b654456d82f73760cda8b83c5a0ca6" title="Getter function for mqttOutgoingTopic. " alt="" coords="977,127,1138,154"/>
+<area shape="rect" id="node9" href="$WIFIOnOff_8ino.html#a6a76f6c6d6e85f2215f0451b12f1db54" title="This function is used to switch the LED off. It keeps track of the internal state stateLEDOn..." alt="" coords="821,178,925,205"/>
+<area shape="rect" id="node15" href="$WIFIOnOff_8ino.html#a3523db85b2f83ce089a2a733d7a025ad" title="This function is used for filtering out XSS attacks. This is done by whitelisting. " alt="" coords="483,418,602,445"/>
+<area shape="rect" id="node20" href="$WIFIOnOff_8ino.html#a1dd9db8c49797d8536247d1fba49cfe7" title="This function calculates the CRC value of the values in the EEPROM with the help of function calculat..." alt="" coords="502,671,583,698"/>
+<area shape="rect" id="node21" href="$WIFIOnOff_8ino.html#a16ef77fe42b6e5a700dd2445f0aaa24f" title="This function calculates a CRC checksum for the EEPROM. It is taken from: https://www.arduino.cc/en/Tutorial/EEPROMCrc. " alt="" coords="664,671,763,698"/>
+<area shape="rect" id="node23" href="$WIFIOnOff_8ino.html#ab913592c54bd79feda56cbdc86f44641" title="Callback which is called when MQTT receives an incoming topic. " alt="" coords="481,114,605,141"/>
+</map>

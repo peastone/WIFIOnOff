@@ -1,0 +1,6 @@
+<map id="initEEPROM" name="initEEPROM">
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#a3d5cf434e34fce7db249185369616a32" title="This function is setting up the EEPROM. If the CRC check fails, the EEPROM will be overwritten with i..." alt="" coords="169,5,281,32"/>
+<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#afec1c2962185272a8c87843f95d205ad" title="Perform factory reset. " alt="" coords="153,56,298,83"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a7dfd9b79bc5a37d7df40207afbc5431f" title="This function is executed once at the startup of the microcontroller. " alt="" coords="347,5,402,32"/>
+<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#a0b33edabd7f1c4e4a0bf32c67269be2f" title="This function is executed in a loop after setup(void) has been called. " alt="" coords="351,56,398,83"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="connectToWiFi" name="connectToWiFi">
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#aa51eb2a71952e54dba6130be21b3a1d7" title="This function is used to trigger WPS. If WPS has been successful, setWiFiConfigured() is executed and..." alt="" coords="166,5,263,32"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a0b33edabd7f1c4e4a0bf32c67269be2f" title="This function is executed in a loop after setup(void) has been called. " alt="" coords="313,31,359,57"/>
+</map>
