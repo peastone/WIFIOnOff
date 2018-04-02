@@ -86,8 +86,10 @@ doxygen $DOXYFILE 2>&1 | tee doxygen.log
 # Check this by verifying that the html directory and the file html/index.html
 # both exist. This is a good indication that Doxygen did it's work.
 if [ -d "html" ] && [ -f "html/index.html" ]; then
-    # Change to html directory
-    cd html
+    # Move html one directory up
+    mv html/* .
+    # Delete html directory
+    rm -r html
 
     echo 'Uploading documentation to the gh-pages branch...'
     # Add everything in this directory (the Doxygen code documentation) to the

@@ -31,7 +31,7 @@ branches:
 env:
   global:
     - GH_REPO_NAME: WIFIOnOff
-    - DOXYFILE: $TRAVIS_BUILD_DIR/doc/
+    - DOXYFILE: $TRAVIS_BUILD_DIR/doc/Doxyfile
     - GH_REPO_REF: github.com/peastone/WIFIOnOff.git
 cache:
   directories:
