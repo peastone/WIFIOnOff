@@ -637,6 +637,8 @@ bool connectToWiFi() {
 #endif
   // put WIFI to station mode
   WiFi.mode(WIFI_STA);
+  // enable auto reconnect
+  WiFi.setAutoReconnect(true);
   // set SSID and PSK
   WiFi.begin(WiFi.SSID().c_str(), WiFi.psk().c_str());
 #ifdef SERIAL_PRINTING
@@ -1005,7 +1007,7 @@ void restoreMQTTConfigurationFromEEPROM() {
     mqttServerLocal[i] = EEPROM.read(EEPROM_address_MQTT_server + i);
   }
   setMQTTServer(mqttServerLocal);
-  
+
   // Readback stateMQTTConfigured
   setStateMQTTConfigured(EEPROM.read(EEPROM_address_MQTT_server_configured) == EEPROM_enabled);
 }
@@ -1355,7 +1357,7 @@ void configureWebServer() {
       // this happens if the user requests "/settings.html" the first time
       mqttServer = getMQTTServer();
     }
-    
+
     // configure MQTT if something changed
     if ((mqttServer != getMQTTServer()) || (stateMQTTConfigured != getStateMQTTConfigured())) {
       setMQTTServer(mqttServer);
@@ -1507,7 +1509,7 @@ void pressHandler() {
       setUserActionFeedbackRequest();
     }
   }
-  
+
   // button has been released => this will trigger the real action
   if ((buttonLastPressed == true) && (buttonPressed == false)) {
     unsigned long pastTime = millis() - timeSincebuttonPressed;
@@ -1611,6 +1613,13 @@ void setup(void) {
   disconnectRelay();
 
   //////////////////////////////////////////////////////////////////////////////
+  // connect to WIFI ///////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////
+  if (checkWiFiConfigured()) {
+    connectToWiFi();
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
   // set button handler ////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
 #ifdef SERIAL_PRINTING
@@ -1667,16 +1676,16 @@ void setup(void) {
           - to perform WPS (performWPS())
           - to delete the WiFi configuration (unsetWiFiConfigured())
           - to perform a factory reset (performFactoryReset())
-          
+
           It is also checked for requests to inform the user about actions
           with the LED. These requests are triggered programmatically.
-          
+
           After all requests are handled, it is cyclically checked that WPS has been
           performed and that the WiFi is connected.
           If WPS has not been done or WiFi is not connected,
           it does not make any sense to check for HTTP, ArduinoOTA or MQTT.
           For MQTT to be checked, it is also required, that it was enabled by the user.
-          
+
           If MQTT is not connected, try to connect, otherwise handle MQTT.
    @callergraph
    @callgraph
@@ -1748,10 +1757,8 @@ void loop(void) {
         // with the help of the web user interface)
       }
     } else {
-      //////////////////////////////////////////////////////////////////////////
-      // if not connected, connect /////////////////////////////////////////////
-      //////////////////////////////////////////////////////////////////////////
-      connectToWiFi();
+      // do nothing,
+      // autoreconnect is enabled for WIFI
     }
   } else {
     // do nothing (WiFi needs to be configured by the user
