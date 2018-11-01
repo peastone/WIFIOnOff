@@ -1,3 +1,4 @@
 <map id="storeCRC" name="storeCRC">
-<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#a16ef77fe42b6e5a700dd2445f0aaa24f" title="This function calculates a CRC checksum for the EEPROM. It is taken from: https://www.arduino.cc/en/Tutorial/EEPROMCrc. " alt="" coords="136,5,235,32"/>
+<area shape="rect" id="node1" title="This function calculates the CRC value of the values in the EEPROM with the help of function calculat..." alt="" coords="6,5,87,32"/>
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#a16ef77fe42b6e5a700dd2445f0aaa24f" title="This function calculates a CRC checksum for the EEPROM. It is taken from: https://www...." alt="" coords="136,5,235,32"/>
 </map>

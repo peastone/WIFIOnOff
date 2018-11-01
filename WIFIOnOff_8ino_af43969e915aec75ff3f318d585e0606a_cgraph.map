@@ -1,5 +1,6 @@
 <map id="feedbackEEPROMInit" name="feedbackEEPROMInit">
-<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#af4164c2bb2661c7427bd66ecd2f8aace" title="This function is used to get the state of the LED. It returns stateLEDOn. " alt="" coords="205,5,320,32"/>
-<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a6a76f6c6d6e85f2215f0451b12f1db54" title="This function is used to switch the LED off. It keeps track of the internal state stateLEDOn..." alt="" coords="211,56,315,83"/>
-<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a46be1cdf6842e46fb3ba46a60f024aa0" title="This function is used to switch the LED on. It keeps track of the internal state stateLEDOn. " alt="" coords="211,107,314,133"/>
+<area shape="rect" id="node1" title="This function is called to give the user feedback that the EEPROM has been re&#45;/initialized...." alt="" coords="6,56,157,83"/>
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#af4164c2bb2661c7427bd66ecd2f8aace" title="This function is used to get the state of the LED. It returns stateLEDOn." alt="" coords="205,5,320,32"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a6a76f6c6d6e85f2215f0451b12f1db54" title="This function is used to switch the LED off. It keeps track of the internal state stateLEDOn." alt="" coords="211,56,315,83"/>
+<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a46be1cdf6842e46fb3ba46a60f024aa0" title="This function is used to switch the LED on. It keeps track of the internal state stateLEDOn." alt="" coords="211,107,314,133"/>
 </map>

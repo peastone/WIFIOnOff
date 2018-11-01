@@ -1,5 +1,6 @@
 <map id="unsetWiFiConfigured" name="unsetWiFiConfigured">
+<area shape="rect" id="node1" title="This function is a setter function which sets WiFi to not configured, which means that WPS is necessa..." alt="" coords="5,31,149,57"/>
 <area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#a1dd9db8c49797d8536247d1fba49cfe7" title="This function calculates the CRC value of the values in the EEPROM with the help of function calculat..." alt="" coords="245,5,326,32"/>
-<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a0e963d26058822266a054c999cf33ece" title="Setter function to unsset wifiResetRequested. " alt="" coords="198,56,373,83"/>
-<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a16ef77fe42b6e5a700dd2445f0aaa24f" title="This function calculates a CRC checksum for the EEPROM. It is taken from: https://www.arduino.cc/en/Tutorial/EEPROMCrc. " alt="" coords="421,5,520,32"/>
+<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a0e963d26058822266a054c999cf33ece" title="Setter function to unsset wifiResetRequested." alt="" coords="198,56,373,83"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a16ef77fe42b6e5a700dd2445f0aaa24f" title="This function calculates a CRC checksum for the EEPROM. It is taken from: https://www...." alt="" coords="421,5,520,32"/>
 </map>

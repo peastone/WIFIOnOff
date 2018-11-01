@@ -1,12 +1,13 @@
 <map id="storeCRC" name="storeCRC">
-<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#accde2e704135909387a34453e0dc1293" title="This function writes default data (EEPROM_init_value) to EEPROM and stores CRC and the EEPROM_version..." alt="" coords="206,107,303,133"/>
-<area shape="rect" id="node7" href="$WIFIOnOff_8ino.html#a3ebcee2a9d20137810223c6813e54787" title="This function is a setter function which sets WiFi to configured, which means that WPS has already be..." alt="" coords="189,208,320,235"/>
-<area shape="rect" id="node9" href="$WIFIOnOff_8ino.html#ac782bcb28cf6c4cf77d8a408fe02c2f9" title="This function is a setter function which sets WiFi to not configured, which means that WPS is necessa..." alt="" coords="183,157,327,184"/>
-<area shape="rect" id="node10" href="$WIFIOnOff_8ino.html#a006d783b06cfbafe0c614692c894e2ec" title="Store MQTT server / broker name (mqttServer) and state (configured or not, stateMQTTConfigured) in EE..." alt="" coords="136,31,373,57"/>
-<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a3d5cf434e34fce7db249185369616a32" title="This function is setting up the EEPROM. If the CRC check fails, the EEPROM will be overwritten with i..." alt="" coords="439,56,551,83"/>
-<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#afec1c2962185272a8c87843f95d205ad" title="Perform factory reset. " alt="" coords="422,107,567,133"/>
-<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a7dfd9b79bc5a37d7df40207afbc5431f" title="This function is executed once at the startup of the microcontroller. " alt="" coords="617,31,671,57"/>
-<area shape="rect" id="node6" href="$WIFIOnOff_8ino.html#a0b33edabd7f1c4e4a0bf32c67269be2f" title="This function is executed in a loop after setup(void) has been called. " alt="" coords="621,157,667,184"/>
-<area shape="rect" id="node8" href="$WIFIOnOff_8ino.html#aa51eb2a71952e54dba6130be21b3a1d7" title="This function is used to trigger WPS. If WPS has been successful, setWiFiConfigured() is executed and..." alt="" coords="446,208,543,235"/>
-<area shape="rect" id="node11" href="$WIFIOnOff_8ino.html#a50409543b7c4c4fb48e60ec35fbda3f3" title="This function is used configure the webserver. The webserver is configured by defining callback funct..." alt="" coords="425,5,565,32"/>
+<area shape="rect" id="node1" title="This function calculates the CRC value of the values in the EEPROM with the help of function calculat..." alt="" coords="590,132,671,159"/>
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#accde2e704135909387a34453e0dc1293" title="This function writes default data (EEPROM_init_value) to EEPROM and stores CRC and the EEPROM_version..." alt="" coords="374,107,471,133"/>
+<area shape="rect" id="node7" href="$WIFIOnOff_8ino.html#a3ebcee2a9d20137810223c6813e54787" title="This function is a setter function which sets WiFi to configured, which means that WPS has already be..." alt="" coords="357,208,488,235"/>
+<area shape="rect" id="node9" href="$WIFIOnOff_8ino.html#ac782bcb28cf6c4cf77d8a408fe02c2f9" title="This function is a setter function which sets WiFi to not configured, which means that WPS is necessa..." alt="" coords="351,157,495,184"/>
+<area shape="rect" id="node10" href="$WIFIOnOff_8ino.html#a006d783b06cfbafe0c614692c894e2ec" title="Store MQTT server / broker name (mqttServer) and state (configured or not, stateMQTTConfigured) in EE..." alt="" coords="304,31,541,57"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a3d5cf434e34fce7db249185369616a32" title="This function is setting up the EEPROM. If the CRC check fails, the EEPROM will be overwritten with i..." alt="" coords="127,56,239,83"/>
+<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#afec1c2962185272a8c87843f95d205ad" title="Perform factory reset." alt="" coords="110,107,255,133"/>
+<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a7dfd9b79bc5a37d7df40207afbc5431f" title="This function is executed once at the startup of the microcontroller." alt="" coords="6,31,61,57"/>
+<area shape="rect" id="node6" href="$WIFIOnOff_8ino.html#a0b33edabd7f1c4e4a0bf32c67269be2f" title="This function is executed in a loop after setup(void) has been called." alt="" coords="10,157,57,184"/>
+<area shape="rect" id="node8" href="$WIFIOnOff_8ino.html#aa51eb2a71952e54dba6130be21b3a1d7" title="This function is used to trigger WPS. If WPS has been successful, setWiFiConfigured() is executed and..." alt="" coords="134,208,231,235"/>
+<area shape="rect" id="node11" href="$WIFIOnOff_8ino.html#a50409543b7c4c4fb48e60ec35fbda3f3" title="This function is used configure the webserver. The webserver is configured by defining callback funct..." alt="" coords="113,5,253,32"/>
 </map>

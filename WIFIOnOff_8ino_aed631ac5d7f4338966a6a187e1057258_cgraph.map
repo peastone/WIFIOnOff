@@ -1,7 +1,8 @@
 <map id="feedbackQuickBlink" name="feedbackQuickBlink">
-<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#aeaf97294d049f17c3eef4add9a4df1ec" title="This function is used to toggle the LED. Indirectly, it keeps track of the internal state stateLEDOn..." alt="" coords="264,56,347,83"/>
+<area shape="rect" id="node1" title="This function is called to give the user feedback about the menu the user selected...." alt="" coords="5,81,144,108"/>
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#aeaf97294d049f17c3eef4add9a4df1ec" title="This function is used to toggle the LED. Indirectly, it keeps track of the internal state stateLEDOn." alt="" coords="264,56,347,83"/>
 <area shape="rect" id="node6" href="$WIFIOnOff_8ino.html#a2f07f10222db3144a4a271ddcb81cdde" title="Setter function for userActionFeedbackRequest. The user has been notified that a menu can be selected..." alt="" coords="193,107,418,133"/>
-<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#af4164c2bb2661c7427bd66ecd2f8aace" title="This function is used to get the state of the LED. It returns stateLEDOn. " alt="" coords="467,5,581,32"/>
-<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a6a76f6c6d6e85f2215f0451b12f1db54" title="This function is used to switch the LED off. It keeps track of the internal state stateLEDOn..." alt="" coords="472,56,576,83"/>
-<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#a46be1cdf6842e46fb3ba46a60f024aa0" title="This function is used to switch the LED on. It keeps track of the internal state stateLEDOn. " alt="" coords="473,107,575,133"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#af4164c2bb2661c7427bd66ecd2f8aace" title="This function is used to get the state of the LED. It returns stateLEDOn." alt="" coords="467,5,581,32"/>
+<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a6a76f6c6d6e85f2215f0451b12f1db54" title="This function is used to switch the LED off. It keeps track of the internal state stateLEDOn." alt="" coords="472,56,576,83"/>
+<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#a46be1cdf6842e46fb3ba46a60f024aa0" title="This function is used to switch the LED on. It keeps track of the internal state stateLEDOn." alt="" coords="473,107,575,133"/>
 </map>

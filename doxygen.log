@@ -94,9 +94,7 @@ Generating caller graph for function connectToWiFi
 Generating call graph for function disconnectRelay
 Generating caller graph for function disconnectRelay
 Generating call graph for function feedbackEEPROMInit
-Generating caller graph for /home/travis/build/peastone/WIFIOnOff/README.md:3: warning: Unexpected html tag <img> found within <a href=...> context
-/home/travis/build/peastone/WIFIOnOff/README.md:4: warning: Unexpected html tag <img> found within <a href=...> context
-function feedbackEEPROMInit
+Generating caller graph for function feedbackEEPROMInit
 Generating call graph for function feedbackQuickBlink
 Generating caller graph for function feedbackQuickBlink
 Generating call graph for function feedbackWIFIisConnecting

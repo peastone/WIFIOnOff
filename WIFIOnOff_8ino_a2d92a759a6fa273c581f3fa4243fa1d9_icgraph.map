@@ -1,4 +1,5 @@
 <map id="toggleRelay" name="toggleRelay">
-<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#acd4d58af93c899ee9a03131727b1cf34" title="This function triggers. " alt="" coords="144,5,243,32"/>
-<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a7dfd9b79bc5a37d7df40207afbc5431f" title="This function is executed once at the startup of the microcontroller. " alt="" coords="291,5,346,32"/>
+<area shape="rect" id="node1" title="This function is used to toggle the connection of the relay with the mains. Indirectly,..." alt="" coords="256,5,347,32"/>
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#acd4d58af93c899ee9a03131727b1cf34" title="This function triggers." alt="" coords="109,5,208,32"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a7dfd9b79bc5a37d7df40207afbc5431f" title="This function is executed once at the startup of the microcontroller." alt="" coords="6,5,61,32"/>
 </map>

@@ -1,4 +1,5 @@
 <map id="saveMQTTConfigurationToEEPROM" name="saveMQTTConfigurationToEEPROM">
+<area shape="rect" id="node1" title="Store MQTT server / broker name (mqttServer) and state (configured or not, stateMQTTConfigured) in EE..." alt="" coords="5,5,243,32"/>
 <area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#a1dd9db8c49797d8536247d1fba49cfe7" title="This function calculates the CRC value of the values in the EEPROM with the help of function calculat..." alt="" coords="291,5,373,32"/>
-<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a16ef77fe42b6e5a700dd2445f0aaa24f" title="This function calculates a CRC checksum for the EEPROM. It is taken from: https://www.arduino.cc/en/Tutorial/EEPROMCrc. " alt="" coords="421,5,520,32"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a16ef77fe42b6e5a700dd2445f0aaa24f" title="This function calculates a CRC checksum for the EEPROM. It is taken from: https://www...." alt="" coords="421,5,520,32"/>
 </map>

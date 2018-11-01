@@ -1,3 +1,4 @@
 <map id="getUserActionFeedbackRequest" name="getUserActionFeedbackRequest">
-<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#a0b33edabd7f1c4e4a0bf32c67269be2f" title="This function is executed in a loop after setup(void) has been called. " alt="" coords="265,5,311,32"/>
+<area shape="rect" id="node1" title="Getter function for userActionFeedbackRequest." alt="" coords="101,5,312,32"/>
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#a0b33edabd7f1c4e4a0bf32c67269be2f" title="This function is executed in a loop after setup(void) has been called." alt="" coords="6,5,53,32"/>
 </map>

@@ -1,7 +1,8 @@
 <map id="storeEEPROMVersionNumber" name="storeEEPROMVersionNumber">
-<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#accde2e704135909387a34453e0dc1293" title="This function writes default data (EEPROM_init_value) to EEPROM and stores CRC and the EEPROM_version..." alt="" coords="254,31,351,57"/>
-<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a3d5cf434e34fce7db249185369616a32" title="This function is setting up the EEPROM. If the CRC check fails, the EEPROM will be overwritten with i..." alt="" coords="417,5,529,32"/>
-<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#afec1c2962185272a8c87843f95d205ad" title="Perform factory reset. " alt="" coords="401,56,546,83"/>
-<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a7dfd9b79bc5a37d7df40207afbc5431f" title="This function is executed once at the startup of the microcontroller. " alt="" coords="595,5,650,32"/>
-<area shape="rect" id="node6" href="$WIFIOnOff_8ino.html#a0b33edabd7f1c4e4a0bf32c67269be2f" title="This function is executed in a loop after setup(void) has been called. " alt="" coords="599,56,646,83"/>
+<area shape="rect" id="node1" title="This function stores the EEPROM_version_number in EEPROM." alt="" coords="451,31,650,57"/>
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#accde2e704135909387a34453e0dc1293" title="This function writes default data (EEPROM_init_value) to EEPROM and stores CRC and the EEPROM_version..." alt="" coords="305,31,402,57"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a3d5cf434e34fce7db249185369616a32" title="This function is setting up the EEPROM. If the CRC check fails, the EEPROM will be overwritten with i..." alt="" coords="127,5,239,32"/>
+<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#afec1c2962185272a8c87843f95d205ad" title="Perform factory reset." alt="" coords="110,56,255,83"/>
+<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a7dfd9b79bc5a37d7df40207afbc5431f" title="This function is executed once at the startup of the microcontroller." alt="" coords="6,5,61,32"/>
+<area shape="rect" id="node6" href="$WIFIOnOff_8ino.html#a0b33edabd7f1c4e4a0bf32c67269be2f" title="This function is executed in a loop after setup(void) has been called." alt="" coords="10,56,57,83"/>
 </map>

@@ -1,10 +1,11 @@
 <map id="mqttControlRelay" name="mqttControlRelay">
+<area shape="rect" id="node1" title="Callback which is called when MQTT receives an incoming topic." alt="" coords="6,56,130,83"/>
 <area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#a6eda13f766d5d36ba8bcbe7c252c2ab8" title="This function is used to connect the relay to the mains. It keeps track of the internal state stateRe..." alt="" coords="187,31,290,57"/>
 <area shape="rect" id="node8" href="$WIFIOnOff_8ino.html#ae850a8f5a550a31d8433eddf41a11d44" title="This function is used to disconnect the relay from the mains. It keeps track of the internal state st..." alt="" coords="179,81,298,108"/>
-<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a46be1cdf6842e46fb3ba46a60f024aa0" title="This function is used to switch the LED on. It keeps track of the internal state stateLEDOn. " alt="" coords="347,5,450,32"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a46be1cdf6842e46fb3ba46a60f024aa0" title="This function is used to switch the LED on. It keeps track of the internal state stateLEDOn." alt="" coords="347,5,450,32"/>
 <area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a92e8e72a8c9bd699aefa63b65c4bc30c" title="With the call of this function, mqttClient publishes the state of the relay (getStateRelayConnected()..." alt="" coords="353,56,444,83"/>
-<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#af5189bf4d6c6b3d4a90bf76335456740" title="Get MQTT connection state. " alt="" coords="504,5,661,32"/>
+<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#af5189bf4d6c6b3d4a90bf76335456740" title="Get MQTT connection state." alt="" coords="504,5,661,32"/>
 <area shape="rect" id="node6" href="$WIFIOnOff_8ino.html#aefabc9bd763a51753669e6c249140abc" title="This function is used to get the connection state of the relay with the mains. It returns stateRelayC..." alt="" coords="499,56,667,83"/>
-<area shape="rect" id="node7" href="$WIFIOnOff_8ino.html#a92b654456d82f73760cda8b83c5a0ca6" title="Getter function for mqttOutgoingTopic. " alt="" coords="502,107,663,133"/>
-<area shape="rect" id="node9" href="$WIFIOnOff_8ino.html#a6a76f6c6d6e85f2215f0451b12f1db54" title="This function is used to switch the LED off. It keeps track of the internal state stateLEDOn..." alt="" coords="347,107,451,133"/>
+<area shape="rect" id="node7" href="$WIFIOnOff_8ino.html#a92b654456d82f73760cda8b83c5a0ca6" title="Getter function for mqttOutgoingTopic." alt="" coords="502,107,663,133"/>
+<area shape="rect" id="node9" href="$WIFIOnOff_8ino.html#a6a76f6c6d6e85f2215f0451b12f1db54" title="This function is used to switch the LED off. It keeps track of the internal state stateLEDOn." alt="" coords="347,107,451,133"/>
 </map>

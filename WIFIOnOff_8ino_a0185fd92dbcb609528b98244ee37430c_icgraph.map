@@ -1,4 +1,5 @@
 <map id="setUserActionFeedbackRequest" name="setUserActionFeedbackRequest">
-<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#acd4d58af93c899ee9a03131727b1cf34" title="This function triggers. " alt="" coords="264,5,363,32"/>
-<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a7dfd9b79bc5a37d7df40207afbc5431f" title="This function is executed once at the startup of the microcontroller. " alt="" coords="411,5,466,32"/>
+<area shape="rect" id="node1" title="Setter function for userActionFeedbackRequest. The user should be notified that a menu can be selecte..." alt="" coords="256,5,467,32"/>
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#acd4d58af93c899ee9a03131727b1cf34" title="This function triggers." alt="" coords="109,5,208,32"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a7dfd9b79bc5a37d7df40207afbc5431f" title="This function is executed once at the startup of the microcontroller." alt="" coords="6,5,61,32"/>
 </map>

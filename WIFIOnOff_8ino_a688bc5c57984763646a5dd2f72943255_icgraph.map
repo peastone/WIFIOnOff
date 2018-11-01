@@ -1,6 +1,7 @@
 <map id="getClientID" name="getClientID">
-<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#aa61ca7b9fb98de7d85d230a82ea7de28" title="This function sets up MDNS. " alt="" coords="143,5,238,32"/>
-<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a9ad5cb858c24c53a6eaa846b713bd120" title="This function connects to broker and. " alt="" coords="142,56,239,83"/>
-<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a7dfd9b79bc5a37d7df40207afbc5431f" title="This function is executed once at the startup of the microcontroller. " alt="" coords="289,5,343,32"/>
-<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#a0b33edabd7f1c4e4a0bf32c67269be2f" title="This function is executed in a loop after setup(void) has been called. " alt="" coords="293,56,339,83"/>
+<area shape="rect" id="node1" title="This function returns the client name used for MQTT, see mqttConnect()." alt="" coords="256,31,344,57"/>
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#aa61ca7b9fb98de7d85d230a82ea7de28" title="This function sets up MDNS." alt="" coords="111,5,206,32"/>
+<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a9ad5cb858c24c53a6eaa846b713bd120" title="This function connects to broker and." alt="" coords="110,56,207,83"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a7dfd9b79bc5a37d7df40207afbc5431f" title="This function is executed once at the startup of the microcontroller." alt="" coords="6,5,61,32"/>
+<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#a0b33edabd7f1c4e4a0bf32c67269be2f" title="This function is executed in a loop after setup(void) has been called." alt="" coords="10,56,57,83"/>
 </map>

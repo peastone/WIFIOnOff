@@ -1,16 +1,17 @@
 <map id="pressHandler" name="pressHandler">
+<area shape="rect" id="node1" title="This function triggers." alt="" coords="5,132,104,159"/>
 <area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#a7ed5532c3a832fa15a2865ee80cbfdda" title="This function checks whether WPS has already been performed once. In this case, one can directly conn..." alt="" coords="184,5,331,32"/>
 <area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a0185fd92dbcb609528b98244ee37430c" title="Setter function for userActionFeedbackRequest. The user should be notified that a menu can be selecte..." alt="" coords="152,56,363,83"/>
-<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a974b42331b531d9c0ec0d5be4d745078" title="Setter function to set factoryResetRequested. " alt="" coords="166,107,349,133"/>
-<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#a359226c1dba04041902ec5451ada2aae" title="Setter function to set wifiResetRequested. " alt="" coords="177,157,338,184"/>
-<area shape="rect" id="node6" href="$WIFIOnOff_8ino.html#af2a784e9ea129440dd303530ab9e97a1" title="Setter function to set wpsRequested. " alt="" coords="197,208,317,235"/>
-<area shape="rect" id="node7" href="$WIFIOnOff_8ino.html#a2d92a759a6fa273c581f3fa4243fa1d9" title="This function is used to toggle the connection of the relay with the mains. Indirectly, it keeps track of the internal state stateRelayConnected. " alt="" coords="212,259,303,285"/>
+<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a974b42331b531d9c0ec0d5be4d745078" title="Setter function to set factoryResetRequested." alt="" coords="166,107,349,133"/>
+<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#a359226c1dba04041902ec5451ada2aae" title="Setter function to set wifiResetRequested." alt="" coords="177,157,338,184"/>
+<area shape="rect" id="node6" href="$WIFIOnOff_8ino.html#af2a784e9ea129440dd303530ab9e97a1" title="Setter function to set wpsRequested." alt="" coords="197,208,317,235"/>
+<area shape="rect" id="node7" href="$WIFIOnOff_8ino.html#a2d92a759a6fa273c581f3fa4243fa1d9" title="This function is used to toggle the connection of the relay with the mains. Indirectly,..." alt="" coords="212,259,303,285"/>
 <area shape="rect" id="node8" href="$WIFIOnOff_8ino.html#aefabc9bd763a51753669e6c249140abc" title="This function is used to get the connection state of the relay with the mains. It returns stateRelayC..." alt="" coords="731,221,899,248"/>
 <area shape="rect" id="node9" href="$WIFIOnOff_8ino.html#ae850a8f5a550a31d8433eddf41a11d44" title="This function is used to disconnect the relay from the mains. It keeps track of the internal state st..." alt="" coords="411,259,530,285"/>
 <area shape="rect" id="node14" href="$WIFIOnOff_8ino.html#a6eda13f766d5d36ba8bcbe7c252c2ab8" title="This function is used to connect the relay to the mains. It keeps track of the internal state stateRe..." alt="" coords="419,309,522,336"/>
-<area shape="rect" id="node10" href="$WIFIOnOff_8ino.html#a6a76f6c6d6e85f2215f0451b12f1db54" title="This function is used to switch the LED off. It keeps track of the internal state stateLEDOn..." alt="" coords="579,259,683,285"/>
+<area shape="rect" id="node10" href="$WIFIOnOff_8ino.html#a6a76f6c6d6e85f2215f0451b12f1db54" title="This function is used to switch the LED off. It keeps track of the internal state stateLEDOn." alt="" coords="579,259,683,285"/>
 <area shape="rect" id="node11" href="$WIFIOnOff_8ino.html#a92e8e72a8c9bd699aefa63b65c4bc30c" title="With the call of this function, mqttClient publishes the state of the relay (getStateRelayConnected()..." alt="" coords="585,309,676,336"/>
-<area shape="rect" id="node12" href="$WIFIOnOff_8ino.html#af5189bf4d6c6b3d4a90bf76335456740" title="Get MQTT connection state. " alt="" coords="736,284,893,311"/>
-<area shape="rect" id="node13" href="$WIFIOnOff_8ino.html#a92b654456d82f73760cda8b83c5a0ca6" title="Getter function for mqttOutgoingTopic. " alt="" coords="734,335,895,361"/>
-<area shape="rect" id="node15" href="$WIFIOnOff_8ino.html#a46be1cdf6842e46fb3ba46a60f024aa0" title="This function is used to switch the LED on. It keeps track of the internal state stateLEDOn. " alt="" coords="579,360,682,387"/>
+<area shape="rect" id="node12" href="$WIFIOnOff_8ino.html#af5189bf4d6c6b3d4a90bf76335456740" title="Get MQTT connection state." alt="" coords="736,284,893,311"/>
+<area shape="rect" id="node13" href="$WIFIOnOff_8ino.html#a92b654456d82f73760cda8b83c5a0ca6" title="Getter function for mqttOutgoingTopic." alt="" coords="734,335,895,361"/>
+<area shape="rect" id="node15" href="$WIFIOnOff_8ino.html#a46be1cdf6842e46fb3ba46a60f024aa0" title="This function is used to switch the LED on. It keeps track of the internal state stateLEDOn." alt="" coords="579,360,682,387"/>
 </map>

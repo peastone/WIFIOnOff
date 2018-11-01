@@ -1,5 +1,6 @@
 <map id="checkWiFiConfigured" name="checkWiFiConfigured">
-<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#acd4d58af93c899ee9a03131727b1cf34" title="This function triggers. " alt="" coords="200,5,299,32"/>
-<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a0b33edabd7f1c4e4a0bf32c67269be2f" title="This function is executed in a loop after setup(void) has been called. " alt="" coords="226,56,273,83"/>
-<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a7dfd9b79bc5a37d7df40207afbc5431f" title="This function is executed once at the startup of the microcontroller. " alt="" coords="347,5,402,32"/>
+<area shape="rect" id="node1" title="This function checks whether WPS has already been performed once. In this case, one can directly conn..." alt="" coords="256,56,403,83"/>
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#acd4d58af93c899ee9a03131727b1cf34" title="This function triggers." alt="" coords="109,5,208,32"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a7dfd9b79bc5a37d7df40207afbc5431f" title="This function is executed once at the startup of the microcontroller." alt="" coords="6,31,61,57"/>
+<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a0b33edabd7f1c4e4a0bf32c67269be2f" title="This function is executed in a loop after setup(void) has been called." alt="" coords="135,107,182,133"/>
 </map>
