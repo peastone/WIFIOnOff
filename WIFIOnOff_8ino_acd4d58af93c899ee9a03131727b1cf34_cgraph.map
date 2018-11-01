@@ -1,7 +1,7 @@
 <map id="pressHandler" name="pressHandler">
 <area shape="rect" id="node1" title="This function triggers." alt="" coords="5,132,104,159"/>
 <area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#a7ed5532c3a832fa15a2865ee80cbfdda" title="This function checks whether WPS has already been performed once. In this case, one can directly conn..." alt="" coords="184,5,331,32"/>
-<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a0185fd92dbcb609528b98244ee37430c" title="Setter function for userActionFeedbackRequest. The user should be notified that a menu can be selecte..." alt="" coords="152,56,363,83"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#aa6568a277780627e03604c578353ce99" title="Setter function for userActionFeedbackRequest. The user should be notified that a menu can be selecte..." alt="" coords="152,56,363,83"/>
 <area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a974b42331b531d9c0ec0d5be4d745078" title="Setter function to set factoryResetRequested." alt="" coords="166,107,349,133"/>
 <area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#a359226c1dba04041902ec5451ada2aae" title="Setter function to set wifiResetRequested." alt="" coords="177,157,338,184"/>
 <area shape="rect" id="node6" href="$WIFIOnOff_8ino.html#af2a784e9ea129440dd303530ab9e97a1" title="Setter function to set wpsRequested." alt="" coords="197,208,317,235"/>

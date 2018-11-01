@@ -11,7 +11,7 @@ var searchData=
   ['setup',['setup',['../WIFIOnOff_8ino.html#a7dfd9b79bc5a37d7df40207afbc5431f',1,'WIFIOnOff.ino']]],
   ['setupeeprom',['setupEEPROM',['../WIFIOnOff_8ino.html#a3d5cf434e34fce7db249185369616a32',1,'WIFIOnOff.ino']]],
   ['setupmdns',['setupMDNS',['../WIFIOnOff_8ino.html#aa61ca7b9fb98de7d85d230a82ea7de28',1,'WIFIOnOff.ino']]],
-  ['setuseractionfeedbackrequest',['setUserActionFeedbackRequest',['../WIFIOnOff_8ino.html#a0185fd92dbcb609528b98244ee37430c',1,'WIFIOnOff.ino']]],
+  ['setuseractionfeedbackrequest',['setUserActionFeedbackRequest',['../WIFIOnOff_8ino.html#aa6568a277780627e03604c578353ce99',1,'WIFIOnOff.ino']]],
   ['setwificonfigured',['setWiFiConfigured',['../WIFIOnOff_8ino.html#a3ebcee2a9d20137810223c6813e54787',1,'WIFIOnOff.ino']]],
   ['setwifiresetrequested',['setWifiResetRequested',['../WIFIOnOff_8ino.html#a359226c1dba04041902ec5451ada2aae',1,'WIFIOnOff.ino']]],
   ['setwpsrequest',['setWPSRequest',['../WIFIOnOff_8ino.html#af2a784e9ea129440dd303530ab9e97a1',1,'WIFIOnOff.ino']]],

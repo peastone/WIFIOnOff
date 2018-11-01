@@ -38,7 +38,7 @@
 <area shape="rect" id="node34" href="$WIFIOnOff_8ino.html#a688bc5c57984763646a5dd2f72943255" title="This function returns the client name used for MQTT, see mqttConnect()." alt="" coords="408,1019,496,1045"/>
 <area shape="rect" id="node37" href="$WIFIOnOff_8ino.html#a29d61ce203f552333381a79f4993da69" title="This function is called to give the user feedback that WIFI is about to connect. It will blink at a m..." alt="" coords="629,360,809,387"/>
 <area shape="rect" id="node38" href="$WIFIOnOff_8ino.html#aeaf97294d049f17c3eef4add9a4df1ec" title="This function is used to toggle the LED. Indirectly, it keeps track of the internal state stateLEDOn." alt="" coords="901,360,984,387"/>
-<area shape="rect" id="node40" href="$WIFIOnOff_8ino.html#a0185fd92dbcb609528b98244ee37430c" title="Setter function for userActionFeedbackRequest. The user should be notified that a menu can be selecte..." alt="" coords="347,1171,557,1197"/>
+<area shape="rect" id="node40" href="$WIFIOnOff_8ino.html#aa6568a277780627e03604c578353ce99" title="Setter function for userActionFeedbackRequest. The user should be notified that a menu can be selecte..." alt="" coords="347,1171,557,1197"/>
 <area shape="rect" id="node41" href="$WIFIOnOff_8ino.html#a974b42331b531d9c0ec0d5be4d745078" title="Setter function to set factoryResetRequested." alt="" coords="361,1221,543,1248"/>
 <area shape="rect" id="node42" href="$WIFIOnOff_8ino.html#a359226c1dba04041902ec5451ada2aae" title="Setter function to set wifiResetRequested." alt="" coords="371,1272,533,1299"/>
 <area shape="rect" id="node43" href="$WIFIOnOff_8ino.html#af2a784e9ea129440dd303530ab9e97a1" title="Setter function to set wpsRequested." alt="" coords="392,1323,512,1349"/>
