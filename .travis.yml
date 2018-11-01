@@ -48,6 +48,7 @@ addons:
       - texlive-font-utils
       - texlive-fonts-recommended
       - texlive-latex-extra
+      - texlive-generic-recommended
 install:
   - pip install -U platformio
   - platformio update
