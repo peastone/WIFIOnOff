@@ -224,7 +224,7 @@ unsigned long calculate_crc() {
     0x9b64c2b0, 0x86d3d2d4, 0xa00ae278, 0xbdbdf21c
   };
   unsigned long crc = ~0L;
-  for (int i = EEPROM_address_start; i < EEPROM.length(); i++)  {
+  for (unsigned int i = EEPROM_address_start; i < EEPROM.length(); i++)  {
     crc = crc_table[(crc ^ EEPROM.read(i)) & 0x0f] ^ (crc >> 4);
     crc = crc_table[(crc ^ (EEPROM.read(i) >> 4)) & 0x0f] ^ (crc >> 4);
     crc = ~crc;
@@ -248,7 +248,7 @@ void storeCRC() {
   unsigned long crc = calculate_crc();
   uint8_t * p2crc = (uint8_t *) &crc;
   int j = 0;
-  for (int i = EEPROM_address_CRC; i < EEPROM_address_start; i++) {
+  for (unsigned int i = EEPROM_address_CRC; i < EEPROM_address_start; i++) {
     EEPROM.write(i, *(p2crc + j));
     j++;
   }
@@ -264,7 +264,7 @@ unsigned long retrieveCRC() {
   unsigned long crc;
   uint8_t * p2crc = (uint8_t *) &crc;
   int j = 0;
-  for (int i = EEPROM_address_CRC; i < EEPROM_address_start; i++) {
+  for (unsigned int i = EEPROM_address_CRC; i < EEPROM_address_start; i++) {
     *(p2crc + j) = EEPROM.read(i);
     j++;
   }
@@ -512,7 +512,7 @@ bool getUserActionFeedbackRequest() {
    @callergraph
    @callgraph
 */
-bool setUserActionFeedbackRequest() {
+void setUserActionFeedbackRequest() {
   userActionFeedbackRequest = true;
 }
 
@@ -521,7 +521,7 @@ bool setUserActionFeedbackRequest() {
    @callergraph
    @callgraph
 */
-bool unsetUserActionFeedbackRequest() {
+void unsetUserActionFeedbackRequest() {
   userActionFeedbackRequest = false;
 }
 
@@ -1275,7 +1275,7 @@ bool mqttServerValid(String mqttServer) {
   if (mqttServer.length() >= EEPROM_size_MQTT_server) {
     return false;
   }
-  for (int i = 0; i < mqttServer.length(); i++) {
+  for (unsigned int i = 0; i < mqttServer.length(); i++) {
     if (isNotWhitelisted(mqttServer.charAt(i))) {
       return false;
     }
