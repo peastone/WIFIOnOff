@@ -25,6 +25,9 @@ That put ahead, go forward and be cautious!
 
 The whole procedure may also be done with [PlatformIO](https://platformio.org/). It should be easy to find out the analogous steps for yourself.
 
+![Image of Sonoff S20 and Sonoff Basic without housing](/img/sonoff_pinout.png)
+["Sonoff Pinout"](https://github.com/ct-Open-Source/info-graphics/blob/master/sonoff_pinbelegung.png) by [ct-Open-Source](https://github.com/ct-Open-Source) licensed under [CC Attribution Share Alike 4.0 International](https://github.com/ct-Open-Source/info-graphics/blob/master/LICENSE.md).
+
 ## Use it
 1. Close the Sonoff S20. BE cautious! The device MUST be absolutely closed. You are working at your own risk here. If the device is open, you risk getting an electric shock or worse. If in doubt, ask an expert!
 2. Plug the Sonoff S20 into the mains.
