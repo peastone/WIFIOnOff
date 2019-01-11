@@ -1,3 +1,4 @@
+warning: source src is not a readable file or directory... skipping.
 Adding custom extension mapping: .ino will be treated as language c++
 Adding custom extension mapping: .no_extension will be treated as language md
 Searching for include files...
@@ -13,9 +14,2032 @@ Searching for files in directory /home/travis/build/peastone/WIFIOnOff/src
 Reading and parsing tag files
 Parsing files
 Reading /home/travis/build/peastone/WIFIOnOff/README.md...
+======== Markdown =========
+---- input ------- 
+@page md__home_travis_build_peastone_WIFIOnOff_README WIFIOnOff
+
+[![Build Status](https://travis-ci.org/peastone/WIFIOnOff.svg?branch=master)](https://travis-ci.org/peastone/WIFIOnOff)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+## Motivation
+This repository was inspired by the article ["Bastelfreundlich"](https://www.heise.de/ct/ausgabe/2018-2-Steckdose-mit-eingebautem-ESP8266-mit-eigener-Firmware-betreiben-3929796.html) by the German computer magazine "c't".
+The article there is pretty much introductory. If you speak German and you have difficulties to get started, you can have a look there.
+
+## Caution: Dragons ahead
+The relay in the Sonoff S20 EU can only handle 10 A. Do NOT plug in devices with draw more current.
+The maximum amount of current is also noted on the backside of the Sonoff S20 EU. It may differ in other variants sold, so have a look.
+
+Never program the Sonoff S20, if it is connected to the mains. In Germany, that's 230 volts and you don't want to get an electric shock, which might even kill you.
+
+That put ahead, go forward and be cautious!
+
+## Flash it
+1. Install Arduino IDE [(instructions)](https://www.arduino.cc/en/Guide/HomePage).
+2. Install Arduino core for ESP8266 [(instructions)](https://github.com/esp8266/Arduino#installing-with-boards-manager).
+3. Install the library [(instructions)](https://www.arduino.cc/en/Guide/Libraries#toc2) for [MQTT from Joël Gähwiler](https://github.com/256dpi/arduino-mqtt/).
+4. Get yourself a FTDI-232-USB-TTL converter and some jumper wires.
+5. Connect the FTDI to the Sonoff S20 (Pins from top to button: GND, TX, RX, 3.3V; Top is located right underneath the socket. Pin connection may vary for other variants or over time. You flash at your own risk.).
+6. Build the software and flash it.
+
+The whole procedure may also be done with [PlatformIO](https://platformio.org/). It should be easy to find out the analogous steps for yourself.
+
+![Image of Sonoff S20 and Sonoff Basic without housing](/img/sonoff_pinout.png)
+["Sonoff Pinout"](https://github.com/ct-Open-Source/info-graphics/blob/master/sonoff_pinbelegung.png) by [ct-Open-Source](https://github.com/ct-Open-Source) licensed under [CC Attribution Share Alike 4.0 International](https://github.com/ct-Open-Source/info-graphics/blob/master/LICENSE.md).
+
+## Use it
+1. Close the Sonoff S20. BE cautious! The device MUST be absolutely closed. You are working at your own risk here. If the device is open, you risk getting an electric shock or worse. If in doubt, ask an expert!
+2. Plug the Sonoff S20 into the mains.
+3. Press the button until it flashes the first time. Press the button of the router immediately after that. The WPS procedure starts.
+4. Find the device with an mDNS mobile phone app.
+5. Open the web interface by entering the mDNS name into your browser.
+6. Configure MQTT, if wanted.
+7. Enjoy the web interface, MQTT and the physical button. Toggle the relay.
+
+## Last advice
+Please read the manual([HTML](https://peastone.github.io/WIFIOnOff/), [PDF](https://peastone.github.io/WIFIOnOff/refman.pdf)). It is pretty detailed and should answer most of your questions. Only the latest version is provided. All versions can be generated with [Doxygen](https://www.stack.nl/~dimitri/doxygen/).
+
+## Also thanks to
+- Jeroen de Bruijn for his [gist](https://gist.github.com/vidavidorra/548ffbcdae99d752da02) on how to auto-deploy Doxygen documentation on Github pages with Travis CI
+
+---- output -----
+@page md__home_travis_build_peastone_WIFIOnOff_README WIFIOnOff
+
+<a href="https://travis-ci.org/peastone/WIFIOnOff"><img src="https://travis-ci.org/peastone/WIFIOnOff.svg?branch=master" alt="Build Status"/></a>
+<a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="License: GPL v3"/></a>
+
+<h2>Motivation</h2>
+This repository was inspired by the article <a href="https://www.heise.de/ct/ausgabe/2018-2-Steckdose-mit-eingebautem-ESP8266-mit-eigener-Firmware-betreiben-3929796.html">"Bastelfreundlich"</a> by the German computer magazine "c't".
+The article there is pretty much introductory. If you speak German and you have difficulties to get started, you can have a look there.
+
+<h2>Caution: Dragons ahead</h2>
+The relay in the Sonoff S20 EU can only handle 10 A. Do NOT plug in devices with draw more current.
+The maximum amount of current is also noted on the backside of the Sonoff S20 EU. It may differ in other variants sold, so have a look.
+
+Never program the Sonoff S20, if it is connected to the mains. In Germany, that's 230 volts and you don't want to get an electric shock, which might even kill you.
+
+That put ahead, go forward and be cautious!
+
+<h2>Flash it</h2>
+1. Install Arduino IDE <a href="https://www.arduino.cc/en/Guide/HomePage">(instructions)</a>.
+2. Install Arduino core for ESP8266 <a href="https://github.com/esp8266/Arduino#installing-with-boards-manager">(instructions)</a>.
+3. Install the library <a href="https://www.arduino.cc/en/Guide/Libraries#toc2">(instructions)</a> for <a href="https://github.com/256dpi/arduino-mqtt/">MQTT from Joël Gähwiler</a>.
+4. Get yourself a FTDI-232-USB-TTL converter and some jumper wires.
+5. Connect the FTDI to the Sonoff S20 (Pins from top to button: GND, TX, RX, 3.3V; Top is located right underneath the socket. Pin connection may vary for other variants or over time. You flash at your own risk.).
+6. Build the software and flash it.
+
+The whole procedure may also be done with <a href="https://platformio.org/">PlatformIO</a>. It should be easy to find out the analogous steps for yourself.
+
+<img src="/img/sonoff_pinout.png" alt="Image of Sonoff S20 and Sonoff Basic without housing"/>
+<a href="https://github.com/ct-Open-Source/info-graphics/blob/master/sonoff_pinbelegung.png">"Sonoff Pinout"</a> by <a href="https://github.com/ct-Open-Source">ct-Open-Source</a> licensed under @ref https://github.com/ct-Open-Source/info-graphics/blob/master/LICENSE.md "CC Attribution Share Alike 4.0 International".
+
+<h2>Use it</h2>
+1. Close the Sonoff S20. BE cautious! The device MUST be absolutely closed. You are working at your own risk here. If the device is open, you risk getting an electric shock or worse. If in doubt, ask an expert!
+2. Plug the Sonoff S20 into the mains.
+3. Press the button until it flashes the first time. Press the button of the router immediately after that. The WPS procedure starts.
+4. Find the device with an mDNS mobile phone app.
+5. Open the web interface by entering the mDNS name into your browser.
+6. Configure MQTT, if wanted.
+7. Enjoy the web interface, MQTT and the physical button. Toggle the relay.
+
+<h2>Last advice</h2>
+Please read the manual(<a href="https://peastone.github.io/WIFIOnOff/">HTML</a>, <a href="https://peastone.github.io/WIFIOnOff/refman.pdf">PDF</a>). It is pretty detailed and should answer most of your questions. Only the latest version is provided. All versions can be generated with <a href="https://www.stack.nl/~dimitri/doxygen/">Doxygen</a>.
+
+<h2>Also thanks to</h2>
+- Jeroen de Bruijn for his <a href="https://gist.github.com/vidavidorra/548ffbcdae99d752da02">gist</a> on how to auto-deploy Doxygen documentation on Github pages with Travis CI
+
+=========
 Reading /home/travis/build/peastone/WIFIOnOff/RequirementsAndDesign.md...
+======== Markdown =========
+---- input ------- 
+@page md__home_travis_build_peastone_WIFIOnOff_RequirementsAndDesign Use Case Analysis
+
+## Features Implemented
+- WPS Push Button Configuration: I really ask myself, why WiFi Protected Setup is used so infrequently. It is convenient and you just need to push a button on your router and on your device. Many routers also offer the opportunity to press the push button over the web interface. So, you don't even have to walk. This is a must-have feature.
+- HTTP interface: The user must be able to control the WIFIOnOff with a simple web interface. You don't want to walk to switch the caffee machine on or off. This is a must-have feature. It is also needed for MQTT support.
+- MQTT support: If configured over the HTTP interface, the WIFIOnOff publishes the state of the relay and subscribes to a command channel. This is a nice-to-have feature. It is very interesting to experiment with MQTT to produce internet-of-things-like networks. In future, this feature might become more important.
+- Arduino OTA: With over-the-air updates enabled, the WIFIOnOff can be flashed wirelessly. This is a nice-to-have feature. One can still flash over serial wire, but OTA is so much more convenient. This feature is NOT recommeded to be used in an untrusted environment.
+
+## Features Not to Be Implemented
+- Cloud: The WIFIOnOff does not need a cloud or an external internet connection to be useful. This is quite nice as your device does not become worthless, if the your cloud service provider discontinues service. It also offers some advantage in terms of data protection. You are still free to use external service providers.
+- Timer: I tried to follow the UNIX philosophy when designing this program. The WIFIOnOff does one thing well: toggling the relay. It can be connected with other devices by MQTT. If you want to implement a timer, you can do this, as a script on a separate computer connected to the MQTT broker. You also get a GUI for free with an MQTT smartphone app.
+
+## Use Case Diagram
+
+@startuml
+title WIFIOnOff - Use Case Diagram
+
+rectangle WIFIOnOff {
+    (Toggle relay by pushing a button) as PHYTOG
+    (Toggle relay by web UI) as WEBTOG
+    (Connect to WiFi by WPS) as CONNECT
+    (Configure MQTT) as CONFIGMQTT
+    (Publish) as MQTT_PUB
+    (Subscribe) as MQTT_SUB
+    (Arduino OTA) as OTA
+}
+
+:User:
+:MQTT broker: as MQTT_Broker
+:Developer:
+
+User --> PHYTOG
+User --> WEBTOG
+User --> CONNECT
+User --> CONFIGMQTT
+MQTT_Broker --> MQTT_PUB
+MQTT_SUB --> MQTT_Broker
+Developer --> OTA
+@enduml
+
+# Boundary Conditions
+- XSS protection: The HTTP web interface accepts user input which must be sanitized. The approach that is used in this project is whitelisting. The goal is to prevent XSS attacks.
+For more information about XSS, look [here](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet).
+
+# Button interaction
+
+@startuml
+title User with button interaction - Activity Diagram
+start
+:User presses and holds the button;
+:User waits TIME;
+:User releases the button;
+if (TIME > TRIGGER_TIME_FACTORY_RESET) then (yes)
+  :Perform factory reset;
+elseif (TIME > TRIGGER_TIME_WIFI_DATA_RESET) then (yes)
+  :Reset WIFI configuration;
+else if (TIME > TRIGGER_TIME_WPS) then (yes)
+  if (WIFI configured) then (yes)
+  else (no)
+  :Perform WPS;
+  endif
+else ()
+  :Toggle relay;
+endif
+stop
+@enduml
+
+---- output -----
+@page md__home_travis_build_peastone_WIFIOnOff_RequirementsAndDesign Use Case Analysis
+
+<h2>Features Implemented</h2>
+- WPS Push Button Configuration: I really ask myself, why WiFi Protected Setup is used so infrequently. It is convenient and you just need to push a button on your router and on your device. Many routers also offer the opportunity to press the push button over the web interface. So, you don't even have to walk. This is a must-have feature.
+- HTTP interface: The user must be able to control the WIFIOnOff with a simple web interface. You don't want to walk to switch the caffee machine on or off. This is a must-have feature. It is also needed for MQTT support.
+- MQTT support: If configured over the HTTP interface, the WIFIOnOff publishes the state of the relay and subscribes to a command channel. This is a nice-to-have feature. It is very interesting to experiment with MQTT to produce internet-of-things-like networks. In future, this feature might become more important.
+- Arduino OTA: With over-the-air updates enabled, the WIFIOnOff can be flashed wirelessly. This is a nice-to-have feature. One can still flash over serial wire, but OTA is so much more convenient. This feature is NOT recommeded to be used in an untrusted environment.
+
+<h2>Features Not to Be Implemented</h2>
+- Cloud: The WIFIOnOff does not need a cloud or an external internet connection to be useful. This is quite nice as your device does not become worthless, if the your cloud service provider discontinues service. It also offers some advantage in terms of data protection. You are still free to use external service providers.
+- Timer: I tried to follow the UNIX philosophy when designing this program. The WIFIOnOff does one thing well: toggling the relay. It can be connected with other devices by MQTT. If you want to implement a timer, you can do this, as a script on a separate computer connected to the MQTT broker. You also get a GUI for free with an MQTT smartphone app.
+
+<h2>Use Case Diagram</h2>
+
+@startuml
+title WIFIOnOff - Use Case Diagram
+
+rectangle WIFIOnOff {
+    (Toggle relay by pushing a button) as PHYTOG
+    (Toggle relay by web UI) as WEBTOG
+    (Connect to WiFi by WPS) as CONNECT
+    (Configure MQTT) as CONFIGMQTT
+    (Publish) as MQTT_PUB
+    (Subscribe) as MQTT_SUB
+    (Arduino OTA) as OTA
+}
+
+:User:
+:MQTT broker: as MQTT_Broker
+:Developer:
+
+User --> PHYTOG
+User --> WEBTOG
+User --> CONNECT
+User --> CONFIGMQTT
+MQTT_Broker --> MQTT_PUB
+MQTT_SUB --> MQTT_Broker
+Developer --> OTA
+@enduml
+
+<h1>Boundary Conditions</h1>
+- XSS protection: The HTTP web interface accepts user input which must be sanitized. The approach that is used in this project is whitelisting. The goal is to prevent XSS attacks.
+For more information about XSS, look <a href="https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet">here</a>.
+
+<h1>Button interaction</h1>
+
+@startuml
+title User with button interaction - Activity Diagram
+start
+:User presses and holds the button;
+:User waits TIME;
+:User releases the button;
+if (TIME > TRIGGER_TIME_FACTORY_RESET) then (yes)
+  :Perform factory reset;
+elseif (TIME > TRIGGER_TIME_WIFI_DATA_RESET) then (yes)
+  :Reset WIFI configuration;
+else if (TIME > TRIGGER_TIME_WPS) then (yes)
+  if (WIFI configured) then (yes)
+  else (no)
+  :Perform WPS;
+  endif
+else ()
+  :Toggle relay;
+endif
+stop
+@enduml
+
+=========
 Preprocessing /home/travis/build/peastone/WIFIOnOff/src/WIFIOnOff.ino...
 Parsing file /home/travis/build/peastone/WIFIOnOff/src/WIFIOnOff.ino...
+======== Markdown =========
+---- input ------- 
+@file
+WIFIOnOFF is an alternative software for the Sonoff S20 which provides
+a web user interface (HTTP) and an internet of things interface (MQTT).
+The device can still be controlled by the normal user button.
+The connection to WiFi will be established by WPS for reasons of a
+better user experience. This device can be used in the local network
+without any dependency of a cloud.
+
+Copyright (C) 2018 Siegfried Schöfer
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+@see http://mqtt.org/
+@see http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.pdf
+@see https://github.com/esp8266/Arduino
+@see https://arduino-esp8266.readthedocs.io/en/latest/
+@see https://media.readthedocs.org/pdf/arduino-esp8266/latest/arduino-esp8266.pdf
+@see https://github.com/espressif/ESP8266_NONOS_SDK
+
+---- output -----
+@file
+WIFIOnOFF is an alternative software for the Sonoff S20 which provides
+a web user interface (HTTP) and an internet of things interface (MQTT).
+The device can still be controlled by the normal user button.
+The connection to WiFi will be established by WPS for reasons of a
+better user experience. This device can be used in the local network
+without any dependency of a cloud.
+
+Copyright (C) 2018 Siegfried Schöfer
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+@see http://mqtt.org/
+@see http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.pdf
+@see https://github.com/esp8266/Arduino
+@see https://arduino-esp8266.readthedocs.io/en/latest/
+@see https://media.readthedocs.org/pdf/arduino-esp8266/latest/arduino-esp8266.pdf
+@see https://github.com/espressif/ESP8266_NONOS_SDK
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Contains a link to the code repository which is embedded in the rendered HTML files in the function renderFooter().
+
+---- output -----
+
+@brief Contains a link to the code repository which is embedded in the rendered HTML files in the function renderFooter().
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Define SERIAL_PRINTING if you want to enable serial communication
+
+---- output -----
+
+@brief Define SERIAL_PRINTING if you want to enable serial communication
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Define NUMERIC_RESPONSE if you want the @link mqttClient @endlink to publish "1" or "0" instead of "on" or "off"
+
+---- output -----
+
+@brief Define NUMERIC_RESPONSE if you want the @link mqttClient @endlink to publish "1" or "0" instead of "on" or "off"
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief The state of the relay is visible through the blue LED (connected == LED shines).
+       Define OUTPUT_RELAY_STATE_ON_GREEN_STATUS_LED,
+       if you want the state of the relay being visible also on the green LED (connected == LED shines).
+
+---- output -----
+
+@brief The state of the relay is visible through the blue LED (connected == LED shines).
+       Define OUTPUT_RELAY_STATE_ON_GREEN_STATUS_LED,
+       if you want the state of the relay being visible also on the green LED (connected == LED shines).
+
+=========
+======== Markdown =========
+---- input ------- 
+ 
+@brief Define DEV_OTA_UPDATES if you want to perform OTA updates for development with Arduino IDE.
+
+---- output -----
+ 
+@brief Define DEV_OTA_UPDATES if you want to perform OTA updates for development with Arduino IDE.
+
+=========
+======== Markdown =========
+---- input ------- 
+ 
+@brief Define the password to protect OTA with DEV_OTA_PASSWD. This is not a high security procedure.
+@todo Despite the fact that over-the-air (OTA) updates are not highly secure, it is highly recommended to change the password.
+      This is just a very bad default.
+@see https://media.readthedocs.org/pdf/arduino-esp8266/latest/arduino-esp8266.pdf
+
+---- output -----
+ 
+@brief Define the password to protect OTA with DEV_OTA_PASSWD. This is not a high security procedure.
+@todo Despite the fact that over-the-air (OTA) updates are not highly secure, it is highly recommended to change the password.
+      This is just a very bad default.
+@see https://media.readthedocs.org/pdf/arduino-esp8266/latest/arduino-esp8266.pdf
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief time in ms to wait until WPS request is triggered when pressing the button (see pressHandler())
+
+---- output -----
+
+@brief time in ms to wait until WPS request is triggered when pressing the button (see pressHandler())
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief time in ms to wait until the WIFI configuration reset
+
+---- output -----
+
+@brief time in ms to wait until the WIFI configuration reset
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief time in ms to wait until factory reset is triggered when pressing the button (see pressHandler())
+
+---- output -----
+
+@brief time in ms to wait until factory reset is triggered when pressing the button (see pressHandler())
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief standard port used for the HTTP protocol
+
+---- output -----
+
+@brief standard port used for the HTTP protocol
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief standard port used for the MQTT protocol
+
+---- output -----
+
+@brief standard port used for the MQTT protocol
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief definition of the timespan of half a second
+
+---- output -----
+
+@brief definition of the timespan of half a second
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief definition of the timespan of a quarter of a second
+
+---- output -----
+
+@brief definition of the timespan of a quarter of a second
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief definition of the time the LED stays on in case of an EEPROM warning (CRC failure, initialization, EEPROM incompatible)
+
+---- output -----
+
+@brief definition of the time the LED stays on in case of an EEPROM warning (CRC failure, initialization, EEPROM incompatible)
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief maximum amount of tries to connect to WIFI
+
+---- output -----
+
+@brief maximum amount of tries to connect to WIFI
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief EEPROM_length defines the maximum amount of bytes to be stored
+     in the EEPROM.
+     At the time of writing, the maximum amout of bytes to be stored
+     is 4096.
+     @see https://git.io/vxYHO <!-- URL too long for Latex PDF, original URL: https://github.com/esp8266/Arduino/blob/3ce888e87b6f2a99f6a1bf0ad0baa7cd1d3dbf70/libraries/EEPROM/EEPROM.cpp#L54 -->
+     @see https://git.io/vxYHG <!-- URL too long for Latex PDF, original URL: https://github.com/esp8266/Arduino/blob/a2d16f38d48727bba41befadebc590bdd84588ad/tools/sdk/include/spi_flash.h#L47 -->
+
+---- output -----
+
+@brief EEPROM_length defines the maximum amount of bytes to be stored
+     in the EEPROM.
+     At the time of writing, the maximum amout of bytes to be stored
+     is 4096.
+     @see https://git.io/vxYHO <!-- URL too long for Latex PDF, original URL: https://github.com/esp8266/Arduino/blob/3ce888e87b6f2a99f6a1bf0ad0baa7cd1d3dbf70/libraries/EEPROM/EEPROM.cpp#L54 -->
+     @see https://git.io/vxYHG <!-- URL too long for Latex PDF, original URL: https://github.com/esp8266/Arduino/blob/a2d16f38d48727bba41befadebc590bdd84588ad/tools/sdk/include/spi_flash.h#L47 -->
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief A CRC is calculated for the EEPROM values to ensure that
+       the values are untempered.
+       The address of the stored CRC is at the beginning of the EEPROM.
+
+---- output -----
+
+@brief A CRC is calculated for the EEPROM values to ensure that
+       the values are untempered.
+       The address of the stored CRC is at the beginning of the EEPROM.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This version number is stored in EEPROM. It must not be longer than one byte.
+       The version number defined here and that one stored in EEPROM are compared against each other.
+       In case the two numbers are not equal, the EEPROM is re-/initialized.
+       This number must change, if you change the EEPROM layout, basically if you change adresses.
+
+---- output -----
+
+@brief This version number is stored in EEPROM. It must not be longer than one byte.
+       The version number defined here and that one stored in EEPROM are compared against each other.
+       In case the two numbers are not equal, the EEPROM is re-/initialized.
+       This number must change, if you change the EEPROM layout, basically if you change adresses.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief The EEPROM version number is stored at this address.
+
+---- output -----
+
+@brief The EEPROM version number is stored at this address.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief A CRC is calculated for the EEPROM values to ensure that
+       the values are untempered.
+       The size of the stored CRC is defined by this macro.
+
+---- output -----
+
+@brief A CRC is calculated for the EEPROM values to ensure that
+       the values are untempered.
+       The size of the stored CRC is defined by this macro.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief A CRC is calculated for the EEPROM values to ensure that
+       the values are untempered.
+       The CRC takes some space to be stored in the EEPROM.
+       The start address takes this into account.
+
+---- output -----
+
+@brief A CRC is calculated for the EEPROM values to ensure that
+       the values are untempered.
+       The CRC takes some space to be stored in the EEPROM.
+       The start address takes this into account.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief If this magic number is set, a defined functionality is enabled.
+
+---- output -----
+
+@brief If this magic number is set, a defined functionality is enabled.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief The amount of storage needed by @link EEPROM_enabled @endlink in EEPROM.
+
+---- output -----
+
+@brief The amount of storage needed by @link EEPROM_enabled @endlink in EEPROM.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief If an init value is set, a defined functionality is disabled.
+       The init value is also used to initialize the EEPROM in setupEEPROM().
+
+---- output -----
+
+@brief If an init value is set, a defined functionality is disabled.
+       The init value is also used to initialize the EEPROM in setupEEPROM().
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief WPS is the only choice to connect to WIFI. This shall improve
+       usability. The state of WPS is stored in EEPROM at this address.
+       The value 0x00 was chosen as it terminates Strings, which leads to perfect default data.
+
+---- output -----
+
+@brief WPS is the only choice to connect to WIFI. This shall improve
+       usability. The state of WPS is stored in EEPROM at this address.
+       The value 0x00 was chosen as it terminates Strings, which leads to perfect default data.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This flag is used to check whether @link mqttServer @endlink has already been
+       initialized with the value of the MQTT-Server (DNS name or IP)
+
+---- output -----
+
+@brief This flag is used to check whether @link mqttServer @endlink has already been
+       initialized with the value of the MQTT-Server (DNS name or IP)
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief The variable @link mqttServer @endlink
+       which contains the value of the
+       MQTT-Server (DNS name or IP) is restored after startup
+       from EEPROM, if MQTT is configured (@link EEPROM_address_MQTT_server_configured @endlink).
+       The stored bytes can be found at this address.
+
+---- output -----
+
+@brief The variable @link mqttServer @endlink
+       which contains the value of the
+       MQTT-Server (DNS name or IP) is restored after startup
+       from EEPROM, if MQTT is configured (@link EEPROM_address_MQTT_server_configured @endlink).
+       The stored bytes can be found at this address.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief The maximum amount of bytes used to store the MQTT server address.
+       This address can be either an IP or a DNS name.
+       DNS names are restricted to 255 octets.
+       As a string is zero-terminated, one byte more is used.
+       For more information, look at RFC 1035
+       @see https://www.ietf.org/rfc/rfc1035.txt
+
+---- output -----
+
+@brief The maximum amount of bytes used to store the MQTT server address.
+       This address can be either an IP or a DNS name.
+       DNS names are restricted to 255 octets.
+       As a string is zero-terminated, one byte more is used.
+       For more information, look at RFC 1035
+       @see https://www.ietf.org/rfc/rfc1035.txt
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function calculates a CRC checksum for the EEPROM.
+       It is taken from: https://www.arduino.cc/en/Tutorial/EEPROMCrc
+@return calculated CRC
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function calculates a CRC checksum for the EEPROM.
+       It is taken from: https://www.arduino.cc/en/Tutorial/EEPROMCrc
+@return calculated CRC
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function calculates the CRC value of the values in the
+       EEPROM with the help of function calculate_crc().
+       The resulting CRC checksum is written to @link EEPROM_address_CRC @endlink.
+       The caller must still call EEPROM.commit() afterwards to really
+       trigger a write to EEPROM.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function calculates the CRC value of the values in the
+       EEPROM with the help of function calculate_crc().
+       The resulting CRC checksum is written to @link EEPROM_address_CRC @endlink.
+       The caller must still call EEPROM.commit() afterwards to really
+       trigger a write to EEPROM.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function reads the CRC value stored at @link EEPROM_address_CRC @endlink.
+@returns CRC value from EEPROM
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function reads the CRC value stored at @link EEPROM_address_CRC @endlink.
+@returns CRC value from EEPROM
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function calculates the CRC value for the bytes stored in the EEPROM
+       with the help of function calculate_crc() and compares the result to the
+       CRC which was read from EEPROM with the help of function retrieveCRC().
+@returns true if calculated CRC matches stored CRC
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function calculates the CRC value for the bytes stored in the EEPROM
+       with the help of function calculate_crc() and compares the result to the
+       CRC which was read from EEPROM with the help of function retrieveCRC().
+@returns true if calculated CRC matches stored CRC
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function stores the @link EEPROM_version_number @endlink in EEPROM.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function stores the @link EEPROM_version_number @endlink in EEPROM.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function checks the @link EEPROM_version_number @endlink stored in EEPROM against the version number required by the latest EEPROM layout.
+@returns true, if the stored and the required EEPROM version number match, false otherwise
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function checks the @link EEPROM_version_number @endlink stored in EEPROM against the version number required by the latest EEPROM layout.
+@returns true, if the stored and the required EEPROM version number match, false otherwise
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function writes default data (@link EEPROM_init_value @endlink) to EEPROM and
+       stores CRC and the @link EEPROM_version_number @endlink.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function writes default data (@link EEPROM_init_value @endlink) to EEPROM and
+       stores CRC and the @link EEPROM_version_number @endlink.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is setting up the EEPROM.
+       If the CRC check fails, the EEPROM will be overwritten with
+       init values. The CRC check makes only sense at initialization phase.
+       Afterwards, the data is buffered by EEPROM lib in RAM.
+@see https://git.io/vxOPf <!-- https://github.com/esp8266/Arduino/blob/master/libraries/EEPROM/EEPROM.cpp#L70 -->
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is setting up the EEPROM.
+       If the CRC check fails, the EEPROM will be overwritten with
+       init values. The CRC check makes only sense at initialization phase.
+       Afterwards, the data is buffered by EEPROM lib in RAM.
+@see https://git.io/vxOPf <!-- https://github.com/esp8266/Arduino/blob/master/libraries/EEPROM/EEPROM.cpp#L70 -->
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Constant to map the green LED of the Sonoff S20.
+
+---- output -----
+
+@brief Constant to map the green LED of the Sonoff S20.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief State to track whether the LED is on.
+
+---- output -----
+
+@brief State to track whether the LED is on.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is used to switch the LED off. It keeps track of the internal state @link stateLEDOn @endlink.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is used to switch the LED off. It keeps track of the internal state @link stateLEDOn @endlink.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is used to switch the LED on. It keeps track of the internal state @link stateLEDOn @endlink.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is used to switch the LED on. It keeps track of the internal state @link stateLEDOn @endlink.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is used to toggle the LED. Indirectly, it keeps track of the internal state @link stateLEDOn @endlink.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is used to toggle the LED. Indirectly, it keeps track of the internal state @link stateLEDOn @endlink.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is used to get the state of the LED. It returns @link stateLEDOn @endlink.
+@returns true, if the LED is on, false otherwise.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is used to get the state of the LED. It returns @link stateLEDOn @endlink.
+@returns true, if the LED is on, false otherwise.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is called to give the user feedback that the EEPROM has been re-/initialized.
+       This means that all the user-entered data is gone and the device needs to be reconfigured.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is called to give the user feedback that the EEPROM has been re-/initialized.
+       This means that all the user-entered data is gone and the device needs to be reconfigured.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is called to give the user feedback about the menu the user selected.
+       It will blink fast for a short period of time. The user has the choice to release and select
+       the menu or to wait for the next menu. By counting the feedbackQuickBlink()-events,
+       the user can determine which menu is selected, when the button is released now.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is called to give the user feedback about the menu the user selected.
+       It will blink fast for a short period of time. The user has the choice to release and select
+       the menu or to wait for the next menu. By counting the feedbackQuickBlink()-events,
+       the user can determine which menu is selected, when the button is released now.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is called to give the user feedback that WIFI is about to connect.
+       It will blink at a medium rate.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is called to give the user feedback that WIFI is about to connect.
+       It will blink at a medium rate.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief State to track whether the user should be notified that a menu can be selected by releasing the button.
+
+---- output -----
+
+@brief State to track whether the user should be notified that a menu can be selected by releasing the button.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Getter function for @link userActionFeedbackRequest @endlink.
+@returns true, if the user should be notified that a menu can be selected, false otherwise
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Getter function for @link userActionFeedbackRequest @endlink.
+@returns true, if the user should be notified that a menu can be selected, false otherwise
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Setter function for @link userActionFeedbackRequest @endlink. The user should be notified that a menu can be selected.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Setter function for @link userActionFeedbackRequest @endlink. The user should be notified that a menu can be selected.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Setter function for @link userActionFeedbackRequest @endlink. The user has been notified that a menu can be selected.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Setter function for @link userActionFeedbackRequest @endlink. The user has been notified that a menu can be selected.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Necessary to initialize a MQTTClient object.
+
+---- output -----
+
+@brief Necessary to initialize a MQTTClient object.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function checks whether WPS has already been performed
+       once. In this case, one can directly connect to WiFi.
+@returns true if WPS has already been performed, false otherwise
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function checks whether WPS has already been performed
+       once. In this case, one can directly connect to WiFi.
+@returns true if WPS has already been performed, false otherwise
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is a setter function which sets WiFi to
+       configured, which means that WPS has already been
+       performed successfully. This function is only called in
+       performWPS().
+       The configuration is saved to EEPROM.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is a setter function which sets WiFi to
+       configured, which means that WPS has already been
+       performed successfully. This function is only called in
+       performWPS().
+       The configuration is saved to EEPROM.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is a setter function which sets WiFi to not
+       configured, which means that WPS is necessary before
+       connecting to WIFI.
+       The configuration is saved to EEPROM.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is a setter function which sets WiFi to not
+       configured, which means that WPS is necessary before
+       connecting to WIFI.
+       The configuration is saved to EEPROM.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is used to trigger WPS. If WPS has been
+       successful, setWiFiConfigured() is executed and unsetWPSRequest() is called.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is used to trigger WPS. If WPS has been
+       successful, setWiFiConfigured() is executed and unsetWPSRequest() is called.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function returns the client name used for MQTT, see mqttConnect().
+@returns the client ID: "WIFIOnOff" + MAC address
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function returns the client name used for MQTT, see mqttConnect().
+@returns the client ID: "WIFIOnOff" + MAC address
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function tries to connect to WIFI.
+@returns true, if the connection was successful, false otherwise.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function tries to connect to WIFI.
+@returns true, if the connection was successful, false otherwise.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function sets up MDNS.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function sets up MDNS.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function checks whether WIFI is connected.
+@returns true, if WiFi is connected, false otherwise
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function checks whether WIFI is connected.
+@returns true, if WiFi is connected, false otherwise
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief State to track whether the WPS has been requested.
+
+---- output -----
+
+@brief State to track whether the WPS has been requested.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Getter function for @link wpsRequested @endlink.
+@returns true, if WPS has been requested, false otherwise.
+
+---- output -----
+
+@brief Getter function for @link wpsRequested @endlink.
+@returns true, if WPS has been requested, false otherwise.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Setter function to unset @link wpsRequested @endlink.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Setter function to unset @link wpsRequested @endlink.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Setter function to set @link wpsRequested @endlink.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Setter function to set @link wpsRequested @endlink.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief State to track whether the deletion of WIFI data has been requested.
+
+---- output -----
+
+@brief State to track whether the deletion of WIFI data has been requested.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Getter function for @link wifiResetRequested @endlink.
+@returns true, if a deletion of WIFI data has been requested, false otherwise.
+
+---- output -----
+
+@brief Getter function for @link wifiResetRequested @endlink.
+@returns true, if a deletion of WIFI data has been requested, false otherwise.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Setter function to set @link wifiResetRequested @endlink.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Setter function to set @link wifiResetRequested @endlink.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Setter function to unsset @link wifiResetRequested @endlink.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Setter function to unsset @link wifiResetRequested @endlink.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief State to track whether the LED is connected to the mains.
+
+---- output -----
+
+@brief State to track whether the LED is connected to the mains.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Constant to map the relay of the Sonoff S20.
+
+---- output -----
+
+@brief Constant to map the relay of the Sonoff S20.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is used to disconnect the relay from the mains. It keeps track of the internal state @link stateRelayConnected @endlink.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is used to disconnect the relay from the mains. It keeps track of the internal state @link stateRelayConnected @endlink.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is used to connect the relay to the mains. It keeps track of the internal state @link stateRelayConnected @endlink.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is used to connect the relay to the mains. It keeps track of the internal state @link stateRelayConnected @endlink.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is used to get the connection state of the relay with the mains. It returns @link stateRelayConnected @endlink.
+@returns true, if the relay is connected to the mains, false otherwise.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is used to get the connection state of the relay with the mains. It returns @link stateRelayConnected @endlink.
+@returns true, if the relay is connected to the mains, false otherwise.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is used to toggle the connection of the relay with the mains. Indirectly, it keeps track of the internal state @link stateRelayConnected @endlink.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is used to toggle the connection of the relay with the mains. Indirectly, it keeps track of the internal state @link stateRelayConnected @endlink.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function configures the output pins of the microcontroller.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function configures the output pins of the microcontroller.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function returns the first part of a HTML file which is reused for
+       all responses.
+@returns "<!doctype> ... <body>", look inside the function for more information.
+@see http://www.html.am/templates/css-templates/
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function returns the first part of a HTML file which is reused for
+       all responses.
+@returns "<!doctype> ... <body>", look inside the function for more information.
+@see http://www.html.am/templates/css-templates/
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function returns the middle part of a HTML file to
+       - show the state of the relay (disconnected - off / connected - on).
+       - manipulate the state of the relay.
+@param[in] stateRelayConnected if true, the relay is displayed as on, otherwise as off
+@returns HTML, look inside the function for more information.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function returns the middle part of a HTML file to
+       - show the state of the relay (disconnected - off / connected - on).
+       - manipulate the state of the relay.
+@param[in] stateRelayConnected if true, the relay is displayed as on, otherwise as off
+@returns HTML, look inside the function for more information.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function returns the middle part of a HTML file to
+       - show the settings for the MQTT server
+       - manipulate the settings for the MQTT server
+       This function could be relevant concerning XSS.
+@param[in] storedServerName DNS name or IP address which is displayed on the HTML site
+@param[in] failureMsg message that is displayed to the user in case of success or failure
+@param[in] stateMQTTActivated shows the user, whether MQTT is activated
+@param[in] stateMQTTConnected shows the user, whether MQTT is connected
+@returns HTML, look inside the function for more information.
+@see https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function returns the middle part of a HTML file to
+       - show the settings for the MQTT server
+       - manipulate the settings for the MQTT server
+       This function could be relevant concerning XSS.
+@param[in] storedServerName DNS name or IP address which is displayed on the HTML site
+@param[in] failureMsg message that is displayed to the user in case of success or failure
+@param[in] stateMQTTActivated shows the user, whether MQTT is activated
+@param[in] stateMQTTConnected shows the user, whether MQTT is connected
+@returns HTML, look inside the function for more information.
+@see https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function returns the last part of a HTML file which is reused for
+       all responses.
+@returns "</body></html>", look inside the function for more information.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function returns the last part of a HTML file which is reused for
+       all responses.
+@returns "</body></html>", look inside the function for more information.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief central object to manage MQTT
+@see MQTT protocol http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.pdf
+
+---- output -----
+
+@brief central object to manage MQTT
+@see MQTT protocol http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.pdf
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Callback which is called when MQTT receives an incoming topic
+@param[in] topic One of the incoming MQTT topics, which the @link mqttClient @endlink
+       has been subscribed to. Currently there is only one connection, see mqttConnect().
+       So this parameter is irrelevant.
+@param[in] payload Contains the received payload of the message of the incoming topic.
+       If "on" or "1" is received, the relay is connected (connectRelay()),
+       else if "off" or "0" is received, the relay is disconnected (disconnectRelay()).
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Callback which is called when MQTT receives an incoming topic
+@param[in] topic One of the incoming MQTT topics, which the @link mqttClient @endlink
+       has been subscribed to. Currently there is only one connection, see mqttConnect().
+       So this parameter is irrelevant.
+@param[in] payload Contains the received payload of the message of the incoming topic.
+       If "on" or "1" is received, the relay is connected (connectRelay()),
+       else if "off" or "0" is received, the relay is disconnected (disconnectRelay()).
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Global variable to store the DNS name or IP address of the MQTT broker.
+
+---- output -----
+
+@brief Global variable to store the DNS name or IP address of the MQTT broker.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief State to track whether MQTT is configured.
+
+---- output -----
+
+@brief State to track whether MQTT is configured.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Read back MQTT server / broker name from EEPROM and store it
+       in global variable @link mqttServer @endlink.
+       Read back whether MQTT is configured and store it in global variable @link stateMQTTConfigured @endlink.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Read back MQTT server / broker name from EEPROM and store it
+       in global variable @link mqttServer @endlink.
+       Read back whether MQTT is configured and store it in global variable @link stateMQTTConfigured @endlink.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Store MQTT server / broker name (@link mqttServer @endlink) and state (configured or not, @link stateMQTTConfigured @endlink) in EEPROM.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Store MQTT server / broker name (@link mqttServer @endlink) and state (configured or not, @link stateMQTTConfigured @endlink) in EEPROM.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Configure new MQTT server / broker.
+       This will
+       - disconnect the MQTT client if connected
+       - set the server / broker name
+       - set the callback mqttConrolRelay()
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Configure new MQTT server / broker.
+       This will
+       - disconnect the MQTT client if connected
+       - set the server / broker name
+       - set the callback mqttConrolRelay()
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Setter function for MQTT server / broker @link mqttServer @endlink.
+@param[in] input MQTT server / broker
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Setter function for MQTT server / broker @link mqttServer @endlink.
+@param[in] input MQTT server / broker
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Getter function for MQTT server / broker @link mqttServer @endlink.
+@returns the latest MQTT server / broker
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Getter function for MQTT server / broker @link mqttServer @endlink.
+@returns the latest MQTT server / broker
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Setter function for @link stateMQTTConfigured @endlink.
+@param[in] input true if MQTT is configured, false otherwise
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Setter function for @link stateMQTTConfigured @endlink.
+@param[in] input true if MQTT is configured, false otherwise
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Getter function for @link stateMQTTConfigured @endlink.
+@returns true if MQTT is configured, false otherwise
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Getter function for @link stateMQTTConfigured @endlink.
+@returns true if MQTT is configured, false otherwise
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief The topic @link mqttClient @endlink publishes.
+
+---- output -----
+
+@brief The topic @link mqttClient @endlink publishes.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Setter function for @link mqttOutgoingTopic @endlink.
+@param[in] input String to be set
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Setter function for @link mqttOutgoingTopic @endlink.
+@param[in] input String to be set
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Getter function for @link mqttOutgoingTopic @endlink.
+@returns String of outgoing MQTT topic
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Getter function for @link mqttOutgoingTopic @endlink.
+@returns String of outgoing MQTT topic
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief The topic which @link mqttClient @endlink subscribes.
+
+---- output -----
+
+@brief The topic which @link mqttClient @endlink subscribes.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Setter function for @link mqttIncomingTopic @endlink.
+@param[in] input String to be set
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Setter function for @link mqttIncomingTopic @endlink.
+@param[in] input String to be set
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Get MQTT connection state.
+@returns true, if MQTT is connected, false otherwise
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Get MQTT connection state.
+@returns true, if MQTT is connected, false otherwise
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function connects to broker and
+       - subscribes topic wifionoff/getClientID()/set
+       - sets last will "disconnected" on wifionoff/getClientID()/get
+       - publishes latest state on wifionoff/getClientID()/get
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function connects to broker and
+       - subscribes topic wifionoff/getClientID()/set
+       - sets last will "disconnected" on wifionoff/getClientID()/get
+       - publishes latest state on wifionoff/getClientID()/get
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief With the call of this function, @link mqttClient @endlink
+       publishes the state of the relay (getStateRelayConnected()) on
+       the outgoing topic (getMQTTOutgoingTopic()) to the MQTT server / broker.
+       The macro @link NUMERIC_RESPONSE @endlink is taken into account.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief With the call of this function, @link mqttClient @endlink
+       publishes the state of the relay (getStateRelayConnected()) on
+       the outgoing topic (getMQTTOutgoingTopic()) to the MQTT server / broker.
+       The macro @link NUMERIC_RESPONSE @endlink is taken into account.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This is the webserver object. It is used to serve the user interface
+       over HTTP. Per default, port 80 is used.
+
+---- output -----
+
+@brief This is the webserver object. It is used to serve the user interface
+       over HTTP. Per default, port 80 is used.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is used for filtering out XSS attacks.
+       This is done by whitelisting.
+       - IPv4 addresses consist of numbers and dots (0..9 | .).
+       - IPv6 addresses consist of hexadeximal numbers, double dots or brackets (0..9 | a..f | A..F | [ | ] )
+       - DNS names consist of letters, digits and hypen (0..9 | a..z | A..Z | - ).
+       This function is not validating DNS, IPv4, IPv6. Rubbish DNS names can still pass.
+       But characters which could be used for XSS, like <, >, &, " are blocked.
+@param[in] c character to check
+@see https://www.ietf.org/rfc/rfc1035.txt
+@see https://wonko.com/post/html-escaping
+@see https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet
+@returns true, if the argument character is not whitelisted, false otherwise.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is used for filtering out XSS attacks.
+       This is done by whitelisting.
+       - IPv4 addresses consist of numbers and dots (0..9 | .).
+       - IPv6 addresses consist of hexadeximal numbers, double dots or brackets (0..9 | a..f | A..F | [ | ] )
+       - DNS names consist of letters, digits and hypen (0..9 | a..z | A..Z | - ).
+       This function is not validating DNS, IPv4, IPv6. Rubbish DNS names can still pass.
+       But characters which could be used for XSS, like <, >, &, " are blocked.
+@param[in] c character to check
+@see https://www.ietf.org/rfc/rfc1035.txt
+@see https://wonko.com/post/html-escaping
+@see https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet
+@returns true, if the argument character is not whitelisted, false otherwise.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is used to check whether mqttServer is valid.
+       Therefore, it is checked that the
+       - length of mqttServer is less or equal than @link EEPROM_size_MQTT_server @endlink
+       - all characters are whitelisted (see isNotWhitelisted())
+@param[in] mqttServer String to check for validity
+@returns true, if mqttServer is valid, false otherwise.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is used to check whether mqttServer is valid.
+       Therefore, it is checked that the
+       - length of mqttServer is less or equal than @link EEPROM_size_MQTT_server @endlink
+       - all characters are whitelisted (see isNotWhitelisted())
+@param[in] mqttServer String to check for validity
+@returns true, if mqttServer is valid, false otherwise.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is used configure the webserver.
+       The webserver is configured by defining callback functions for handling incoming requests on
+       - /
+       - /settings.html
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is used configure the webserver.
+       The webserver is configured by defining callback functions for handling incoming requests on
+       - /
+       - /settings.html
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Perform factory reset
+       - reset WiFi
+       - reset MQTT
+       - reset EEPROM
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Perform factory reset
+       - reset WiFi
+       - reset MQTT
+       - reset EEPROM
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief State to track whether a factory reset has been requested.
+
+---- output -----
+
+@brief State to track whether a factory reset has been requested.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Getter function for @link factoryResetRequested @endlink.
+@returns true, if factory reset is requested, false otherwise.
+
+---- output -----
+
+@brief Getter function for @link factoryResetRequested @endlink.
+@returns true, if factory reset is requested, false otherwise.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Setter function to set @link factoryResetRequested @endlink.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Setter function to set @link factoryResetRequested @endlink.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Setter function to unset @link factoryResetRequested @endlink.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Setter function to unset @link factoryResetRequested @endlink.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Constant to map the hardware button of the Sonoff S20.
+
+---- output -----
+
+@brief Constant to map the hardware button of the Sonoff S20.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief State to track whether the button was pressed since pressHandler() was called the last time.
+
+---- output -----
+
+@brief State to track whether the button was pressed since pressHandler() was called the last time.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief State to track the time since the button was pressed.
+
+---- output -----
+
+@brief State to track the time since the button was pressed.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief State to track which menu the user selects, if the button is released.
+
+---- output -----
+
+@brief State to track which menu the user selects, if the button is released.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function triggers
+       - the toggling of the relay
+       - WPS button method request
+       - factory reset request.
+       As this function is called regularly with @link ticker @endlink,
+       it should be quick, otherwise the ESP8266 might crash.
+@see https://arduino-esp8266.readthedocs.io/en/latest/faq/a02-my-esp-crashes.html
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function triggers
+       - the toggling of the relay
+       - WPS button method request
+       - factory reset request.
+       As this function is called regularly with @link ticker @endlink,
+       it should be quick, otherwise the ESP8266 might crash.
+@see https://arduino-esp8266.readthedocs.io/en/latest/faq/a02-my-esp-crashes.html
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This object is used to trigger the function press frequently.
+       The button handler is implemented there.
+
+---- output -----
+
+@brief This object is used to trigger the function press frequently.
+       The button handler is implemented there.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is executed once at the startup of the microcontroller.
+       - The serial communication is setup with 115200 bauds. It is usefull for debugging or just information.
+       - The output pins are configured.
+       - The EEPROM is setup.
+       - The MQTT configuration is restored from EEPROM.
+       - MQTT is configured.
+       - The webserver is configured.
+       - MDNS is set up.
+       - The LED is switched off.
+       - The relay is disconnected. This is thought to be the natural experience, if you plug in a socket.
+       - The button handler is started.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is executed once at the startup of the microcontroller.
+       - The serial communication is setup with 115200 bauds. It is usefull for debugging or just information.
+       - The output pins are configured.
+       - The EEPROM is setup.
+       - The MQTT configuration is restored from EEPROM.
+       - MQTT is configured.
+       - The webserver is configured.
+       - MDNS is set up.
+       - The LED is switched off.
+       - The relay is disconnected. This is thought to be the natural experience, if you plug in a socket.
+       - The button handler is started.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is executed in a loop after setup(void) has been called.
+
+       At first it checks for incoming user requests:
+       - to perform WPS (performWPS())
+       - to delete the WiFi configuration (unsetWiFiConfigured())
+       - to perform a factory reset (performFactoryReset())
+
+       It is also checked for requests to inform the user about actions
+       with the LED. These requests are triggered programmatically.
+
+       After all requests are handled, it is cyclically checked that WPS has been
+       performed and that the WiFi is connected.
+       If WPS has not been done or WiFi is not connected,
+       it does not make any sense to check for HTTP, ArduinoOTA or MQTT.
+       For MQTT to be checked, it is also required, that it was enabled by the user.
+
+       If MQTT is not connected, try to connect, otherwise handle MQTT.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is executed in a loop after setup(void) has been called.
+@verbatim
+   At first it checks for incoming user requests:
+   - to perform WPS (performWPS())
+   - to delete the WiFi configuration (unsetWiFiConfigured())
+   - to perform a factory reset (performFactoryReset())
+
+   It is also checked for requests to inform the user about actions
+   with the LED. These requests are triggered programmatically.
+
+   After all requests are handled, it is cyclically checked that WPS has been
+   performed and that the WiFi is connected.
+   If WPS has not been done or WiFi is not connected,
+   it does not make any sense to check for HTTP, ArduinoOTA or MQTT.
+   For MQTT to be checked, it is also required, that it was enabled by the user.
+
+   If MQTT is not connected, try to connect, otherwise handle MQTT.
+@endverbatim
+@callergraph
+@callgraph
+
+=========
 Building group list...
 Building directory list...
 Building namespace list...
@@ -94,8 +2118,7 @@ Generating caller graph for function connectToWiFi
 Generating call graph for function disconnectRelay
 Generating caller graph for function disconnectRelay
 Generating call graph for function feedbackEEPROMInit
-Generating caller graph for /home/travis/build/peastone/WIFIOnOff/README.md:29: warning: unable to resolve reference to `https://github.com/ct-Open-Source/info-graphics/blob/master/LICENSE.md' for \ref command
-function feedbackEEPROMInit
+Generating caller graph for function feedbackEEPROMInit
 Generating call graph for function feedbackQuickBlink
 Generating caller graph for function feedbackQuickBlink
 Generating call graph for function feedbackWIFIisConnecting
@@ -141,7 +2164,8 @@ Generating call graph for function setupEEPROM
 Generating caller graph for function setupEEPROM
 Generating call graph for function setupMDNS
 Generating caller graph for function setupMDNS
-Generating caller graph for function setUserActionFeedbackRequest
+Generating caller graph for function setUser/home/travis/build/peastone/WIFIOnOff/README.md:29: warning: unable to resolve reference to `https://github.com/ct-Open-Source/info-graphics/blob/master/LICENSE.md' for \ref command
+ActionFeedbackRequest
 Generating call graph for function setWiFiConfigured
 Generating caller graph for function setWiFiConfigured
 Generating caller graph for function setWifiResetRequested
