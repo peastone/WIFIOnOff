@@ -80,17 +80,17 @@ String REPOSITORY_URL_STRING = "https://github.com/peastone/WIFIOnOff";
 /**
    @brief time in ms to wait until WPS request is triggered when pressing the button (see pressHandler())
 */
-#define TRIGGER_TIME_WPS 7000
+#define TRIGGER_TIME_WPS 3000
 
 /**
    @brief time in ms to wait until the WIFI configuration reset
 */
-#define TRIGGER_TIME_WIFI_DATA_RESET 30000
+#define TRIGGER_TIME_WIFI_DATA_RESET 10000
 
 /**
    @brief time in ms to wait until factory reset is triggered when pressing the button (see pressHandler())
 */
-#define TRIGGER_TIME_FACTORY_RESET 60000
+#define TRIGGER_TIME_FACTORY_RESET 15000
 
 /**
    @brief standard port used for the HTTP protocol
