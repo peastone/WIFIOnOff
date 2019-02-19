@@ -1,0 +1,3 @@
+[submodule "WiFiManager"]
+	path = src/WiFiManager
+	url = https://github.com/peastone/WiFiManager.git
