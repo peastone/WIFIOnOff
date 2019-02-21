@@ -52,6 +52,11 @@ addons:
 install:
   - pip install -U platformio
   - platformio update
+before_script:
+  - cd $TRAVIS_BUILD_DIR
+  - pwd
+  - chmod u+x src/patchVersionNumber.sh
+  - ./src/patchVersionNumber.sh
 script:
   - platformio ci --project-conf=platformio.ini src
 

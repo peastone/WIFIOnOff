@@ -38,6 +38,11 @@
 
 
 /**
+   @brief Version number - obtained by 'git describe'
+*/
+String VERSION = "DUMMY_VERSION_DUMMY";
+
+/**
    @brief Contains a link to the code repository which is embedded in the rendered HTML files in the function renderFooter().
 */
 String REPOSITORY_URL_STRING = "https://github.com/peastone/WIFIOnOff";
@@ -929,7 +934,9 @@ String renderMQTTServerSettings(String storedServerName, String failureMsg, bool
   <input type="submit" value="Change settings">
 </form>
 <p>)" + String(stateMQTTConnected ? "MQTT server / broker is connected" : "MQTT server / broker is disconnected") + R"(
-<p>)" + failureMsg;
+<p>)" + failureMsg + R"(
+<p>
+WIFIOnOff version: )" + VERSION;
 }
 
 /**
