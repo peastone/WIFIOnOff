@@ -55,12 +55,8 @@ install:
 before_script:
   - cd $TRAVIS_BUILD_DIR
   - pwd
-  - chmod u+x src/patchVersionNumber.sh
-  - ./src/patchVersionNumber.sh
 script:
-  - platformio ci --project-conf=platformio.ini src
+  - make
 
 after_success:
-  - cd $TRAVIS_BUILD_DIR
-  - chmod u+x doc/generateDocumentationAndDeploy.sh
-  - ./doc/generateDocumentationAndDeploy.sh
+  - make manual

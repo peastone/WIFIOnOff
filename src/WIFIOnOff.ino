@@ -35,13 +35,13 @@
 #include <EEPROM.h>
 #include <Ticker.h>
 #include <MQTTClient.h>
+#include "wifionoff_version.h"
 
 
 /**
    @brief Version number - obtained by 'git describe'
 */
-String VERSION = "DUMMY_VERSION_DUMMY";
-
+String VERSION = VERSION_BY_GIT_DESCRIBE;
 /**
    @brief Contains a link to the code repository which is embedded in the rendered HTML files in the function renderFooter().
 */
