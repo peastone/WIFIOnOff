@@ -316,6 +316,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ======== Markdown =========
 ---- input ------- 
 
+@brief Version number - obtained by 'git describe'
+
+---- output -----
+
+@brief Version number - obtained by 'git describe'
+
+=========
+======== Markdown =========
+---- input ------- 
+
 @brief Contains a link to the code repository which is embedded in the rendered HTML files in the function renderFooter().
 
 ---- output -----
@@ -2160,11 +2170,11 @@ Generating caller graph for function setMQTTServer
 Generating caller graph for function setStateMQTTConfigured
 Generating call graph for function setup
 Generating call graph for function setupEEPROM
-Generating caller graph for function setupEEPROM
+Generating caller grap/home/travis/build/peastone/WIFIOnOff/README.md:29: warning: unable to resolve reference to `https://github.com/ct-Open-Source/info-graphics/blob/master/LICENSE.md' for \ref command
+h for function setupEEPROM
 Generating call graph for function setupMDNS
 Generating caller graph for function setupMDNS
-Generating caller graph for function setUserActionFeedbackReque/home/travis/build/peastone/WIFIOnOff/README.md:29: warning: unable to resolve reference to `https://github.com/ct-Open-Source/info-graphics/blob/master/LICENSE.md' for \ref command
-st
+Generating caller graph for function setUserActionFeedbackRequest
 Generating call graph for function setWiFiConfigured
 Generating caller graph for function setWiFiConfigured
 Generating caller graph for function setWifiResetRequested
@@ -2388,5 +2398,5 @@ Running dot for graph 172/173
 Running dot for graph 173/173
 Patching output file 1/2
 Patching output file 2/2
-lookup cache used 113/65536 hits=270 misses=113
+lookup cache used 114/65536 hits=272 misses=114
 finished...
