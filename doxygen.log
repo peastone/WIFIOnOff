@@ -2050,6 +2050,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 @callgraph
 
 =========
+Preprocessing /home/travis/build/peastone/WIFIOnOff/src/wifionoff_version.h...
+Parsing file /home/travis/build/peastone/WIFIOnOff/src/wifionoff_version.h...
+======== Markdown =========
+---- input ------- 
+
+@brief Version number - obtained by 'git describe'
+
+---- output -----
+
+@brief Version number - obtained by 'git describe'
+
+=========
 Building group list...
 Building directory list...
 Building namespace list...
@@ -2104,6 +2116,7 @@ Generating file sources...
 Parsing code for file /home/travis/build/peastone/WIFIOnOff/README.md...
 Parsing code for file /home/travis/build/peastone/WIFIOnOff/RequirementsAndDesign.md...
 Parsing code for file /home/travis/build/peastone/WIFIOnOff/src/WIFIOnOff.ino...
+Generating code for file /home/travis/build/peastone/WIFIOnOff/src/wifionoff_version.h...
 Generating file documentation...
 Generating docs for file /home/travis/build/peastone/WIFIOnOff/README.md...
 Generating docs for file /home/travis/build/peastone/WIFIOnOff/RequirementsAndDesign.md...
@@ -2162,7 +2175,8 @@ Generating call graph for function restoreMQTTConfigurationFromEEPROM
 Generating caller graph for function restoreMQTTConfigurationFromEEPROM
 Generating caller graph for function retrieveCRC
 Generating call graph for function saveMQTTConfigurationToEEPROM
-Generating caller graph for function saveMQTTConfigurationToEEPROM
+Generating caller graph for function /home/travis/build/peastone/WIFIOnOff/README.md:29: warning: unable to resolve reference to `https://github.com/ct-Open-Source/info-graphics/blob/master/LICENSE.md' for \ref command
+saveMQTTConfigurationToEEPROM
 Generating caller graph for function setFactoryResetRequested
 Generating caller graph for function setMQTTIncomingTopic
 Generating caller graph for function setMQTTOutgoingTopic
@@ -2170,8 +2184,7 @@ Generating caller graph for function setMQTTServer
 Generating caller graph for function setStateMQTTConfigured
 Generating call graph for function setup
 Generating call graph for function setupEEPROM
-Generating caller grap/home/travis/build/peastone/WIFIOnOff/README.md:29: warning: unable to resolve reference to `https://github.com/ct-Open-Source/info-graphics/blob/master/LICENSE.md' for \ref command
-h for function setupEEPROM
+Generating caller graph for function setupEEPROM
 Generating call graph for function setupMDNS
 Generating caller graph for function setupMDNS
 Generating caller graph for function setUserActionFeedbackRequest
@@ -2194,6 +2207,7 @@ Generating call graph for function unsetWiFiConfigured
 Generating caller graph for function unsetWiFiConfigured
 Generating caller graph for function unsetWifiResetRequested
 Generating caller graph for function unsetWPSRequest
+Generating docs for file /home/travis/build/peastone/WIFIOnOff/src/wifionoff_version.h...
 Generating page documentation...
 Generating docs for page md__home_travis_build_peastone_WIFIOnOff_README...
 Generating docs for page md__home_travis_build_peastone_WIFIOnOff_RequirementsAndDesign...
@@ -2223,180 +2237,184 @@ Generating PlantUML png Files in html
 Generating PlantUML eps Files in latex
 Running dot...
 Generating dot graphs using 3 parallel threads...
-Running dot for graph 1/173
-Running dot for graph 2/173
-Running dot for graph 3/173
-Running dot for graph 4/173
-Running dot for graph 5/173
-Running dot for graph 6/173
-Running dot for graph 7/173
-Running dot for graph 8/173
-Running dot for graph 9/173
-Running dot for graph 10/173
-Running dot for graph 11/173
-Running dot for graph 12/173
-Running dot for graph 13/173
-Running dot for graph 14/173
-Running dot for graph 15/173
-Running dot for graph 16/173
-Running dot for graph 17/173
-Running dot for graph 18/173
-Running dot for graph 19/173
-Running dot for graph 20/173
-Running dot for graph 21/173
-Running dot for graph 22/173
-Running dot for graph 23/173
-Running dot for graph 24/173
-Running dot for graph 25/173
-Running dot for graph 26/173
-Running dot for graph 27/173
-Running dot for graph 28/173
-Running dot for graph 29/173
-Running dot for graph 30/173
-Running dot for graph 31/173
-Running dot for graph 32/173
-Running dot for graph 33/173
-Running dot for graph 34/173
-Running dot for graph 35/173
-Running dot for graph 36/173
-Running dot for graph 37/173
-Running dot for graph 38/173
-Running dot for graph 39/173
-Running dot for graph 40/173
-Running dot for graph 41/173
-Running dot for graph 42/173
-Running dot for graph 43/173
-Running dot for graph 44/173
-Running dot for graph 45/173
-Running dot for graph 46/173
-Running dot for graph 47/173
-Running dot for graph 48/173
-Running dot for graph 49/173
-Running dot for graph 50/173
-Running dot for graph 51/173
-Running dot for graph 52/173
-Running dot for graph 53/173
-Running dot for graph 54/173
-Running dot for graph 55/173
-Running dot for graph 56/173
-Running dot for graph 57/173
-Running dot for graph 58/173
-Running dot for graph 59/173
-Running dot for graph 60/173
-Running dot for graph 61/173
-Running dot for graph 62/173
-Running dot for graph 63/173
-Running dot for graph 64/173
-Running dot for graph 65/173
-Running dot for graph 66/173
-Running dot for graph 67/173
-Running dot for graph 68/173
-Running dot for graph 69/173
-Running dot for graph 70/173
-Running dot for graph 71/173
-Running dot for graph 72/173
-Running dot for graph 73/173
-Running dot for graph 74/173
-Running dot for graph 75/173
-Running dot for graph 76/173
-Running dot for graph 77/173
-Running dot for graph 78/173
-Running dot for graph 79/173
-Running dot for graph 80/173
-Running dot for graph 81/173
-Running dot for graph 82/173
-Running dot for graph 83/173
-Running dot for graph 84/173
-Running dot for graph 85/173
-Running dot for graph 86/173
-Running dot for graph 87/173
-Running dot for graph 88/173
-Running dot for graph 89/173
-Running dot for graph 90/173
-Running dot for graph 91/173
-Running dot for graph 92/173
-Running dot for graph 93/173
-Running dot for graph 94/173
-Running dot for graph 95/173
-Running dot for graph 96/173
-Running dot for graph 97/173
-Running dot for graph 98/173
-Running dot for graph 99/173
-Running dot for graph 100/173
-Running dot for graph 101/173
-Running dot for graph 102/173
-Running dot for graph 103/173
-Running dot for graph 104/173
-Running dot for graph 105/173
-Running dot for graph 106/173
-Running dot for graph 107/173
-Running dot for graph 108/173
-Running dot for graph 109/173
-Running dot for graph 110/173
-Running dot for graph 111/173
-Running dot for graph 112/173
-Running dot for graph 113/173
-Running dot for graph 114/173
-Running dot for graph 115/173
-Running dot for graph 116/173
-Running dot for graph 117/173
-Running dot for graph 118/173
-Running dot for graph 119/173
-Running dot for graph 120/173
-Running dot for graph 121/173
-Running dot for graph 122/173
-Running dot for graph 123/173
-Running dot for graph 124/173
-Running dot for graph 125/173
-Running dot for graph 126/173
-Running dot for graph 127/173
-Running dot for graph 128/173
-Running dot for graph 129/173
-Running dot for graph 130/173
-Running dot for graph 131/173
-Running dot for graph 132/173
-Running dot for graph 133/173
-Running dot for graph 134/173
-Running dot for graph 135/173
-Running dot for graph 136/173
-Running dot for graph 137/173
-Running dot for graph 138/173
-Running dot for graph 139/173
-Running dot for graph 140/173
-Running dot for graph 141/173
-Running dot for graph 142/173
-Running dot for graph 143/173
-Running dot for graph 144/173
-Running dot for graph 145/173
-Running dot for graph 146/173
-Running dot for graph 147/173
-Running dot for graph 148/173
-Running dot for graph 149/173
-Running dot for graph 150/173
-Running dot for graph 151/173
-Running dot for graph 152/173
-Running dot for graph 153/173
-Running dot for graph 154/173
-Running dot for graph 155/173
-Running dot for graph 156/173
-Running dot for graph 157/173
-Running dot for graph 158/173
-Running dot for graph 159/173
-Running dot for graph 160/173
-Running dot for graph 161/173
-Running dot for graph 162/173
-Running dot for graph 163/173
-Running dot for graph 164/173
-Running dot for graph 165/173
-Running dot for graph 166/173
-Running dot for graph 167/173
-Running dot for graph 168/173
-Running dot for graph 169/173
-Running dot for graph 170/173
-Running dot for graph 171/173
-Running dot for graph 172/173
-Running dot for graph 173/173
-Patching output file 1/2
-Patching output file 2/2
-lookup cache used 114/65536 hits=272 misses=114
+Running dot for graph 1/175
+Running dot for graph 2/175
+Running dot for graph 3/175
+Running dot for graph 4/175
+Running dot for graph 5/175
+Running dot for graph 6/175
+Running dot for graph 7/175
+Running dot for graph 8/175
+Running dot for graph 9/175
+Running dot for graph 10/175
+Running dot for graph 11/175
+Running dot for graph 12/175
+Running dot for graph 13/175
+Running dot for graph 14/175
+Running dot for graph 15/175
+Running dot for graph 16/175
+Running dot for graph 17/175
+Running dot for graph 18/175
+Running dot for graph 19/175
+Running dot for graph 20/175
+Running dot for graph 21/175
+Running dot for graph 22/175
+Running dot for graph 23/175
+Running dot for graph 24/175
+Running dot for graph 25/175
+Running dot for graph 26/175
+Running dot for graph 27/175
+Running dot for graph 28/175
+Running dot for graph 29/175
+Running dot for graph 30/175
+Running dot for graph 31/175
+Running dot for graph 32/175
+Running dot for graph 33/175
+Running dot for graph 34/175
+Running dot for graph 35/175
+Running dot for graph 36/175
+Running dot for graph 37/175
+Running dot for graph 38/175
+Running dot for graph 39/175
+Running dot for graph 40/175
+Running dot for graph 41/175
+Running dot for graph 42/175
+Running dot for graph 43/175
+Running dot for graph 44/175
+Running dot for graph 45/175
+Running dot for graph 46/175
+Running dot for graph 47/175
+Running dot for graph 48/175
+Running dot for graph 49/175
+Running dot for graph 50/175
+Running dot for graph 51/175
+Running dot for graph 52/175
+Running dot for graph 53/175
+Running dot for graph 54/175
+Running dot for graph 55/175
+Running dot for graph 56/175
+Running dot for graph 57/175
+Running dot for graph 58/175
+Running dot for graph 59/175
+Running dot for graph 60/175
+Running dot for graph 61/175
+Running dot for graph 62/175
+Running dot for graph 63/175
+Running dot for graph 64/175
+Running dot for graph 65/175
+Running dot for graph 66/175
+Running dot for graph 67/175
+Running dot for graph 68/175
+Running dot for graph 69/175
+Running dot for graph 70/175
+Running dot for graph 71/175
+Running dot for graph 72/175
+Running dot for graph 73/175
+Running dot for graph 74/175
+Running dot for graph 75/175
+Running dot for graph 76/175
+Running dot for graph 77/175
+Running dot for graph 78/175
+Running dot for graph 79/175
+Running dot for graph 80/175
+Running dot for graph 81/175
+Running dot for graph 82/175
+Running dot for graph 83/175
+Running dot for graph 84/175
+Running dot for graph 85/175
+Running dot for graph 86/175
+Running dot for graph 87/175
+Running dot for graph 88/175
+Running dot for graph 89/175
+Running dot for graph 90/175
+Running dot for graph 91/175
+Running dot for graph 92/175
+Running dot for graph 93/175
+Running dot for graph 94/175
+Running dot for graph 95/175
+Running dot for graph 96/175
+Running dot for graph 97/175
+Running dot for graph 98/175
+Running dot for graph 99/175
+Running dot for graph 100/175
+Running dot for graph 101/175
+Running dot for graph 102/175
+Running dot for graph 103/175
+Running dot for graph 104/175
+Running dot for graph 105/175
+Running dot for graph 106/175
+Running dot for graph 107/175
+Running dot for graph 108/175
+Running dot for graph 109/175
+Running dot for graph 110/175
+Running dot for graph 111/175
+Running dot for graph 112/175
+Running dot for graph 113/175
+Running dot for graph 114/175
+Running dot for graph 115/175
+Running dot for graph 116/175
+Running dot for graph 117/175
+Running dot for graph 118/175
+Running dot for graph 119/175
+Running dot for graph 120/175
+Running dot for graph 121/175
+Running dot for graph 122/175
+Running dot for graph 123/175
+Running dot for graph 124/175
+Running dot for graph 125/175
+Running dot for graph 126/175
+Running dot for graph 127/175
+Running dot for graph 128/175
+Running dot for graph 129/175
+Running dot for graph 130/175
+Running dot for graph 131/175
+Running dot for graph 132/175
+Running dot for graph 133/175
+Running dot for graph 134/175
+Running dot for graph 135/175
+Running dot for graph 136/175
+Running dot for graph 137/175
+Running dot for graph 138/175
+Running dot for graph 139/175
+Running dot for graph 140/175
+Running dot for graph 141/175
+Running dot for graph 142/175
+Running dot for graph 143/175
+Running dot for graph 144/175
+Running dot for graph 145/175
+Running dot for graph 146/175
+Running dot for graph 147/175
+Running dot for graph 148/175
+Running dot for graph 149/175
+Running dot for graph 150/175
+Running dot for graph 151/175
+Running dot for graph 152/175
+Running dot for graph 153/175
+Running dot for graph 154/175
+Running dot for graph 155/175
+Running dot for graph 156/175
+Running dot for graph 157/175
+Running dot for graph 158/175
+Running dot for graph 159/175
+Running dot for graph 160/175
+Running dot for graph 161/175
+Running dot for graph 162/175
+Running dot for graph 163/175
+Running dot for graph 164/175
+Running dot for graph 165/175
+Running dot for graph 166/175
+Running dot for graph 167/175
+Running dot for graph 168/175
+Running dot for graph 169/175
+Running dot for graph 170/175
+Running dot for graph 171/175
+Running dot for graph 172/175
+Running dot for graph 173/175
+Running dot for graph 174/175
+Running dot for graph 175/175
+Patching output file 1/4
+Patching output file 2/4
+Patching output file 3/4
+Patching output file 4/4
+lookup cache used 115/65536 hits=275 misses=115
 finished...
