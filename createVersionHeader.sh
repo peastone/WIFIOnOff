@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=`git describe`
+VERSION=`git describe --broken`
 cat > src/wifionoff_version.h <<EOL
 #ifndef WIFIONOFF_VERSION_H
 #define WIFIONOFF_VERSION_H
