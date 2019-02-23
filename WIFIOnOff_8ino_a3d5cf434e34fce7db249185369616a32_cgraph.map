@@ -1,14 +1,12 @@
 <map id="setupEEPROM" name="setupEEPROM">
-<area shape="rect" id="node1" title="This function is setting up the EEPROM. If the CRC check fails, the EEPROM will be overwritten with i..." alt="" coords="5,106,117,133"/>
-<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#aeeada0076ef68a04f4794f91e727ae5a" title="This function calculates the CRC value for the bytes stored in the EEPROM with the help of function c..." alt="" coords="225,30,311,57"/>
-<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#afd23421ffd3823e5dafd4205f499fd2c" title="This function checks the EEPROM_version_number stored in EEPROM against the version number required b..." alt="" coords="165,81,371,107"/>
-<area shape="rect" id="node6" href="$WIFIOnOff_8ino.html#accde2e704135909387a34453e0dc1293" title="This function writes default data (EEPROM_init_value) to EEPROM and stores CRC and the EEPROM_version..." alt="" coords="219,131,317,158"/>
-<area shape="rect" id="node9" href="$WIFIOnOff_8ino.html#af43969e915aec75ff3f318d585e0606a" title="This function is called to give the user feedback that the EEPROM has been re&#45;/initialized...." alt="" coords="193,207,343,234"/>
-<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a16ef77fe42b6e5a700dd2445f0aaa24f" title="This function calculates a CRC checksum for the EEPROM. It is taken from: https://www...." alt="" coords="667,55,765,82"/>
-<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a80ac0ebe45e95ee7e439f2aeea333124" title="This function reads the CRC value stored at EEPROM_address_CRC." alt="" coords="471,30,566,57"/>
-<area shape="rect" id="node7" href="$WIFIOnOff_8ino.html#a6e14ea51750122bd7a906b9dcf896c53" title="This function stores the EEPROM_version_number in EEPROM." alt="" coords="419,81,618,107"/>
-<area shape="rect" id="node8" href="$WIFIOnOff_8ino.html#a1dd9db8c49797d8536247d1fba49cfe7" title="This function calculates the CRC value of the values in the EEPROM with the help of function calculat..." alt="" coords="478,131,559,158"/>
-<area shape="rect" id="node10" href="$WIFIOnOff_8ino.html#af4164c2bb2661c7427bd66ecd2f8aace" title="This function is used to get the state of the LED. It returns stateLEDOn." alt="" coords="461,182,576,209"/>
-<area shape="rect" id="node11" href="$WIFIOnOff_8ino.html#a6a76f6c6d6e85f2215f0451b12f1db54" title="This function is used to switch the LED off. It keeps track of the internal state stateLEDOn." alt="" coords="467,233,571,259"/>
-<area shape="rect" id="node12" href="$WIFIOnOff_8ino.html#a46be1cdf6842e46fb3ba46a60f024aa0" title="This function is used to switch the LED on. It keeps track of the internal state stateLEDOn." alt="" coords="467,283,570,310"/>
+<area shape="rect" id="node1" title="This function is setting up the EEPROM. If the CRC check fails, the EEPROM will be overwritten with i..." alt="" coords="5,74,117,100"/>
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#aeeada0076ef68a04f4794f91e727ae5a" title="This function calculates the CRC value for the bytes stored in the EEPROM with the help of function c..." alt="" coords="225,23,311,50"/>
+<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#afd23421ffd3823e5dafd4205f499fd2c" title="This function checks the EEPROM_version_number stored in EEPROM against the version number required b..." alt="" coords="165,74,371,100"/>
+<area shape="rect" id="node6" href="$WIFIOnOff_8ino.html#accde2e704135909387a34453e0dc1293" title="This function writes default data (EEPROM_init_value) to EEPROM and stores CRC and the EEPROM_version..." alt="" coords="219,124,317,151"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a16ef77fe42b6e5a700dd2445f0aaa24f" title="This function calculates a CRC checksum for the EEPROM. It is taken from: https://www...." alt="" coords="800,36,899,63"/>
+<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a80ac0ebe45e95ee7e439f2aeea333124" title="This function reads the CRC value stored at EEPROM_address_CRC." alt="" coords="473,23,567,50"/>
+<area shape="rect" id="node7" href="$WIFIOnOff_8ino.html#a6e14ea51750122bd7a906b9dcf896c53" title="This function stores the EEPROM_version_number in EEPROM." alt="" coords="421,74,619,100"/>
+<area shape="rect" id="node8" href="$WIFIOnOff_8ino.html#a10b76a04e61ff607dc1bead199ef071f" title=" " alt="" coords="439,124,601,151"/>
+<area shape="rect" id="node9" href="$WIFIOnOff_8ino.html#a4be72f62b2bb370a594c648bd5d56f2d" title="Store OTA password in EEPROM." alt="" coords="419,175,621,202"/>
+<area shape="rect" id="node10" href="$WIFIOnOff_8ino.html#a1dd9db8c49797d8536247d1fba49cfe7" title="This function calculates the CRC value of the values in the EEPROM with the help of function calculat..." alt="" coords="670,99,751,126"/>
 </map>

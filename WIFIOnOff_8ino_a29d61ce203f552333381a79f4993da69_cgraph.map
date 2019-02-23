@@ -1,7 +1,0 @@
-<map id="feedbackWIFIisConnecting" name="feedbackWIFIisConnecting">
-<area shape="rect" id="node1" title="This function is called to give the user feedback that WIFI is about to connect. It will blink at a m..." alt="" coords="6,56,186,83"/>
-<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#aeaf97294d049f17c3eef4add9a4df1ec" title="This function is used to toggle the LED. Indirectly, it keeps track of the internal state stateLEDOn." alt="" coords="235,56,317,83"/>
-<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#af4164c2bb2661c7427bd66ecd2f8aace" title="This function is used to get the state of the LED. It returns stateLEDOn." alt="" coords="365,5,480,32"/>
-<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a6a76f6c6d6e85f2215f0451b12f1db54" title="This function is used to switch the LED off. It keeps track of the internal state stateLEDOn." alt="" coords="371,56,475,83"/>
-<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#a46be1cdf6842e46fb3ba46a60f024aa0" title="This function is used to switch the LED on. It keeps track of the internal state stateLEDOn." alt="" coords="371,107,474,133"/>
-</map>

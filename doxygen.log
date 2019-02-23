@@ -255,11 +255,11 @@ Parsing file /home/travis/build/peastone/WIFIOnOff/src/WIFIOnOff.ino...
 WIFIOnOFF is an alternative software for the Sonoff S20 which provides
 a web user interface (HTTP) and an internet of things interface (MQTT).
 The device can still be controlled by the normal user button.
-The connection to WiFi will be established by WPS for reasons of a
-better user experience. This device can be used in the local network
+The connection to WiFi will be established by WiFiManager.
+This device can be used in the local network
 without any dependency of a cloud.
 
-Copyright (C) 2018 Siegfried Schöfer
+Copyright (C) 2019 Siegfried Schöfer
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -286,11 +286,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 WIFIOnOFF is an alternative software for the Sonoff S20 which provides
 a web user interface (HTTP) and an internet of things interface (MQTT).
 The device can still be controlled by the normal user button.
-The connection to WiFi will be established by WPS for reasons of a
-better user experience. This device can be used in the local network
+The connection to WiFi will be established by WiFiManager.
+This device can be used in the local network
 without any dependency of a cloud.
 
-Copyright (C) 2018 Siegfried Schöfer
+Copyright (C) 2019 Siegfried Schöfer
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -379,42 +379,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 =========
 ======== Markdown =========
 ---- input ------- 
- 
-@brief Define the password to protect OTA with DEV_OTA_PASSWD. This is not a high security procedure.
-@todo Despite the fact that over-the-air (OTA) updates are not highly secure, it is highly recommended to change the password.
-      This is just a very bad default.
-@see https://media.readthedocs.org/pdf/arduino-esp8266/latest/arduino-esp8266.pdf
-
----- output -----
- 
-@brief Define the password to protect OTA with DEV_OTA_PASSWD. This is not a high security procedure.
-@todo Despite the fact that over-the-air (OTA) updates are not highly secure, it is highly recommended to change the password.
-      This is just a very bad default.
-@see https://media.readthedocs.org/pdf/arduino-esp8266/latest/arduino-esp8266.pdf
-
-=========
-======== Markdown =========
----- input ------- 
-
-@brief time in ms to wait until WPS request is triggered when pressing the button (see pressHandler())
-
----- output -----
-
-@brief time in ms to wait until WPS request is triggered when pressing the button (see pressHandler())
-
-=========
-======== Markdown =========
----- input ------- 
-
-@brief time in ms to wait until the WIFI configuration reset
-
----- output -----
-
-@brief time in ms to wait until the WIFI configuration reset
-
-=========
-======== Markdown =========
----- input ------- 
 
 @brief time in ms to wait until factory reset is triggered when pressing the button (see pressHandler())
 
@@ -481,6 +445,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ---- output -----
 
 @brief maximum amount of tries to connect to WIFI
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Global variable to store the Arduino OTA password.
+
+---- output -----
+
+@brief Global variable to store the Arduino OTA password.
 
 =========
 ======== Markdown =========
@@ -608,20 +582,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ======== Markdown =========
 ---- input ------- 
 
-@brief WPS is the only choice to connect to WIFI. This shall improve
-       usability. The state of WPS is stored in EEPROM at this address.
-       The value 0x00 was chosen as it terminates Strings, which leads to perfect default data.
-
----- output -----
-
-@brief WPS is the only choice to connect to WIFI. This shall improve
-       usability. The state of WPS is stored in EEPROM at this address.
-       The value 0x00 was chosen as it terminates Strings, which leads to perfect default data.
-
-=========
-======== Markdown =========
----- input ------- 
-
 @brief This flag is used to check whether @link mqttServer @endlink has already been
        initialized with the value of the MQTT-Server (DNS name or IP)
 
@@ -667,6 +627,26 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
        As a string is zero-terminated, one byte more is used.
        For more information, look at RFC 1035
        @see https://www.ietf.org/rfc/rfc1035.txt
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief The OTA password is stored here.
+
+---- output -----
+
+@brief The OTA password is stored here.
+
+=========
+======== Markdown =========
+---- input ------- 
+ 
+@brief Define length for OTA password.
+
+---- output -----
+ 
+@brief Define length for OTA password.
 
 =========
 ======== Markdown =========
@@ -894,22 +874,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ======== Markdown =========
 ---- input ------- 
 
-@brief This function is called to give the user feedback that the EEPROM has been re-/initialized.
-       This means that all the user-entered data is gone and the device needs to be reconfigured.
-@callergraph
-@callgraph
-
----- output -----
-
-@brief This function is called to give the user feedback that the EEPROM has been re-/initialized.
-       This means that all the user-entered data is gone and the device needs to be reconfigured.
-@callergraph
-@callgraph
-
-=========
-======== Markdown =========
----- input ------- 
-
 @brief This function is called to give the user feedback about the menu the user selected.
        It will blink fast for a short period of time. The user has the choice to release and select
        the menu or to wait for the next menu. By counting the feedbackQuickBlink()-events,
@@ -923,22 +887,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
        It will blink fast for a short period of time. The user has the choice to release and select
        the menu or to wait for the next menu. By counting the feedbackQuickBlink()-events,
        the user can determine which menu is selected, when the button is released now.
-@callergraph
-@callgraph
-
-=========
-======== Markdown =========
----- input ------- 
-
-@brief This function is called to give the user feedback that WIFI is about to connect.
-       It will blink at a medium rate.
-@callergraph
-@callgraph
-
----- output -----
-
-@brief This function is called to give the user feedback that WIFI is about to connect.
-       It will blink at a medium rate.
 @callergraph
 @callgraph
 
@@ -1010,82 +958,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ======== Markdown =========
 ---- input ------- 
 
-@brief This function checks whether WPS has already been performed
-       once. In this case, one can directly connect to WiFi.
-@returns true if WPS has already been performed, false otherwise
-@callergraph
-@callgraph
-
----- output -----
-
-@brief This function checks whether WPS has already been performed
-       once. In this case, one can directly connect to WiFi.
-@returns true if WPS has already been performed, false otherwise
-@callergraph
-@callgraph
-
-=========
-======== Markdown =========
----- input ------- 
-
-@brief This function is a setter function which sets WiFi to
-       configured, which means that WPS has already been
-       performed successfully. This function is only called in
-       performWPS().
-       The configuration is saved to EEPROM.
-@callergraph
-@callgraph
-
----- output -----
-
-@brief This function is a setter function which sets WiFi to
-       configured, which means that WPS has already been
-       performed successfully. This function is only called in
-       performWPS().
-       The configuration is saved to EEPROM.
-@callergraph
-@callgraph
-
-=========
-======== Markdown =========
----- input ------- 
-
-@brief This function is a setter function which sets WiFi to not
-       configured, which means that WPS is necessary before
-       connecting to WIFI.
-       The configuration is saved to EEPROM.
-@callergraph
-@callgraph
-
----- output -----
-
-@brief This function is a setter function which sets WiFi to not
-       configured, which means that WPS is necessary before
-       connecting to WIFI.
-       The configuration is saved to EEPROM.
-@callergraph
-@callgraph
-
-=========
-======== Markdown =========
----- input ------- 
-
-@brief This function is used to trigger WPS. If WPS has been
-       successful, setWiFiConfigured() is executed and unsetWPSRequest() is called.
-@callergraph
-@callgraph
-
----- output -----
-
-@brief This function is used to trigger WPS. If WPS has been
-       successful, setWiFiConfigured() is executed and unsetWPSRequest() is called.
-@callergraph
-@callgraph
-
-=========
-======== Markdown =========
----- input ------- 
-
 @brief This function returns the client name used for MQTT, see mqttConnect().
 @returns the client ID: "WIFIOnOff" + MAC address
 @callergraph
@@ -1101,18 +973,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 =========
 ======== Markdown =========
 ---- input ------- 
-
-@brief This function tries to connect to WIFI.
-@returns true, if the connection was successful, false otherwise.
-@callergraph
-@callgraph
+ 
+@brief Password to protect OTA updates. This password should be changed in WiFiManager.
+@see https://media.readthedocs.org/pdf/arduino-esp8266/latest/arduino-esp8266.pdf
 
 ---- output -----
-
-@brief This function tries to connect to WIFI.
-@returns true, if the connection was successful, false otherwise.
-@callergraph
-@callgraph
+ 
+@brief Password to protect OTA updates. This password should be changed in WiFiManager.
+@see https://media.readthedocs.org/pdf/arduino-esp8266/latest/arduino-esp8266.pdf
 
 =========
 ======== Markdown =========
@@ -1125,6 +993,38 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ---- output -----
 
 @brief This function sets up MDNS.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Global variable SSID for WiFi credentials change.
+
+---- output -----
+
+@brief Global variable SSID for WiFi credentials change.
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Global variable SSID for WiFi credentials change.
+
+---- output -----
+
+@brief Global variable SSID for WiFi credentials change.
+
+=========
+======== Markdown =========
+---- input ------- 
+ This function changes the WiFi credentials.
+@callergraph
+@callgraph
+
+---- output -----
+ This function changes the WiFi credentials.
 @callergraph
 @callgraph
 
@@ -1148,99 +1048,35 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ======== Markdown =========
 ---- input ------- 
 
-@brief State to track whether the WPS has been requested.
+@brief State to track whether a change of WiFi credentials has been requested.
 
 ---- output -----
 
-@brief State to track whether the WPS has been requested.
+@brief State to track whether a change of WiFi credentials has been requested.
 
 =========
 ======== Markdown =========
 ---- input ------- 
 
-@brief Getter function for @link wpsRequested @endlink.
-@returns true, if WPS has been requested, false otherwise.
+@brief Getter function for @link wifiCredentialChangeRequested @endlink.
+@returns true, if WiFiManager has been requested, false otherwise.
 
 ---- output -----
 
-@brief Getter function for @link wpsRequested @endlink.
-@returns true, if WPS has been requested, false otherwise.
+@brief Getter function for @link wifiCredentialChangeRequested @endlink.
+@returns true, if WiFiManager has been requested, false otherwise.
 
 =========
 ======== Markdown =========
 ---- input ------- 
 
-@brief Setter function to unset @link wpsRequested @endlink.
+@brief Setter function to set @link wifiCredentialChangeRequested @endlink.
 @callergraph
 @callgraph
 
 ---- output -----
 
-@brief Setter function to unset @link wpsRequested @endlink.
-@callergraph
-@callgraph
-
-=========
-======== Markdown =========
----- input ------- 
-
-@brief Setter function to set @link wpsRequested @endlink.
-@callergraph
-@callgraph
-
----- output -----
-
-@brief Setter function to set @link wpsRequested @endlink.
-@callergraph
-@callgraph
-
-=========
-======== Markdown =========
----- input ------- 
-
-@brief State to track whether the deletion of WIFI data has been requested.
-
----- output -----
-
-@brief State to track whether the deletion of WIFI data has been requested.
-
-=========
-======== Markdown =========
----- input ------- 
-
-@brief Getter function for @link wifiResetRequested @endlink.
-@returns true, if a deletion of WIFI data has been requested, false otherwise.
-
----- output -----
-
-@brief Getter function for @link wifiResetRequested @endlink.
-@returns true, if a deletion of WIFI data has been requested, false otherwise.
-
-=========
-======== Markdown =========
----- input ------- 
-
-@brief Setter function to set @link wifiResetRequested @endlink.
-@callergraph
-@callgraph
-
----- output -----
-
-@brief Setter function to set @link wifiResetRequested @endlink.
-@callergraph
-@callgraph
-
-=========
-======== Markdown =========
----- input ------- 
-
-@brief Setter function to unsset @link wifiResetRequested @endlink.
-@callergraph
-@callgraph
-
----- output -----
-
-@brief Setter function to unsset @link wifiResetRequested @endlink.
+@brief Setter function to set @link wifiCredentialChangeRequested @endlink.
 @callergraph
 @callgraph
 
@@ -1407,6 +1243,80 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 @param[in] stateMQTTConnected shows the user, whether MQTT is connected
 @returns HTML, look inside the function for more information.
 @see https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function returns the middle part of a HTML file to
+       - change the OTA password
+@param[in] infoMsg signal whether the change of the OTA password was successful or not
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function returns the middle part of a HTML file to
+       - change the OTA password
+@param[in] infoMsg signal whether the change of the OTA password was successful or not
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function returns the middle part of a HTML file to
+       - perform a factory reset
+@param[in] infoMsg signal whether the factory reset will be performed
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function returns the middle part of a HTML file to
+       - perform a factory reset
+@param[in] infoMsg signal whether the factory reset will be performed
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function returns the middle part of a HTML file to
+       - changeWiFiCredentials
+@param[in] infoMsg signal whether the change of WiFiCredentials will be performed.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function returns the middle part of a HTML file to
+       - changeWiFiCredentials
+@param[in] infoMsg signal whether the change of WiFiCredentials will be performed.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function returns the middle part of a HTML file to
+       - show the version of the WIFIOnOff
+       - show the default OTA PW
+@returns HTML, look inside the function for more information.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function returns the middle part of a HTML file to
+       - show the version of the WIFIOnOff
+       - show the default OTA PW
+@returns HTML, look inside the function for more information.
 @callergraph
 @callgraph
 
@@ -1824,6 +1734,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ======== Markdown =========
 ---- input ------- 
 
+@brief This object is a handle for the captive portal / WiFiManager.
+
+---- output -----
+
+@brief This object is a handle for the captive portal / WiFiManager.
+
+=========
+======== Markdown =========
+---- input ------- 
+
 @brief Perform factory reset
        - reset WiFi
        - reset MQTT
@@ -1839,6 +1759,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
        - reset EEPROM
 @callergraph
 @callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Perform a reboot.
+
+---- output -----
+
+@brief Perform a reboot.
 
 =========
 ======== Markdown =========
@@ -1873,20 +1803,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ---- output -----
 
 @brief Setter function to set @link factoryResetRequested @endlink.
-@callergraph
-@callgraph
-
-=========
-======== Markdown =========
----- input ------- 
-
-@brief Setter function to unset @link factoryResetRequested @endlink.
-@callergraph
-@callgraph
-
----- output -----
-
-@brief Setter function to unset @link factoryResetRequested @endlink.
 @callergraph
 @callgraph
 
@@ -1936,7 +1852,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 @brief This function triggers
        - the toggling of the relay
-       - WPS button method request
        - factory reset request.
        As this function is called regularly with @link ticker @endlink,
        it should be quick, otherwise the ESP8266 might crash.
@@ -1948,7 +1863,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 @brief This function triggers
        - the toggling of the relay
-       - WPS button method request
        - factory reset request.
        As this function is called regularly with @link ticker @endlink,
        it should be quick, otherwise the ESP8266 might crash.
@@ -1972,6 +1886,64 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ======== Markdown =========
 ---- input ------- 
 
+@brief Read back OTA password from EEPROM and store it
+       in global variable @link arduinoOtaPassword @endlink.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Read back OTA password from EEPROM and store it
+       in global variable @link arduinoOtaPassword @endlink.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief Store OTA password in EEPROM.
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief Store OTA password in EEPROM.
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is called when a connection has been established
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is called when a connection has been established
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
+@brief This function is called when WiFiManager is in config mode
+@callergraph
+@callgraph
+
+---- output -----
+
+@brief This function is called when WiFiManager is in config mode
+@callergraph
+@callgraph
+
+=========
+======== Markdown =========
+---- input ------- 
+
 @brief This function is executed once at the startup of the microcontroller.
        - The serial communication is setup with 115200 bauds. It is usefull for debugging or just information.
        - The output pins are configured.
@@ -2008,44 +1980,39 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 @brief This function is executed in a loop after setup(void) has been called.
 
-       At first it checks for incoming user requests:
-       - to perform WPS (performWPS())
-       - to delete the WiFi configuration (unsetWiFiConfigured())
-       - to perform a factory reset (performFactoryReset())
+At first it checks for incoming user requests:
+- to change WiFi credentials
+- to perform a factory reset
 
-       It is also checked for requests to inform the user about actions
-       with the LED. These requests are triggered programmatically.
+It is also checked for requests to inform the user about actions
+with the LED. These requests are triggered programmatically.
 
-       After all requests are handled, it is cyclically checked that WPS has been
-       performed and that the WiFi is connected.
-       If WPS has not been done or WiFi is not connected,
-       it does not make any sense to check for HTTP, ArduinoOTA or MQTT.
-       For MQTT to be checked, it is also required, that it was enabled by the user.
+After all requests are handled, it is cyclically checked that that the WiFi is connected.
+If WiFi is not connected, it does not make any sense to check for HTTP, ArduinoOTA or MQTT.
+For MQTT to be checked, it is also required, that it was enabled by the user.
 
-       If MQTT is not connected, try to connect, otherwise handle MQTT.
+If MQTT is not connected, try to connect, otherwise handle MQTT.
+
 @callergraph
 @callgraph
 
 ---- output -----
 
 @brief This function is executed in a loop after setup(void) has been called.
-@verbatim
-   At first it checks for incoming user requests:
-   - to perform WPS (performWPS())
-   - to delete the WiFi configuration (unsetWiFiConfigured())
-   - to perform a factory reset (performFactoryReset())
 
-   It is also checked for requests to inform the user about actions
-   with the LED. These requests are triggered programmatically.
+At first it checks for incoming user requests:
+- to change WiFi credentials
+- to perform a factory reset
 
-   After all requests are handled, it is cyclically checked that WPS has been
-   performed and that the WiFi is connected.
-   If WPS has not been done or WiFi is not connected,
-   it does not make any sense to check for HTTP, ArduinoOTA or MQTT.
-   For MQTT to be checked, it is also required, that it was enabled by the user.
+It is also checked for requests to inform the user about actions
+with the LED. These requests are triggered programmatically.
 
-   If MQTT is not connected, try to connect, otherwise handle MQTT.
-@endverbatim
+After all requests are handled, it is cyclically checked that that the WiFi is connected.
+If WiFi is not connected, it does not make any sense to check for HTTP, ArduinoOTA or MQTT.
+For MQTT to be checked, it is also required, that it was enabled by the user.
+
+If MQTT is not connected, try to connect, otherwise handle MQTT.
+
 @callergraph
 @callgraph
 
@@ -2122,11 +2089,16 @@ Generating docs for file /home/travis/build/peastone/WIFIOnOff/README.md...
 Generating docs for file /home/travis/build/peastone/WIFIOnOff/RequirementsAndDesign.md...
 Generating docs for file /home/travis/build/peastone/WIFIOnOff/src/WIFIOnOff.ino...
 Generating caller graph for function calculate_crc
+Generating call graph for function callbackConfigMode
+Generating caller graph for function callbackConfigMode
+Generating call graph for function callbackConfigSuccessful
+Generating caller graph for function callbackConfigSuccessful
+Generating call graph for function changeWiFiCredentials
+Generating caller graph for function changeWiFiCredentials
 Generating call graph for function checkCRC
 Generating caller graph for function checkCRC
 Generating caller graph for function checkEEPROMVersionNumber
 Generating caller graph for function checkMQTTConnected
-Generating caller graph for function checkWiFiConfigured
 Generating caller graph for function checkWiFiConnected
 Generating call graph for function configureMQTT
 Generating caller graph for function configureMQTT
@@ -2135,16 +2107,11 @@ Generating call graph for function configureWebServer
 Generating caller graph for function configureWebServer
 Generating call graph for function connectRelay
 Generating caller graph for function connectRelay
-Generating call graph for function connectToWiFi
-Generating caller graph for function connectToWiFi
 Generating call graph for function disconnectRelay
-Generating caller graph for function disconnectRelay
-Generating call graph for function feedbackEEPROMInit
-Generating caller graph for function feedbackEEPROMInit
+Generating/home/travis/build/peastone/WIFIOnOff/README.md:29: warning: unable to resolve reference to `https://github.com/ct-Open-Source/info-graphics/blob/master/LICENSE.md' for \ref command
+ caller graph for function disconnectRelay
 Generating call graph for function feedbackQuickBlink
 Generating caller graph for function feedbackQuickBlink
-Generating call graph for function feedbackWIFIisConnecting
-Generating caller graph for function feedbackWIFIisConnecting
 Generating caller graph for function getClientID
 Generating caller graph for function getMQTTOutgoingTopic
 Generating caller graph for function getMQTTServer
@@ -2166,17 +2133,18 @@ Generating call graph for function mqttServerValid
 Generating caller graph for function mqttServerValid
 Generating call graph for function performFactoryReset
 Generating caller graph for function performFactoryReset
-Generating call graph for function performWPS
-Generating caller graph for function performWPS
 Generating call graph for function pressHandler
 Generating caller graph for function pressHandler
 Generating caller graph for function renderHeader
+Generating call graph for function renderInfo
 Generating call graph for function restoreMQTTConfigurationFromEEPROM
 Generating caller graph for function restoreMQTTConfigurationFromEEPROM
+Generating caller graph for function restoreOtaPasswordFromEEPROM
 Generating caller graph for function retrieveCRC
 Generating call graph for function saveMQTTConfigurationToEEPROM
-Generating caller graph for function /home/travis/build/peastone/WIFIOnOff/README.md:29: warning: unable to resolve reference to `https://github.com/ct-Open-Source/info-graphics/blob/master/LICENSE.md' for \ref command
-saveMQTTConfigurationToEEPROM
+Generating caller graph for function saveMQTTConfigurationToEEPROM
+Generating call graph for function saveOtaPasswordToEEPROM
+Generating caller graph for function saveOtaPasswordToEEPROM
 Generating caller graph for function setFactoryResetRequested
 Generating caller graph for function setMQTTIncomingTopic
 Generating caller graph for function setMQTTOutgoingTopic
@@ -2188,10 +2156,7 @@ Generating caller graph for function setupEEPROM
 Generating call graph for function setupMDNS
 Generating caller graph for function setupMDNS
 Generating caller graph for function setUserActionFeedbackRequest
-Generating call graph for function setWiFiConfigured
-Generating caller graph for function setWiFiConfigured
-Generating caller graph for function setWifiResetRequested
-Generating caller graph for function setWPSRequest
+Generating caller graph for function setWiFiCredentialChangeRequested
 Generating call graph for function storeCRC
 Generating caller graph for function storeCRC
 Generating caller graph for function storeEEPROMVersionNumber
@@ -2201,17 +2166,11 @@ Generating call graph for function toggleLED
 Generating caller graph for function toggleLED
 Generating call graph for function toggleRelay
 Generating caller graph for function toggleRelay
-Generating caller graph for function unsetFactoryResetRequested
 Generating caller graph for function unsetUserActionFeedbackRequest
-Generating call graph for function unsetWiFiConfigured
-Generating caller graph for function unsetWiFiConfigured
-Generating caller graph for function unsetWifiResetRequested
-Generating caller graph for function unsetWPSRequest
 Generating docs for file /home/travis/build/peastone/WIFIOnOff/src/wifionoff_version.h...
 Generating page documentation...
 Generating docs for page md__home_travis_build_peastone_WIFIOnOff_README...
 Generating docs for page md__home_travis_build_peastone_WIFIOnOff_RequirementsAndDesign...
-Generating docs for page todo...
 Generating group documentation...
 Generating class documentation...
 Generating namespace index...
@@ -2237,184 +2196,170 @@ Generating PlantUML png Files in html
 Generating PlantUML eps Files in latex
 Running dot...
 Generating dot graphs using 3 parallel threads...
-Running dot for graph 1/175
-Running dot for graph 2/175
-Running dot for graph 3/175
-Running dot for graph 4/175
-Running dot for graph 5/175
-Running dot for graph 6/175
-Running dot for graph 7/175
-Running dot for graph 8/175
-Running dot for graph 9/175
-Running dot for graph 10/175
-Running dot for graph 11/175
-Running dot for graph 12/175
-Running dot for graph 13/175
-Running dot for graph 14/175
-Running dot for graph 15/175
-Running dot for graph 16/175
-Running dot for graph 17/175
-Running dot for graph 18/175
-Running dot for graph 19/175
-Running dot for graph 20/175
-Running dot for graph 21/175
-Running dot for graph 22/175
-Running dot for graph 23/175
-Running dot for graph 24/175
-Running dot for graph 25/175
-Running dot for graph 26/175
-Running dot for graph 27/175
-Running dot for graph 28/175
-Running dot for graph 29/175
-Running dot for graph 30/175
-Running dot for graph 31/175
-Running dot for graph 32/175
-Running dot for graph 33/175
-Running dot for graph 34/175
-Running dot for graph 35/175
-Running dot for graph 36/175
-Running dot for graph 37/175
-Running dot for graph 38/175
-Running dot for graph 39/175
-Running dot for graph 40/175
-Running dot for graph 41/175
-Running dot for graph 42/175
-Running dot for graph 43/175
-Running dot for graph 44/175
-Running dot for graph 45/175
-Running dot for graph 46/175
-Running dot for graph 47/175
-Running dot for graph 48/175
-Running dot for graph 49/175
-Running dot for graph 50/175
-Running dot for graph 51/175
-Running dot for graph 52/175
-Running dot for graph 53/175
-Running dot for graph 54/175
-Running dot for graph 55/175
-Running dot for graph 56/175
-Running dot for graph 57/175
-Running dot for graph 58/175
-Running dot for graph 59/175
-Running dot for graph 60/175
-Running dot for graph 61/175
-Running dot for graph 62/175
-Running dot for graph 63/175
-Running dot for graph 64/175
-Running dot for graph 65/175
-Running dot for graph 66/175
-Running dot for graph 67/175
-Running dot for graph 68/175
-Running dot for graph 69/175
-Running dot for graph 70/175
-Running dot for graph 71/175
-Running dot for graph 72/175
-Running dot for graph 73/175
-Running dot for graph 74/175
-Running dot for graph 75/175
-Running dot for graph 76/175
-Running dot for graph 77/175
-Running dot for graph 78/175
-Running dot for graph 79/175
-Running dot for graph 80/175
-Running dot for graph 81/175
-Running dot for graph 82/175
-Running dot for graph 83/175
-Running dot for graph 84/175
-Running dot for graph 85/175
-Running dot for graph 86/175
-Running dot for graph 87/175
-Running dot for graph 88/175
-Running dot for graph 89/175
-Running dot for graph 90/175
-Running dot for graph 91/175
-Running dot for graph 92/175
-Running dot for graph 93/175
-Running dot for graph 94/175
-Running dot for graph 95/175
-Running dot for graph 96/175
-Running dot for graph 97/175
-Running dot for graph 98/175
-Running dot for graph 99/175
-Running dot for graph 100/175
-Running dot for graph 101/175
-Running dot for graph 102/175
-Running dot for graph 103/175
-Running dot for graph 104/175
-Running dot for graph 105/175
-Running dot for graph 106/175
-Running dot for graph 107/175
-Running dot for graph 108/175
-Running dot for graph 109/175
-Running dot for graph 110/175
-Running dot for graph 111/175
-Running dot for graph 112/175
-Running dot for graph 113/175
-Running dot for graph 114/175
-Running dot for graph 115/175
-Running dot for graph 116/175
-Running dot for graph 117/175
-Running dot for graph 118/175
-Running dot for graph 119/175
-Running dot for graph 120/175
-Running dot for graph 121/175
-Running dot for graph 122/175
-Running dot for graph 123/175
-Running dot for graph 124/175
-Running dot for graph 125/175
-Running dot for graph 126/175
-Running dot for graph 127/175
-Running dot for graph 128/175
-Running dot for graph 129/175
-Running dot for graph 130/175
-Running dot for graph 131/175
-Running dot for graph 132/175
-Running dot for graph 133/175
-Running dot for graph 134/175
-Running dot for graph 135/175
-Running dot for graph 136/175
-Running dot for graph 137/175
-Running dot for graph 138/175
-Running dot for graph 139/175
-Running dot for graph 140/175
-Running dot for graph 141/175
-Running dot for graph 142/175
-Running dot for graph 143/175
-Running dot for graph 144/175
-Running dot for graph 145/175
-Running dot for graph 146/175
-Running dot for graph 147/175
-Running dot for graph 148/175
-Running dot for graph 149/175
-Running dot for graph 150/175
-Running dot for graph 151/175
-Running dot for graph 152/175
-Running dot for graph 153/175
-Running dot for graph 154/175
-Running dot for graph 155/175
-Running dot for graph 156/175
-Running dot for graph 157/175
-Running dot for graph 158/175
-Running dot for graph 159/175
-Running dot for graph 160/175
-Running dot for graph 161/175
-Running dot for graph 162/175
-Running dot for graph 163/175
-Running dot for graph 164/175
-Running dot for graph 165/175
-Running dot for graph 166/175
-Running dot for graph 167/175
-Running dot for graph 168/175
-Running dot for graph 169/175
-Running dot for graph 170/175
-Running dot for graph 171/175
-Running dot for graph 172/175
-Running dot for graph 173/175
-Running dot for graph 174/175
-Running dot for graph 175/175
+Running dot for graph 1/161
+Running dot for graph 2/161
+Running dot for graph 3/161
+Running dot for graph 4/161
+Running dot for graph 5/161
+Running dot for graph 6/161
+Running dot for graph 7/161
+Running dot for graph 8/161
+Running dot for graph 9/161
+Running dot for graph 10/161
+Running dot for graph 11/161
+Running dot for graph 12/161
+Running dot for graph 13/161
+Running dot for graph 14/161
+Running dot for graph 15/161
+Running dot for graph 16/161
+Running dot for graph 17/161
+Running dot for graph 18/161
+Running dot for graph 19/161
+Running dot for graph 20/161
+Running dot for graph 21/161
+Running dot for graph 22/161
+Running dot for graph 23/161
+Running dot for graph 24/161
+Running dot for graph 25/161
+Running dot for graph 26/161
+Running dot for graph 27/161
+Running dot for graph 28/161
+Running dot for graph 29/161
+Running dot for graph 30/161
+Running dot for graph 31/161
+Running dot for graph 32/161
+Running dot for graph 33/161
+Running dot for graph 34/161
+Running dot for graph 35/161
+Running dot for graph 36/161
+Running dot for graph 37/161
+Running dot for graph 38/161
+Running dot for graph 39/161
+Running dot for graph 40/161
+Running dot for graph 41/161
+Running dot for graph 42/161
+Running dot for graph 43/161
+Running dot for graph 44/161
+Running dot for graph 45/161
+Running dot for graph 46/161
+Running dot for graph 47/161
+Running dot for graph 48/161
+Running dot for graph 49/161
+Running dot for graph 50/161
+Running dot for graph 51/161
+Running dot for graph 52/161
+Running dot for graph 53/161
+Running dot for graph 54/161
+Running dot for graph 55/161
+Running dot for graph 56/161
+Running dot for graph 57/161
+Running dot for graph 58/161
+Running dot for graph 59/161
+Running dot for graph 60/161
+Running dot for graph 61/161
+Running dot for graph 62/161
+Running dot for graph 63/161
+Running dot for graph 64/161
+Running dot for graph 65/161
+Running dot for graph 66/161
+Running dot for graph 67/161
+Running dot for graph 68/161
+Running dot for graph 69/161
+Running dot for graph 70/161
+Running dot for graph 71/161
+Running dot for graph 72/161
+Running dot for graph 73/161
+Running dot for graph 74/161
+Running dot for graph 75/161
+Running dot for graph 76/161
+Running dot for graph 77/161
+Running dot for graph 78/161
+Running dot for graph 79/161
+Running dot for graph 80/161
+Running dot for graph 81/161
+Running dot for graph 82/161
+Running dot for graph 83/161
+Running dot for graph 84/161
+Running dot for graph 85/161
+Running dot for graph 86/161
+Running dot for graph 87/161
+Running dot for graph 88/161
+Running dot for graph 89/161
+Running dot for graph 90/161
+Running dot for graph 91/161
+Running dot for graph 92/161
+Running dot for graph 93/161
+Running dot for graph 94/161
+Running dot for graph 95/161
+Running dot for graph 96/161
+Running dot for graph 97/161
+Running dot for graph 98/161
+Running dot for graph 99/161
+Running dot for graph 100/161
+Running dot for graph 101/161
+Running dot for graph 102/161
+Running dot for graph 103/161
+Running dot for graph 104/161
+Running dot for graph 105/161
+Running dot for graph 106/161
+Running dot for graph 107/161
+Running dot for graph 108/161
+Running dot for graph 109/161
+Running dot for graph 110/161
+Running dot for graph 111/161
+Running dot for graph 112/161
+Running dot for graph 113/161
+Running dot for graph 114/161
+Running dot for graph 115/161
+Running dot for graph 116/161
+Running dot for graph 117/161
+Running dot for graph 118/161
+Running dot for graph 119/161
+Running dot for graph 120/161
+Running dot for graph 121/161
+Running dot for graph 122/161
+Running dot for graph 123/161
+Running dot for graph 124/161
+Running dot for graph 125/161
+Running dot for graph 126/161
+Running dot for graph 127/161
+Running dot for graph 128/161
+Running dot for graph 129/161
+Running dot for graph 130/161
+Running dot for graph 131/161
+Running dot for graph 132/161
+Running dot for graph 133/161
+Running dot for graph 134/161
+Running dot for graph 135/161
+Running dot for graph 136/161
+Running dot for graph 137/161
+Running dot for graph 138/161
+Running dot for graph 139/161
+Running dot for graph 140/161
+Running dot for graph 141/161
+Running dot for graph 142/161
+Running dot for graph 143/161
+Running dot for graph 144/161
+Running dot for graph 145/161
+Running dot for graph 146/161
+Running dot for graph 147/161
+Running dot for graph 148/161
+Running dot for graph 149/161
+Running dot for graph 150/161
+Running dot for graph 151/161
+Running dot for graph 152/161
+Running dot for graph 153/161
+Running dot for graph 154/161
+Running dot for graph 155/161
+Running dot for graph 156/161
+Running dot for graph 157/161
+Running dot for graph 158/161
+Running dot for graph 159/161
+Running dot for graph 160/161
+Running dot for graph 161/161
 Patching output file 1/4
 Patching output file 2/4
 Patching output file 3/4
 Patching output file 4/4
-lookup cache used 115/65536 hits=275 misses=115
+lookup cache used 116/65536 hits=286 misses=116
 finished...

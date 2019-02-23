@@ -1,0 +1,10 @@
+<map id="saveOtaPasswordToEEPROM" name="saveOtaPasswordToEEPROM">
+<area shape="rect" id="node1" title="Store OTA password in EEPROM." alt="" coords="525,107,728,133"/>
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#accde2e704135909387a34453e0dc1293" title="This function writes default data (EEPROM_init_value) to EEPROM and stores CRC and the EEPROM_version..." alt="" coords="342,56,439,83"/>
+<area shape="rect" id="node7" href="$WIFIOnOff_8ino.html#a50409543b7c4c4fb48e60ec35fbda3f3" title="This function is used configure the webserver. The webserver is configured by defining callback funct..." alt="" coords="113,107,253,133"/>
+<area shape="rect" id="node8" href="$WIFIOnOff_8ino.html#a0c53d37253de32414d3796cfa986ed4e" title="This function is called when a connection has been established." alt="" coords="304,157,477,184"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a3d5cf434e34fce7db249185369616a32" title="This function is setting up the EEPROM. If the CRC check fails, the EEPROM will be overwritten with i..." alt="" coords="127,56,239,83"/>
+<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#afec1c2962185272a8c87843f95d205ad" title="Perform factory reset." alt="" coords="110,5,255,32"/>
+<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a7dfd9b79bc5a37d7df40207afbc5431f" title="This function is executed once at the startup of the microcontroller." alt="" coords="6,107,61,133"/>
+<area shape="rect" id="node6" href="$WIFIOnOff_8ino.html#a0b33edabd7f1c4e4a0bf32c67269be2f" title="This function is executed in a loop after setup(void) has been called." alt="" coords="10,5,57,32"/>
+</map>

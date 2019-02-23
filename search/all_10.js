@@ -1,10 +1,11 @@
 var searchData=
 [
-  ['use_20case_20analysis',['Use Case Analysis',['../md__home_travis_build_peastone_WIFIOnOff_RequirementsAndDesign.html',1,'']]],
-  ['unsetfactoryresetrequested',['unsetFactoryResetRequested',['../WIFIOnOff_8ino.html#a1da84f44cf0a8afe3ad725de0cae4c19',1,'WIFIOnOff.ino']]],
-  ['unsetuseractionfeedbackrequest',['unsetUserActionFeedbackRequest',['../WIFIOnOff_8ino.html#a264a11820e774229a49bede19963f345',1,'WIFIOnOff.ino']]],
-  ['unsetwificonfigured',['unsetWiFiConfigured',['../WIFIOnOff_8ino.html#ac782bcb28cf6c4cf77d8a408fe02c2f9',1,'WIFIOnOff.ino']]],
-  ['unsetwifiresetrequested',['unsetWifiResetRequested',['../WIFIOnOff_8ino.html#a0e963d26058822266a054c999cf33ece',1,'WIFIOnOff.ino']]],
-  ['unsetwpsrequest',['unsetWPSRequest',['../WIFIOnOff_8ino.html#a86eebd69aeee5bbb5e648fc099b4b360',1,'WIFIOnOff.ino']]],
-  ['useractionfeedbackrequest',['userActionFeedbackRequest',['../WIFIOnOff_8ino.html#a3e5c7c27259449622535aee1125f275a',1,'WIFIOnOff.ino']]]
+  ['ticker',['ticker',['../WIFIOnOff_8ino.html#a4bb2542b2738619fdf76b685b10e315d',1,'WIFIOnOff.ino']]],
+  ['time_5feeprom_5fwarning',['TIME_EEPROM_WARNING',['../WIFIOnOff_8ino.html#ad32448a40ca9e5dc0a62149d0f08bd5f',1,'WIFIOnOff.ino']]],
+  ['time_5fhalf_5fa_5fsecond',['TIME_HALF_A_SECOND',['../WIFIOnOff_8ino.html#a87a8a26f2f6a9e14484ae0efabe91c99',1,'WIFIOnOff.ino']]],
+  ['time_5fquarter_5fsecond',['TIME_QUARTER_SECOND',['../WIFIOnOff_8ino.html#af01b3f2fe9f05e4ead3b1957d5402397',1,'WIFIOnOff.ino']]],
+  ['timesincebuttonpressed',['timeSincebuttonPressed',['../WIFIOnOff_8ino.html#a244ed52f592c09418e6feee15f1cecd5',1,'WIFIOnOff.ino']]],
+  ['toggleled',['toggleLED',['../WIFIOnOff_8ino.html#aeaf97294d049f17c3eef4add9a4df1ec',1,'WIFIOnOff.ino']]],
+  ['togglerelay',['toggleRelay',['../WIFIOnOff_8ino.html#a2d92a759a6fa273c581f3fa4243fa1d9',1,'WIFIOnOff.ino']]],
+  ['trigger_5ftime_5ffactory_5freset',['TRIGGER_TIME_FACTORY_RESET',['../WIFIOnOff_8ino.html#a1d71187e9e78d5bd8e38f8bd84edcfbd',1,'WIFIOnOff.ino']]]
 ];

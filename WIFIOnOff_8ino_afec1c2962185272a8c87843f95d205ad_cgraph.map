@@ -1,12 +1,12 @@
 <map id="performFactoryReset" name="performFactoryReset">
-<area shape="rect" id="node1" title="Perform factory reset." alt="" coords="6,107,151,133"/>
-<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#ac782bcb28cf6c4cf77d8a408fe02c2f9" title="This function is a setter function which sets WiFi to not configured, which means that WPS is necessa..." alt="" coords="227,5,371,32"/>
-<area shape="rect" id="node6" href="$WIFIOnOff_8ino.html#a104eb4efa9523edca8048af6e38d235f" title="Setter function for MQTT server / broker mqttServer." alt="" coords="241,56,356,83"/>
-<area shape="rect" id="node7" href="$WIFIOnOff_8ino.html#aad359baa91c446e57ccd6d77ebf49b5d" title="Setter function for stateMQTTConfigured." alt="" coords="213,107,384,133"/>
-<area shape="rect" id="node8" href="$WIFIOnOff_8ino.html#accde2e704135909387a34453e0dc1293" title="This function writes default data (EEPROM_init_value) to EEPROM and stores CRC and the EEPROM_version..." alt="" coords="250,157,347,184"/>
-<area shape="rect" id="node10" href="$WIFIOnOff_8ino.html#a1da84f44cf0a8afe3ad725de0cae4c19" title="Setter function to unset factoryResetRequested." alt="" coords="201,208,397,235"/>
-<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a1dd9db8c49797d8536247d1fba49cfe7" title="This function calculates the CRC value of the values in the EEPROM with the help of function calculat..." alt="" coords="505,81,586,108"/>
-<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#a0e963d26058822266a054c999cf33ece" title="Setter function to unsset wifiResetRequested." alt="" coords="458,5,633,32"/>
-<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a16ef77fe42b6e5a700dd2445f0aaa24f" title="This function calculates a CRC checksum for the EEPROM. It is taken from: https://www...." alt="" coords="693,81,792,108"/>
-<area shape="rect" id="node9" href="$WIFIOnOff_8ino.html#a6e14ea51750122bd7a906b9dcf896c53" title="This function stores the EEPROM_version_number in EEPROM." alt="" coords="446,157,645,184"/>
+<area shape="rect" id="node1" title="Perform factory reset." alt="" coords="6,81,151,108"/>
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#a104eb4efa9523edca8048af6e38d235f" title="Setter function for MQTT server / broker mqttServer." alt="" coords="228,5,343,32"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#aad359baa91c446e57ccd6d77ebf49b5d" title="Setter function for stateMQTTConfigured." alt="" coords="200,56,371,83"/>
+<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#accde2e704135909387a34453e0dc1293" title="This function writes default data (EEPROM_init_value) to EEPROM and stores CRC and the EEPROM_version..." alt="" coords="237,107,334,133"/>
+<area shape="rect" id="node10" href="$WIFIOnOff_8ino.html#ac0a43b99fdf8950fb14112fd963881c3" title="Perform a reboot." alt="" coords="256,157,315,184"/>
+<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#a6e14ea51750122bd7a906b9dcf896c53" title="This function stores the EEPROM_version_number in EEPROM." alt="" coords="421,56,619,83"/>
+<area shape="rect" id="node6" href="$WIFIOnOff_8ino.html#a10b76a04e61ff607dc1bead199ef071f" title=" " alt="" coords="439,107,601,133"/>
+<area shape="rect" id="node7" href="$WIFIOnOff_8ino.html#a4be72f62b2bb370a594c648bd5d56f2d" title="Store OTA password in EEPROM." alt="" coords="419,157,621,184"/>
+<area shape="rect" id="node8" href="$WIFIOnOff_8ino.html#a1dd9db8c49797d8536247d1fba49cfe7" title="This function calculates the CRC value of the values in the EEPROM with the help of function calculat..." alt="" coords="670,157,751,184"/>
+<area shape="rect" id="node9" href="$WIFIOnOff_8ino.html#a16ef77fe42b6e5a700dd2445f0aaa24f" title="This function calculates a CRC checksum for the EEPROM. It is taken from: https://www...." alt="" coords="800,157,899,184"/>
 </map>

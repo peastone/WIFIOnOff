@@ -1,0 +1,7 @@
+<map id="callbackConfigSuccessful" name="callbackConfigSuccessful">
+<area shape="rect" id="node1" title="This function is called when a connection has been established." alt="" coords="5,31,179,57"/>
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#aec12d3159a3f3846d76a259939ecfc80" title="Password to protect OTA updates. This password should be changed in WiFiManager." alt="" coords="259,5,397,32"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a4be72f62b2bb370a594c648bd5d56f2d" title="Store OTA password in EEPROM." alt="" coords="227,56,429,83"/>
+<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a1dd9db8c49797d8536247d1fba49cfe7" title="This function calculates the CRC value of the values in the EEPROM with the help of function calculat..." alt="" coords="478,56,559,83"/>
+<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#a16ef77fe42b6e5a700dd2445f0aaa24f" title="This function calculates a CRC checksum for the EEPROM. It is taken from: https://www...." alt="" coords="608,56,707,83"/>
+</map>

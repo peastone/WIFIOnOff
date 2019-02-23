@@ -1,9 +1,5 @@
 <map id="toggleLED" name="toggleLED">
-<area shape="rect" id="node1" title="This function is used to toggle the LED. Indirectly, it keeps track of the internal state stateLEDOn." alt="" coords="664,31,747,57"/>
-<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#aed631ac5d7f4338966a6a187e1057258" title="This function is called to give the user feedback about the menu the user selected...." alt="" coords="248,5,387,32"/>
-<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#a29d61ce203f552333381a79f4993da69" title="This function is called to give the user feedback that WIFI is about to connect. It will blink at a m..." alt="" coords="435,56,615,83"/>
-<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a0b33edabd7f1c4e4a0bf32c67269be2f" title="This function is executed in a loop after setup(void) has been called." alt="" coords="6,31,53,57"/>
-<area shape="rect" id="node5" href="$WIFIOnOff_8ino.html#a31eed9b3718a60b96c1fea76590a3fc5" title="This function tries to connect to WIFI." alt="" coords="262,56,373,83"/>
-<area shape="rect" id="node6" href="$WIFIOnOff_8ino.html#aa51eb2a71952e54dba6130be21b3a1d7" title="This function is used to trigger WPS. If WPS has been successful, setWiFiConfigured() is executed and..." alt="" coords="102,56,199,83"/>
-<area shape="rect" id="node7" href="$WIFIOnOff_8ino.html#a7dfd9b79bc5a37d7df40207afbc5431f" title="This function is executed once at the startup of the microcontroller." alt="" coords="123,107,178,133"/>
+<area shape="rect" id="node1" title="This function is used to toggle the LED. Indirectly, it keeps track of the internal state stateLEDOn." alt="" coords="288,5,371,32"/>
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#aed631ac5d7f4338966a6a187e1057258" title="This function is called to give the user feedback about the menu the user selected...." alt="" coords="101,5,240,32"/>
+<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a0b33edabd7f1c4e4a0bf32c67269be2f" title="This function is executed in a loop after setup(void) has been called." alt="" coords="6,5,53,32"/>
 </map>

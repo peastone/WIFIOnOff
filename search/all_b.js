@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['output_5frelay_5fstate_5fon_5fgreen_5fstatus_5fled',['OUTPUT_RELAY_STATE_ON_GREEN_STATUS_LED',['../WIFIOnOff_8ino.html#a05aa5fbe8a67eecb3e1d318cc590b4f9',1,'WIFIOnOff.ino']]]
+  ['numeric_5fresponse',['NUMERIC_RESPONSE',['../WIFIOnOff_8ino.html#a59912dabf54ca43542cdc292e80d5742',1,'WIFIOnOff.ino']]]
 ];

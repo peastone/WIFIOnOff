@@ -1,5 +1,0 @@
-<map id="setWiFiConfigured" name="setWiFiConfigured">
-<area shape="rect" id="node1" title="This function is a setter function which sets WiFi to configured, which means that WPS has already be..." alt="" coords="5,5,136,32"/>
-<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#a1dd9db8c49797d8536247d1fba49cfe7" title="This function calculates the CRC value of the values in the EEPROM with the help of function calculat..." alt="" coords="185,5,266,32"/>
-<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a16ef77fe42b6e5a700dd2445f0aaa24f" title="This function calculates a CRC checksum for the EEPROM. It is taken from: https://www...." alt="" coords="315,5,413,32"/>
-</map>

@@ -1,0 +1,4 @@
+<map id="callbackConfigMode" name="callbackConfigMode">
+<area shape="rect" id="node1" title="This function is called when WiFiManager is in config mode." alt="" coords="6,5,146,32"/>
+<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#a46be1cdf6842e46fb3ba46a60f024aa0" title="This function is used to switch the LED on. It keeps track of the internal state stateLEDOn." alt="" coords="195,5,298,32"/>
+</map>

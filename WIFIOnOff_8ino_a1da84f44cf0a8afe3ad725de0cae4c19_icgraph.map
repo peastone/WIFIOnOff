@@ -1,5 +1,0 @@
-<map id="unsetFactoryResetRequested" name="unsetFactoryResetRequested">
-<area shape="rect" id="node1" title="Setter function to unset factoryResetRequested." alt="" coords="297,5,493,32"/>
-<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#afec1c2962185272a8c87843f95d205ad" title="Perform factory reset." alt="" coords="102,5,247,32"/>
-<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a0b33edabd7f1c4e4a0bf32c67269be2f" title="This function is executed in a loop after setup(void) has been called." alt="" coords="6,5,53,32"/>
-</map>

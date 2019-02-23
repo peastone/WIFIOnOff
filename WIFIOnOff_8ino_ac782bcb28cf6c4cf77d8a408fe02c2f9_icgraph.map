@@ -1,6 +1,0 @@
-<map id="unsetWiFiConfigured" name="unsetWiFiConfigured">
-<area shape="rect" id="node1" title="This function is a setter function which sets WiFi to not configured, which means that WPS is necessa..." alt="" coords="296,56,440,83"/>
-<area shape="rect" id="node2" href="$WIFIOnOff_8ino.html#aa51eb2a71952e54dba6130be21b3a1d7" title="This function is used to trigger WPS. If WPS has been successful, setWiFiConfigured() is executed and..." alt="" coords="126,5,223,32"/>
-<area shape="rect" id="node3" href="$WIFIOnOff_8ino.html#a0b33edabd7f1c4e4a0bf32c67269be2f" title="This function is executed in a loop after setup(void) has been called." alt="" coords="6,56,53,83"/>
-<area shape="rect" id="node4" href="$WIFIOnOff_8ino.html#afec1c2962185272a8c87843f95d205ad" title="Perform factory reset." alt="" coords="102,107,247,133"/>
-</map>
