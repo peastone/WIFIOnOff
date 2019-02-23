@@ -2,11 +2,11 @@
     WIFIOnOFF is an alternative software for the Sonoff S20 which provides
     a web user interface (HTTP) and an internet of things interface (MQTT).
     The device can still be controlled by the normal user button.
-    The connection to WiFi will be established by WPS for reasons of a
-    better user experience. This device can be used in the local network
+    The connection to WiFi will be established by WiFiManager.
+    This device can be used in the local network
     without any dependency of a cloud.
 
-    Copyright (C) 2018 Siegfried Schöfer
+    Copyright (C) 2019 Siegfried Schöfer
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -36,7 +36,7 @@
 #include <Ticker.h>
 #include <MQTTClient.h>
 #include "wifionoff_version.h"
-
+#include "WiFiManager/WiFiManager.h"
 
 /**
    @brief Version number - obtained by 'git describe'
@@ -75,24 +75,6 @@ String REPOSITORY_URL_STRING = "https://github.com/peastone/WIFIOnOff";
 #endif
 
 /**
-  @brief Define the password to protect OTA with DEV_OTA_PASSWD. This is not a high security procedure.
-  @todo Despite the fact that over-the-air (OTA) updates are not highly secure, it is highly recommended to change the password.
-        This is just a very bad default.
-  @see https://media.readthedocs.org/pdf/arduino-esp8266/latest/arduino-esp8266.pdf
-*/
-#define DEV_OTA_PASSWD "CwpvVzR33gKY"
-
-/**
-   @brief time in ms to wait until WPS request is triggered when pressing the button (see pressHandler())
-*/
-#define TRIGGER_TIME_WPS 3000
-
-/**
-   @brief time in ms to wait until the WIFI configuration reset
-*/
-#define TRIGGER_TIME_WIFI_DATA_RESET 10000
-
-/**
    @brief time in ms to wait until factory reset is triggered when pressing the button (see pressHandler())
 */
 #define TRIGGER_TIME_FACTORY_RESET 15000
@@ -127,6 +109,11 @@ String REPOSITORY_URL_STRING = "https://github.com/peastone/WIFIOnOff";
 */
 #define CTR_MAX_TRIES_WIFI_CONNECTION 60
 
+/**
+   @brief Global variable to store the Arduino OTA password.
+*/
+String arduinoOtaPassword = "";
+
 ////////////////////////////////////////////////////////////////////////////////
 // EEPROM //////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -144,7 +131,7 @@ String REPOSITORY_URL_STRING = "https://github.com/peastone/WIFIOnOff";
           the values are untempered.
           The address of the stored CRC is at the beginning of the EEPROM.
 */
-#define EEPROM_version_number 0
+#define EEPROM_version_number 1
 /**
    @brief This version number is stored in EEPROM. It must not be longer than one byte.
           The version number defined here and that one stored in EEPROM are compared against each other.
@@ -182,17 +169,12 @@ String REPOSITORY_URL_STRING = "https://github.com/peastone/WIFIOnOff";
           The init value is also used to initialize the EEPROM in setupEEPROM().
 */
 #define EEPROM_init_value 0x00
-/**
-   @brief WPS is the only choice to connect to WIFI. This shall improve
-          usability. The state of WPS is stored in EEPROM at this address.
-          The value 0x00 was chosen as it terminates Strings, which leads to perfect default data.
-*/
-#define EEPROM_address_WPS_configured EEPROM_address_start
+
 /**
    @brief This flag is used to check whether @link mqttServer @endlink has already been
           initialized with the value of the MQTT-Server (DNS name or IP)
 */
-#define EEPROM_address_MQTT_server_configured (EEPROM_address_WPS_configured + EEPROM_enabled_size)
+#define EEPROM_address_MQTT_server_configured EEPROM_address_start
 /**
    @brief The variable @link mqttServer @endlink
           which contains the value of the
@@ -210,6 +192,16 @@ String REPOSITORY_URL_STRING = "https://github.com/peastone/WIFIOnOff";
           @see https://www.ietf.org/rfc/rfc1035.txt
 */
 #define EEPROM_size_MQTT_server 256
+
+/**
+   @brief The OTA password is stored here.
+*/
+#define EEPROM_address_OTA_password (EEPROM_address_MQTT_server + EEPROM_size_MQTT_server)
+
+/**
+  @brief Define length for OTA password.
+*/
+#define EEPROM_size_OTA_password 256
 
 /**
    @brief This function calculates a CRC checksum for the EEPROM.
@@ -330,8 +322,10 @@ void initEEPROM() {
     EEPROM.write(i, EEPROM_init_value);
   }
   storeEEPROMVersionNumber();
-  storeCRC();
-  EEPROM.commit();
+
+  arduinoOtaPassword = getDefaultOtaPassword();
+  // storeCRC() and EEPROM.commit() will be done in this function
+  saveOtaPasswordToEEPROM();
 }
 
 /**
@@ -362,8 +356,6 @@ void setupEEPROM() {
 #ifdef SERIAL_PRINTING
     Serial.println("EEPROM reinitialized");
 #endif
-    // display warning to the user
-    feedbackEEPROMInit();
   }
 }
 
@@ -426,34 +418,6 @@ bool getStateLEDOn() {
 ////////////////////////////////////////////////////////////////////////////////
 // LED feedback ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-/**
-   @brief This function is called to give the user feedback that the EEPROM has been re-/initialized.
-          This means that all the user-entered data is gone and the device needs to be reconfigured.
-   @callergraph
-   @callgraph
-*/
-void feedbackEEPROMInit() {
-#ifdef SERIAL_PRINTING
-  Serial.println("Long pulse on LED to signal that the EEPROM got re/-initialized");
-#endif
-  // backup LED state
-  bool backupStateLEDOn = getStateLEDOn();
-
-  // switch off LED for a short period of time, so that the user recognizes the HIGH pulse following
-  switchOffLED();
-  delay(TIME_HALF_A_SECOND);
-
-  // switch on the LED as warning light
-  switchOnLED();
-  delay(TIME_EEPROM_WARNING);
-
-  // restore LED state
-  if (backupStateLEDOn == true) {
-    switchOnLED();
-  } else {
-    switchOffLED();
-  }
-}
 
 /**
    @brief This function is called to give the user feedback about the menu the user selected.
@@ -476,25 +440,6 @@ void feedbackQuickBlink() {
   toggleLED();
   // the request has been fulfilled
   unsetUserActionFeedbackRequest();
-}
-
-/**
-   @brief This function is called to give the user feedback that WIFI is about to connect.
-          It will blink at a medium rate.
-   @callergraph
-   @callgraph
-*/
-void feedbackWIFIisConnecting() {
-#ifdef SERIAL_PRINTING
-  Serial.print(".");
-#endif
-  toggleLED();
-  delay(TIME_HALF_A_SECOND);
-#ifdef SERIAL_PRINTING
-  Serial.print(".");
-#endif
-  toggleLED();
-  delay(TIME_HALF_A_SECOND);
 }
 
 /**
@@ -539,88 +484,6 @@ void unsetUserActionFeedbackRequest() {
 WiFiClient wifiClient;
 
 /**
-   @brief This function checks whether WPS has already been performed
-          once. In this case, one can directly connect to WiFi.
-   @returns true if WPS has already been performed, false otherwise
-   @callergraph
-   @callgraph
- **/
-bool checkWiFiConfigured() {
-  return EEPROM.read(EEPROM_address_WPS_configured) == EEPROM_enabled;
-}
-
-/**
-   @brief This function is a setter function which sets WiFi to
-          configured, which means that WPS has already been
-          performed successfully. This function is only called in
-          performWPS().
-          The configuration is saved to EEPROM.
-   @callergraph
-   @callgraph
-*/
-void setWiFiConfigured() {
-#ifdef SERIAL_PRINTING
-  Serial.println("Set WiFi configured");
-#endif
-  EEPROM.write(EEPROM_address_WPS_configured, EEPROM_enabled);
-  storeCRC();
-  EEPROM.commit();
-}
-
-/**
-   @brief This function is a setter function which sets WiFi to not
-          configured, which means that WPS is necessary before
-          connecting to WIFI.
-          The configuration is saved to EEPROM.
-   @callergraph
-   @callgraph
-*/
-void unsetWiFiConfigured() {
-#ifdef SERIAL_PRINTING
-  Serial.println("Delete WiFi configuration");
-#endif
-  // disconnect also deletes the WiFi credentials
-  // https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WiFi/src/ESP8266WiFiSTA.cpp#L296
-  WiFi.disconnect();
-#ifdef SERIAL_PRINTING
-#endif
-  EEPROM.write(EEPROM_address_WPS_configured, EEPROM_init_value);
-  storeCRC();
-  EEPROM.commit();
-  unsetWifiResetRequested();
-}
-
-/**
-   @brief This function is used to trigger WPS. If WPS has been
-          successful, setWiFiConfigured() is executed and unsetWPSRequest() is called.
-   @callergraph
-   @callgraph
-*/
-void performWPS() {
-#ifdef SERIAL_PRINTING
-  Serial.println("Perform WPS");
-#endif
-  // This step is very important. If the WiFi configuration is not unset,
-  // loop() will try to connect endlessly, even if WPS fails.
-  unsetWiFiConfigured();
-  // the actual WPS push button procedure
-  WiFi.beginWPSConfig();
-  if (connectToWiFi()) {
-    // WPS is only proven to be successful, if WiFi connection is successful
-#ifdef SERIAL_PRINTING
-    Serial.println("WiFi connection successful. WPS successful.");
-#endif
-    setWiFiConfigured();
-  } else {
-#ifdef SERIAL_PRINTING
-    Serial.println("WiFi connection not successful. WPS not successful.");
-#endif
-  }
-  // one WPS procedure has been performed, unset request
-  unsetWPSRequest();
-}
-
-/**
    @brief This function returns the client name used for MQTT, see mqttConnect().
    @returns the client ID: "WIFIOnOff" + MAC address
    @callergraph
@@ -630,46 +493,27 @@ String getClientID() {
   return "WIFIOnOff_" + WiFi.macAddress();
 }
 
-/**
-   @brief This function tries to connect to WIFI.
-   @returns true, if the connection was successful, false otherwise.
+/*
+   @brief This function returns the default OTA password
+   @returns the default OTA password
    @callergraph
    @callgraph
 */
-bool connectToWiFi() {
-#ifdef SERIAL_PRINTING
-  Serial.println("Connect to WIFI");
-#endif
-  // put WIFI to station mode
-  WiFi.mode(WIFI_STA);
-  // enable auto reconnect
-  WiFi.setAutoReconnect(true);
-  // set SSID and PSK
-  WiFi.begin(WiFi.SSID().c_str(), WiFi.psk().c_str());
-#ifdef SERIAL_PRINTING
-  Serial.println("Try to connect to WiFi SSID: " + WiFi.SSID());
-#endif
-  // polling: leave when WiFi connected
-  for (int i = 0; (i < CTR_MAX_TRIES_WIFI_CONNECTION) && (WiFi.status() != WL_CONNECTED); i++) {
-    feedbackWIFIisConnecting();
-  }
-  if (WiFi.status() != WL_CONNECTED) {
-#ifdef SERIAL_PRINTING
-    Serial.println("\nWiFi failed to connect.");
-#endif
-    return false;
-  }
-
-#ifdef SERIAL_PRINTING
-  // return value of WiFi.localIP() is of type IPAddress
-  // https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WiFi/src/ESP8266WiFiSTA.h#L61
-  // IPAddress needs to be converted to String
-  // https://github.com/esp8266/Arduino/blob/f4c391032aff382bcd243bb038d69feb136a96b5/cores/esp8266/IPAddress.cpp#L108
-  Serial.println("\nConnected, IP: " + WiFi.localIP().toString());
-#endif
-
-  return true;
+String getDefaultOtaPassword() {
+  return "ArduinoOTA" + String(ESP.getChipId());;
 }
+
+/**
+  @brief Password to protect OTA updates. This password should be changed in WiFiManager.
+  @see https://media.readthedocs.org/pdf/arduino-esp8266/latest/arduino-esp8266.pdf
+*/
+WiFiManagerParameter paramOtaPassword(
+  "ota",
+  "Arduino OTA Password",
+  getDefaultOtaPassword().c_str(),
+  EEPROM_size_OTA_password-1,
+  ""
+);
 
 /**
    @brief This function sets up MDNS.
@@ -687,6 +531,32 @@ void setupMDNS() {
 }
 
 /**
+   @brief Global variable SSID for WiFi credentials change.
+*/
+String credentialSsid;
+
+/**
+   @brief Global variable SSID for WiFi credentials change.
+*/
+String credentialPassword;
+
+/** This function changes the WiFi credentials.
+   @callergraph
+   @callgraph
+*/
+void changeWiFiCredentials() {
+#ifdef SERIAL_PRINTING
+  Serial.println("Change WiFi credentials");
+#endif
+  // disconnect also deletes the WiFi credentials
+  // https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WiFi/src/ESP8266WiFiSTA.cpp#L296
+  WiFi.disconnect();
+  WiFi.begin(credentialSsid.c_str(), credentialPassword.c_str());
+
+  reboot();
+}
+
+/**
    @brief This function checks whether WIFI is connected.
    @returns true, if WiFi is connected, false otherwise
    @callergraph
@@ -695,67 +565,26 @@ void setupMDNS() {
 bool checkWiFiConnected() {
   return (WiFi.status() == WL_CONNECTED);
 }
+/**
+   @brief State to track whether a change of WiFi credentials has been requested.
+*/
+bool wifiCredentialChangeRequested = false;
 
 /**
-   @brief State to track whether the WPS has been requested.
+   @brief Getter function for @link wifiCredentialChangeRequested @endlink.
+   @returns true, if WiFiManager has been requested, false otherwise.
 */
-bool wpsRequested = false;
-
-/**
-   @brief Getter function for @link wpsRequested @endlink.
-   @returns true, if WPS has been requested, false otherwise.
-*/
-bool getWPSRequest() {
-  return wpsRequested;
+bool getWiFiCredentialChangeRequested() {
+  return wifiCredentialChangeRequested;
 }
 
 /**
-   @brief Setter function to unset @link wpsRequested @endlink.
+   @brief Setter function to set @link wifiCredentialChangeRequested @endlink.
    @callergraph
    @callgraph
 */
-void unsetWPSRequest() {
-  wpsRequested = false;
-}
-
-/**
-   @brief Setter function to set @link wpsRequested @endlink.
-   @callergraph
-   @callgraph
-*/
-void setWPSRequest() {
-  wpsRequested = true;
-}
-
-/**
-   @brief State to track whether the deletion of WIFI data has been requested.
-*/
-bool wifiResetRequested = false;
-
-/**
-   @brief Getter function for @link wifiResetRequested @endlink.
-   @returns true, if a deletion of WIFI data has been requested, false otherwise.
-*/
-bool getWifiResetRequested() {
-  return wifiResetRequested;
-}
-
-/**
-   @brief Setter function to set @link wifiResetRequested @endlink.
-   @callergraph
-   @callgraph
-*/
-void setWifiResetRequested() {
-  wifiResetRequested = true;
-}
-
-/**
-   @brief Setter function to unsset @link wifiResetRequested @endlink.
-   @callergraph
-   @callgraph
-*/
-void unsetWifiResetRequested() {
-  wifiResetRequested = false;
+void setWiFiCredentialChangeRequested() {
+  wifiCredentialChangeRequested = true;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -914,13 +743,13 @@ String renderRelay(bool stateRelayConnected) {
    @callergraph
    @callgraph
 */
-String renderMQTTServerSettings(String storedServerName, String failureMsg, bool stateMQTTActivated, bool stateMQTTConnected) {
+String renderMQTTSettings(String storedServerName, String failureMsg, bool stateMQTTActivated, bool stateMQTTConnected) {
   return R"(
 <div class="headline">
-  <h1>WIFIOnOff Settings</h1>
+  <h1>WIFIOnOff MQTT Settings</h1>
 </div>
 <p>
-<form action="/settings.html" method="post">
+<form action="/mqtt.html" method="post">
   MQTT server (DNS name or IP address required):
   <p>
   <input type="text" name="mqttserver" value=")" + storedServerName + R"(">
@@ -931,12 +760,118 @@ String renderMQTTServerSettings(String storedServerName, String failureMsg, bool
     <option value="off")" + String(stateMQTTActivated ? "" : " selected") + R"(>Off</option>
   </select>
   <p>
-  <input type="submit" value="Change settings">
+  <input type="submit" value="Change MQTT settings">
 </form>
 <p>)" + String(stateMQTTConnected ? "MQTT server / broker is connected" : "MQTT server / broker is disconnected") + R"(
-<p>)" + failureMsg + R"(
+<p>)" + failureMsg;
+}
+
+/**
+   @brief This function returns the middle part of a HTML file to
+          - change the OTA password
+   @param[in] infoMsg signal whether the change of the OTA password was successful or not
+   @callergraph
+   @callgraph
+*/
+String renderOtaPasswordChangeForm(String infoMsg) {
+  return R"(
+<div class="headline">
+  <h1>WIFIOnOff OTA Password</h1>
+</div>
 <p>
-WIFIOnOff version: )" + VERSION;
+<form action="/ota.html" method="post">
+  Old OTA password:
+  <p>
+  <input type="password" name="oldOta">
+  <p>
+  New OTA password:
+  <p>
+  <input type="password" name="newOta">
+  <p>
+  New OTA password repeated:
+  <p>
+  <input type="password" name="newOtaRep">
+  <p>
+  <input type="submit" value="Change OTA password">
+</form>
+<p>)" + infoMsg;
+}
+
+/**
+   @brief This function returns the middle part of a HTML file to
+          - perform a factory reset
+   @param[in] infoMsg signal whether the factory reset will be performed
+   @callergraph
+   @callgraph
+*/
+String renderFactoryReset(String infoMsg) {
+  return R"(
+<div class="headline">
+  <h1>WIFIOnOff Factory Reset</h1>
+</div>
+<p>
+<form action="/reset.html" method="post">
+  Please confirm this action with the OTA password:
+  <p>
+  <input type="password" name="ota">
+  <p>
+  <input type="submit" value="Perform factory reset">
+</form>
+<p>)" + infoMsg;
+}
+
+/**
+   @brief This function returns the middle part of a HTML file to
+          - changeWiFiCredentials
+   @param[in] infoMsg signal whether the change of WiFiCredentials will be performed.
+   @callergraph
+   @callgraph
+*/
+String renderWiFiCredentialChange(String infoMsg) {
+  return R"(
+<div class="headline">
+  <h1>WIFIOnOff WiFi Credentials</h1>
+</div>
+<p>
+<form action="/wifi.html" method="post">
+  Please confirm this action with the OTA password:
+  <p>
+  <input type="password" name="ota">
+  <p>
+  SSID:
+  <p>
+  <input type="text" name="ssid">
+  <p>
+  WiFi Password:
+  <p>
+  <input type="password" name="wifiPassword">
+  <p>
+  WiFi Password Repetition:
+  <p>
+  <input type="password" name="wifiPasswordRepetition">
+  <p>
+  <input type="submit" value="Change WiFi credentials">
+</form>
+<p>)" + infoMsg;
+}
+
+/**
+   @brief This function returns the middle part of a HTML file to
+          - show the version of the WIFIOnOff
+          - show the default OTA PW
+   @returns HTML, look inside the function for more information.
+   @callergraph
+   @callgraph
+*/
+String renderInfo() {
+  return R"(
+<div class="headline">
+  <h1>WIFIOnOff Info </h1>
+</div>
+<p>
+WIFIOnOff version: <p>)" + VERSION + R"(
+<p>
+Default OTA PW: <p>)" + getDefaultOtaPassword();
 }
 
 /**
@@ -950,7 +885,7 @@ String renderFooter() {
   return R"(
 <p>
 <div class="footer">
-<a href="/"> Control </a> &#124; <a href="/settings.html"> Settings </a> &#124; <a href=")" + REPOSITORY_URL_STRING + R"("> Project website </a>
+<a href="/"> Control </a> &#124; <a href="/mqtt.html"> MQTT </a> &#124; <a href="/ota.html"> OTA </a> &#124; <a href="/wifi.html"> WiFi </a> &#124; <a href="/reset.html"> Factory Reset </a> &#124; <a href="/info.html"> Info </a> &#124; <a href=")" + REPOSITORY_URL_STRING + R"("> Project website </a>
 </div>
 </body>
 </html>)";
@@ -1009,7 +944,7 @@ void restoreMQTTConfigurationFromEEPROM() {
   Serial.println("Restore MQTT configuration from EEPROM");
 #endif
   // Readback mqttServer
-  char mqttServerLocal[256];
+  char mqttServerLocal[EEPROM_size_MQTT_server];
   for (int i = 0; i < EEPROM_size_MQTT_server; i++) {
     mqttServerLocal[i] = EEPROM.read(EEPROM_address_MQTT_server + i);
   }
@@ -1302,6 +1237,9 @@ void configureWebServer() {
 #ifdef SERIAL_PRINTING
   Serial.println("Configure webserver");
 #endif
+  //////////////////////////////////////////////////////////////////////////////
+  // / /////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////
   webserver.on("/", []() {
 #ifdef SERIAL_PRINTING
     Serial.println("HTTP: /");
@@ -1325,57 +1263,211 @@ void configureWebServer() {
                       renderFooter();
     webserver.send(200, "text/html", response);
   });
-  webserver.on("/settings.html", []() {
+  //////////////////////////////////////////////////////////////////////////////
+  // /info.html ////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////
+  webserver.on("/info.html", []() {
 #ifdef SERIAL_PRINTING
-    Serial.println("HTTP: /settings.html");
+    Serial.println("HTTP: /info.html");
+#endif
+    // generate rendering and send answer back
+    String response = renderHeader() + \
+                      renderInfo() + \
+                      renderFooter();
+    webserver.send(200, "text/html", response);
+  });
+  //////////////////////////////////////////////////////////////////////////////
+  // /mqtt.html ////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////
+  webserver.on("/mqtt.html", []() {
+#ifdef SERIAL_PRINTING
+    Serial.println("HTTP: /mqtt.html");
 #endif
     // query whether MQTT should be activated
     String mqttState = webserver.arg("mqttState");
-    bool stateMQTTConfigured;
+    bool localStateMQTTConfigured;
 #ifdef SERIAL_PRINTING
     Serial.println("mqttState: '" + mqttState + "'");
 #endif
     if (mqttState == "on") {
       // enable mqtt
-      stateMQTTConfigured = true;
+      localStateMQTTConfigured = true;
     } else if (mqttState == "off") {
       // disable mqtt
-      stateMQTTConfigured = false;
+      localStateMQTTConfigured = false;
     } else {
       // use old value
-      stateMQTTConfigured = getStateMQTTConfigured();
+      localStateMQTTConfigured = getStateMQTTConfigured();
     }
     // query MQTT server
-    String mqttServer = webserver.arg("mqttserver");
+    String localMqttServer = webserver.arg("mqttserver");
 #ifdef SERIAL_PRINTING
-    Serial.println("mqttServer: '" + mqttServer + "'");
+    Serial.println("mqttServer: '" + localMqttServer + "'");
 #endif
     String failureMsg = "";
-    if (mqttServer != "") {
-      if (mqttServerValid(mqttServer)) {
-        // mqttServer is valid => send accpeted
+    if (localMqttServer != "") {
+      if (mqttServerValid(localMqttServer)) {
+        // localMqttServer is valid => send accpeted
         failureMsg = "Input accepted.";
       } else {
-        // mqttServer is valid => send rejected
+        // localMqttServer is valid => send rejected
         failureMsg = "Input rejected, due to XSS mitigation.";
       }
     } else {
-      // mqttServer == "" if "mqttserver" is not in request => use stored server, no failure message
+      // localMqttServer == "" if "mqttserver" is not in request => use stored server, no failure message
       // this happens if the user requests "/settings.html" the first time
-      mqttServer = getMQTTServer();
+      localMqttServer = getMQTTServer();
     }
 
     // configure MQTT if something changed
-    if ((mqttServer != getMQTTServer()) || (stateMQTTConfigured != getStateMQTTConfigured())) {
-      setMQTTServer(mqttServer);
-      setStateMQTTConfigured(stateMQTTConfigured);
+    if ((localMqttServer != getMQTTServer()) || (localStateMQTTConfigured != getStateMQTTConfigured())) {
+      setMQTTServer(localMqttServer);
+      setStateMQTTConfigured(localStateMQTTConfigured);
       saveMQTTConfigurationToEEPROM();
       configureMQTT();
     }
 
     // generate rendering
     String response = renderHeader() + \
-                      renderMQTTServerSettings(mqttServer, failureMsg, stateMQTTConfigured, checkMQTTConnected()) + \
+                      renderMQTTSettings(localMqttServer, failureMsg, localStateMQTTConfigured, checkMQTTConnected()) + \
+                      renderFooter();
+
+    // send answer back
+    webserver.send(200, "text/html", response);
+  });
+  //////////////////////////////////////////////////////////////////////////////
+  // /ota.html /////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////
+  webserver.on("/ota.html", []() {
+#ifdef SERIAL_PRINTING
+    Serial.println("HTTP: /ota.html");
+#endif
+    // query whether MQTT should be activated
+    String oldOta = webserver.arg("oldOta");
+#ifdef SERIAL_PRINTING
+    Serial.println("Old OTA: " + oldOta);
+#endif
+    String newOta = webserver.arg("newOta");
+#ifdef SERIAL_PRINTING
+    Serial.println("New OTA: " + newOta);
+#endif
+    String newOtaRep = webserver.arg("newOtaRep");
+#ifdef SERIAL_PRINTING
+    Serial.println("New OTA repeated: " + newOtaRep);
+#endif
+    bool willReset = false;
+    String info = "";
+    if (oldOta.equals("") &&
+        newOta.equals("") &&
+        newOtaRep.equals("")) {
+        info = "";
+    } else {
+      if (oldOta.equals(arduinoOtaPassword)) {
+        if (newOta.equals("")) {
+          info = "New password may not be empty.";
+        } else if (newOta.equals(newOtaRep)) {
+          if (newOta.length() >= EEPROM_size_OTA_password) {
+            info = "New password too long!";
+          } else {
+            arduinoOtaPassword = newOta;
+            saveOtaPasswordToEEPROM();
+            willReset = true;
+            info = "Password successfully changed. WIFIOnOff will reset.";
+#ifdef SERIAL_PRINTING
+    Serial.println("Password will be changed.");
+#endif
+          }
+        } else {
+          info = "New password does not match repetition.";
+        }
+      } else {
+        info = "Old OTA password does not match!";
+      }
+    }
+
+    // generate rendering
+    String response = renderHeader() + \
+                      renderOtaPasswordChangeForm(info) + \
+                      renderFooter();
+
+    // send answer back
+    webserver.send(200, "text/html", response);
+    if (willReset) {
+      reboot();
+    }
+  });
+  //////////////////////////////////////////////////////////////////////////////
+  // /reset.html ///////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////
+  webserver.on("/reset.html", []() {
+#ifdef SERIAL_PRINTING
+    Serial.println("HTTP: /reset.html");
+#endif
+    String otaPassword = webserver.arg("ota");
+    String info = "";
+
+    if (otaPassword.equals(arduinoOtaPassword)) {
+      info = "Factory reset will be performed. Device will reset.";
+#ifdef SERIAL_PRINTING
+    Serial.println("Factory reset will be performed.");
+#endif
+      setFactoryResetRequested();
+    } else if (otaPassword.equals("")) {
+      // do nothing (no password inserted)
+    } else {
+      // wrong password
+      info = "OTA password does not match. Factory reset will not be performed.";
+    }
+    // generate rendering
+    String response = renderHeader() + \
+                      renderFactoryReset(info) + \
+                      renderFooter();
+
+    // send answer back
+    webserver.send(200, "text/html", response);
+  });
+  //////////////////////////////////////////////////////////////////////////////
+  // /wifi.html ///////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////
+  webserver.on("/wifi.html", []() {
+#ifdef SERIAL_PRINTING
+    Serial.println("HTTP: /wifi.html");
+#endif
+    String otaPassword = webserver.arg("ota");
+    String ssid = webserver.arg("ssid");
+    String wifiPassword = webserver.arg("wifiPassword");
+    String wifiPasswordRepetition = webserver.arg("wifiPasswordRepetition");
+    String info = "";
+
+    if (otaPassword.equals(arduinoOtaPassword)) {
+      if (ssid.equals("")) {
+        info = "SSID is empty!";
+      } else {
+        if (!wifiPassword.equals(wifiPasswordRepetition)) {
+          info = "WiFi passwords do not match!";
+        } else {
+          if (wifiPassword.equals("")) {
+            info = "WiFi password is empty!";
+          } else {
+#ifdef SERIAL_PRINTING
+    Serial.println("WiFi credentials will change.");
+#endif
+            info = "WiFi credentials will change. Device will reset.";
+            credentialPassword = wifiPassword;
+            credentialSsid = ssid;
+            setWiFiCredentialChangeRequested();
+          }
+        }
+      }
+    } else if (otaPassword.equals("")) {
+      // do nothing (no password inserted)
+    } else {
+      // wrong password
+      info = "OTA password does not match. WiFi credentials will not change.";
+    }
+    // generate rendering
+    String response = renderHeader() + \
+                      renderWiFiCredentialChange(info) + \
                       renderFooter();
 
     // send answer back
@@ -1386,6 +1478,11 @@ void configureWebServer() {
   Serial.println("HTTP server started");
 #endif
 }
+
+/**
+   @brief This object is a handle for the captive portal / WiFiManager.
+*/
+WiFiManager wifiManager;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Factory Reset ///////////////////////////////////////////////////////////////
@@ -1402,13 +1499,23 @@ void performFactoryReset() {
 #ifdef SERIAL_PRINTING
   Serial.println("Perform factory reset");
 #endif
-  unsetWiFiConfigured();
+  wifiManager.resetSettings();
   setMQTTServer("");
   setStateMQTTConfigured(false);
   initEEPROM();
-  unsetFactoryResetRequested();
+  reboot();
 }
 
+/**
+   @brief Perform a reboot.
+*/
+void reboot() {
+#ifdef SERIAL_PRINTING
+  Serial.println("Reboot");
+#endif
+  delay(1000);
+  ESP.restart();
+}
 
 /**
    @brief State to track whether a factory reset has been requested.
@@ -1430,15 +1537,6 @@ bool getFactoryResetRequested() {
 */
 void setFactoryResetRequested() {
   factoryResetRequested = true;
-}
-
-/**
-   @brief Setter function to unset @link factoryResetRequested @endlink.
-   @callergraph
-   @callgraph
-*/
-void unsetFactoryResetRequested() {
-  factoryResetRequested = false;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -1466,7 +1564,6 @@ unsigned long selectionState = 0;
 /**
    @brief This function triggers
           - the toggling of the relay
-          - WPS button method request
           - factory reset request.
           As this function is called regularly with @link ticker @endlink,
           it should be quick, otherwise the ESP8266 might crash.
@@ -1488,26 +1585,6 @@ void pressHandler() {
   // => this will only trigger a blinking LED to inform the user
   if ((buttonLastPressed == true) && (buttonPressed == true)) {
     unsigned long pastTime = millis() - timeSincebuttonPressed;
-    if ((pastTime > TRIGGER_TIME_WPS) && (selectionState < TRIGGER_TIME_WPS)) {
-#ifdef SERIAL_PRINTING
-      Serial.println("WPS selected if released now");
-#endif
-      selectionState = TRIGGER_TIME_WPS;
-      if (!checkWiFiConfigured()) {
-        setUserActionFeedbackRequest();
-      } else {
-#ifdef SERIAL_PRINTING
-        Serial.println("WPS was already performed successfully, wait for WIFI DATA RESET and repeat.");
-#endif
-      }
-    }
-    if ((pastTime > TRIGGER_TIME_WIFI_DATA_RESET) && (selectionState < TRIGGER_TIME_WIFI_DATA_RESET)) {
-#ifdef SERIAL_PRINTING
-      Serial.println("WIFI DATA RESET selected if released now");
-#endif
-      selectionState = TRIGGER_TIME_WIFI_DATA_RESET;
-      setUserActionFeedbackRequest();
-    }
     if ((pastTime > TRIGGER_TIME_FACTORY_RESET) && (selectionState < TRIGGER_TIME_FACTORY_RESET)) {
 #ifdef SERIAL_PRINTING
       Serial.println("Factory reset selected if released now");
@@ -1525,16 +1602,6 @@ void pressHandler() {
     if (pastTime > TRIGGER_TIME_FACTORY_RESET) {
       // set factory reset reqest
       setFactoryResetRequested();
-    } else if (pastTime > TRIGGER_TIME_WIFI_DATA_RESET) {
-      // delete WiFi configuration data
-      setWifiResetRequested();
-    } else if (pastTime > TRIGGER_TIME_WPS) {
-      if (!checkWiFiConfigured()) {
-        // set WPS request
-        setWPSRequest();
-      } else {
-        // do nothing WPS has already been performed
-      }
     } else {
       // toggle connection state of relay
       toggleRelay();
@@ -1551,6 +1618,66 @@ void pressHandler() {
           The button handler is implemented there.
 */
 Ticker ticker;
+
+////////////////////////////////////////////////////////////////////////////////
+// OTA /////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+/**
+   @brief Read back OTA password from EEPROM and store it
+          in global variable @link arduinoOtaPassword @endlink.
+   @callergraph
+   @callgraph
+*/
+void restoreOtaPasswordFromEEPROM() {
+#ifdef SERIAL_PRINTING
+  Serial.println("Restore OTA configuration from EEPROM");
+#endif
+  // Readback OTA password
+  char otaPassword[EEPROM_size_OTA_password];
+  for (int i = 0; i < EEPROM_size_OTA_password; i++) {
+    otaPassword[i] = EEPROM.read(EEPROM_address_OTA_password + i);
+  }
+  arduinoOtaPassword = String(otaPassword);
+}
+
+/**
+   @brief Store OTA password in EEPROM.
+   @callergraph
+   @callgraph
+*/
+void saveOtaPasswordToEEPROM() {
+  const char * otaPassword = arduinoOtaPassword.c_str();
+  for (int i = 0; i < EEPROM_size_OTA_password; i++) {
+    EEPROM.write(EEPROM_address_OTA_password + i, otaPassword[i]);
+  }
+  storeCRC();
+  EEPROM.commit();
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// WiFi Manager ////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+/**
+   @brief This function is called when a connection has been established
+   @callergraph
+   @callgraph
+*/
+void callbackConfigSuccessful() {
+  arduinoOtaPassword = String(paramOtaPassword.getValue());
+#ifdef SERIAL_PRINTING
+  Serial.println("OTA password:" + arduinoOtaPassword);
+#endif
+  saveOtaPasswordToEEPROM();
+}
+
+/**
+   @brief This function is called when WiFiManager is in config mode
+   @callergraph
+   @callgraph
+*/
+void callbackConfigMode(WiFiManager *myWiFiManager) {
+  switchOnLED();
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Setup ///////////////////////////////////////////////////////////////////////
@@ -1600,6 +1727,27 @@ void setup(void) {
   configureMQTT();
 
   //////////////////////////////////////////////////////////////////////////////
+  // connect to WIFI ///////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////
+
+  // add custom parameter for OTA password
+  wifiManager.addParameter(&paramOtaPassword);
+
+  // set callback for successful connection
+  wifiManager.setSaveConfigCallback(callbackConfigSuccessful);
+
+  // set callback for config mode
+  wifiManager.setAPCallback(callbackConfigMode);
+
+  // start captive portal
+  wifiManager.autoConnect("WIFIOnOff");
+
+  //////////////////////////////////////////////////////////////////////////////
+  // enable auto reconnect /////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////
+  WiFi.setAutoReconnect(true);
+
+  //////////////////////////////////////////////////////////////////////////////
   // configure webserver ///////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
   configureWebServer();
@@ -1618,13 +1766,6 @@ void setup(void) {
   // start with the relay to the mains disabled ////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
   disconnectRelay();
-
-  //////////////////////////////////////////////////////////////////////////////
-  // connect to WIFI ///////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////////////
-  if (checkWiFiConfigured()) {
-    connectToWiFi();
-  }
 
   //////////////////////////////////////////////////////////////////////////////
   // set button handler ////////////////////////////////////////////////////////
@@ -1665,9 +1806,10 @@ void setup(void) {
     else if (error == OTA_END_ERROR) Serial.println("OTA: End Failed");
   });
 #endif
-  ArduinoOTA.setPassword(DEV_OTA_PASSWD);
+  restoreOtaPasswordFromEEPROM();
+  ArduinoOTA.setPassword(arduinoOtaPassword.c_str());
 #ifdef SERIAL_PRINTING
-  Serial.println("Start Arduino OTA");
+  Serial.println("OTA PW: " + arduinoOtaPassword);
 #endif
   ArduinoOTA.begin();
 #endif
@@ -1679,44 +1821,34 @@ void setup(void) {
 /**
    @brief This function is executed in a loop after setup(void) has been called.
 
-          At first it checks for incoming user requests:
-          - to perform WPS (performWPS())
-          - to delete the WiFi configuration (unsetWiFiConfigured())
-          - to perform a factory reset (performFactoryReset())
+   At first it checks for incoming user requests:
+   - to change WiFi credentials
+   - to perform a factory reset
 
-          It is also checked for requests to inform the user about actions
-          with the LED. These requests are triggered programmatically.
+   It is also checked for requests to inform the user about actions
+   with the LED. These requests are triggered programmatically.
 
-          After all requests are handled, it is cyclically checked that WPS has been
-          performed and that the WiFi is connected.
-          If WPS has not been done or WiFi is not connected,
-          it does not make any sense to check for HTTP, ArduinoOTA or MQTT.
-          For MQTT to be checked, it is also required, that it was enabled by the user.
+   After all requests are handled, it is cyclically checked that that the WiFi is connected.
+   If WiFi is not connected, it does not make any sense to check for HTTP, ArduinoOTA or MQTT.
+   For MQTT to be checked, it is also required, that it was enabled by the user.
 
-          If MQTT is not connected, try to connect, otherwise handle MQTT.
+   If MQTT is not connected, try to connect, otherwise handle MQTT.
+
    @callergraph
    @callgraph
 */
 void loop(void) {
-  //////////////////////////////////////////////////////////////////////////////
-  // perform WPS if requested //////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////////////
-  if (getWPSRequest()) {
-    performWPS();
-  }
-
   //////////////////////////////////////////////////////////////////////////////
   // blink LEDs to inform user about menu selection ////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
   if (getUserActionFeedbackRequest()) {
     feedbackQuickBlink();
   }
-
   //////////////////////////////////////////////////////////////////////////////
-  // perform WIFI reset, if requested //////////////////////////////////////////
+  // change WIFI credentials, if requested /////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
-  if (getWifiResetRequested()) {
-    unsetWiFiConfigured();
+  if (getWiFiCredentialChangeRequested()) {
+    changeWiFiCredentials();
   }
 
   //////////////////////////////////////////////////////////////////////////////
@@ -1727,48 +1859,41 @@ void loop(void) {
   }
 
   //////////////////////////////////////////////////////////////////////////////
-  // continue only if WiFi is configured ///////////////////////////////////////
+  // continue only if WiFi connected ///////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
-  if (checkWiFiConfigured()) {
-    ////////////////////////////////////////////////////////////////////////////
-    // continue only if WiFi connected /////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////
-    if (checkWiFiConnected()) {
+  if (checkWiFiConnected()) {
 #ifdef DEV_OTA_UPDATES
-      //////////////////////////////////////////////////////////////////////////
-      // handle development OTA updates (Arduino IDE) //////////////////////////
-      //////////////////////////////////////////////////////////////////////////
-      ArduinoOTA.handle();
+    ////////////////////////////////////////////////////////////////////////////
+    // handle development OTA updates (Arduino IDE) ////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    ArduinoOTA.handle();
 #endif
-      //////////////////////////////////////////////////////////////////////////
-      // handle webserver //////////////////////////////////////////////////////
-      //////////////////////////////////////////////////////////////////////////
-      webserver.handleClient();
-      ////////////////////////////////////////////////////////////////////////
-      // continue only if MQTT configured  ///////////////////////////////////
-      ////////////////////////////////////////////////////////////////////////
-      if (getStateMQTTConfigured()) {
-        if (checkMQTTConnected()) {
-          ////////////////////////////////////////////////////////////////
-          // handle MQTT /////////////////////////////////////////////////
-          ////////////////////////////////////////////////////////////////
-          mqttClient.loop();
-        } else {
-          ////////////////////////////////////////////////////////////////
-          // connect to MQTT broker //////////////////////////////////////
-          ////////////////////////////////////////////////////////////////
-          mqttConnect();
-        }
+    ////////////////////////////////////////////////////////////////////////////
+    // handle webserver ////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    webserver.handleClient();
+    ////////////////////////////////////////////////////////////////////////////
+    // continue only if MQTT configured  ///////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    if (getStateMQTTConfigured()) {
+      if (checkMQTTConnected()) {
+        ////////////////////////////////////////////////////////////////////////
+        // handle MQTT /////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        mqttClient.loop();
       } else {
-        // do nothing (MQTT needs to be configured by the user
-        // with the help of the web user interface)
+        ////////////////////////////////////////////////////////////////////////
+        // connect to MQTT broker //////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        mqttConnect();
       }
     } else {
-      // do nothing,
-      // autoreconnect is enabled for WIFI
+      // do nothing (MQTT needs to be configured by the user
+      // with the help of the web user interface)
     }
   } else {
-    // do nothing (WiFi needs to be configured by the user
-    // with the help of the button: doubleclick for WPS )
+    // do nothing,
+    // autoreconnect is enabled for WIFI
   }
+
 }
