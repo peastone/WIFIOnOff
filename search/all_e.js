@@ -11,7 +11,6 @@ var searchData=
   ['renderrelay',['renderRelay',['../WIFIOnOff_8ino.html#a1c9dd84a6d6ca1ea206f310605cc049d',1,'WIFIOnOff.ino']]],
   ['renderwificredentialchange',['renderWiFiCredentialChange',['../WIFIOnOff_8ino.html#a83f09b64ceca0a40a050c9ca7d88a0b6',1,'WIFIOnOff.ino']]],
   ['repository_5furl_5fstring',['REPOSITORY_URL_STRING',['../WIFIOnOff_8ino.html#ac4144c663334d0f32b58e62981300160',1,'WIFIOnOff.ino']]],
-  ['requirementsanddesign_2emd',['RequirementsAndDesign.md',['../RequirementsAndDesign_8md.html',1,'']]],
   ['restoremqttconfigurationfromeeprom',['restoreMQTTConfigurationFromEEPROM',['../WIFIOnOff_8ino.html#a42318ba7ac1f636b3bd64bf83a99dee2',1,'WIFIOnOff.ino']]],
   ['restoreotapasswordfromeeprom',['restoreOtaPasswordFromEEPROM',['../WIFIOnOff_8ino.html#a7e38b5ab4c4542a2e5471b02e6c1dfe2',1,'WIFIOnOff.ino']]],
   ['retrievecrc',['retrieveCRC',['../WIFIOnOff_8ino.html#a80ac0ebe45e95ee7e439f2aeea333124',1,'WIFIOnOff.ino']]]
