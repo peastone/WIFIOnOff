@@ -1,0 +1,25 @@
+@startuml
+title WIFIOnOff - Use Case Diagram
+
+rectangle WIFIOnOff {
+    (Toggle relay by pushing a button) as PHYTOG
+    (Toggle relay by web UI) as WEBTOG
+    (Connect to WiFi by WPS) as CONNECT
+    (Configure MQTT) as CONFIGMQTT
+    (Publish) as MQTT_PUB
+    (Subscribe) as MQTT_SUB
+    (Arduino OTA) as OTA
+}
+
+:User:
+:MQTT broker: as MQTT_Broker
+:Developer:
+
+User --> PHYTOG
+User --> WEBTOG
+User --> CONNECT
+User --> CONFIGMQTT
+MQTT_Broker --> MQTT_PUB
+MQTT_SUB --> MQTT_Broker
+Developer --> OTA
+@enduml

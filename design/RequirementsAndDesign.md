@@ -12,55 +12,12 @@
 
 ## Use Case Diagram
 
-@startuml
-title WIFIOnOff - Use Case Diagram
-
-rectangle WIFIOnOff {
-    (Toggle relay by pushing a button) as PHYTOG
-    (Toggle relay by web UI) as WEBTOG
-    (Connect to WiFi by WPS) as CONNECT
-    (Configure MQTT) as CONFIGMQTT
-    (Publish) as MQTT_PUB
-    (Subscribe) as MQTT_SUB
-    (Arduino OTA) as OTA
-}
-
-:User:
-:MQTT broker: as MQTT_Broker
-:Developer:
-
-User --> PHYTOG
-User --> WEBTOG
-User --> CONNECT
-User --> CONFIGMQTT
-MQTT_Broker --> MQTT_PUB
-MQTT_SUB --> MQTT_Broker
-Developer --> OTA
-@enduml
+![Use Case Diagram](../img/usecase.png)
 
 # Boundary Conditions
 - XSS protection: The HTTP web interface accepts user input which must be sanitized. The approach that is used in this project is whitelisting. The goal is to prevent XSS attacks.
 For more information about XSS, look [here](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet).
 
-# Button interaction
+# Button Interaction
 
-@startuml
-title User with button interaction - Activity Diagram
-start
-:User presses and holds the button;
-:User waits TIME;
-:User releases the button;
-if (TIME > TRIGGER_TIME_FACTORY_RESET) then (yes)
-  :Perform factory reset;
-elseif (TIME > TRIGGER_TIME_WIFI_DATA_RESET) then (yes)
-  :Reset WIFI configuration;
-else if (TIME > TRIGGER_TIME_WPS) then (yes)
-  if (WIFI configured) then (yes)
-  else (no)
-  :Perform WPS;
-  endif
-else ()
-  :Toggle relay;
-endif
-stop
-@enduml
+![Button Interaction](../img/button_interaction.png)

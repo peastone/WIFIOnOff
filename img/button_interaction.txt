@@ -1,0 +1,13 @@
+@startuml
+title User button interaction - Activity Diagram
+start
+:User presses and holds the button;
+:User waits TIME;
+:User releases the button;
+if (TIME > TRIGGER_TIME_FACTORY_RESET) then (yes)
+  :Perform factory reset;
+else ()
+  :Toggle relay;
+endif
+stop
+@enduml
