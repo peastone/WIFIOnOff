@@ -36,3 +36,5 @@
 .gcc-flags.json
 .pioenvs
 .piolibdeps
+# Generated files
+src/wifionoff_version.h

@@ -1,5 +1,4 @@
 target:
-	chmod u+x createVersionHeader.sh
 	./createVersionHeader.sh
 	platformio ci --project-conf=platformio.ini src
 
@@ -10,5 +9,4 @@ upload:
 	platformio run --target upload
 
 manual:
-	chmod u+x doc/generateDocumentationAndDeploy.sh
 	./doc/generateDocumentationAndDeploy.sh
