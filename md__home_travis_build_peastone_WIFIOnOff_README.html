@@ -82,24 +82,20 @@ $(function() {
 <li>Connect the FTDI to the Sonoff S20 (Pins from top to button: GND, TX, RX, 3.3V; Top is located right underneath the socket. Pin connection may vary for other variants or over time. You flash at your own risk.).</li>
 <li>Build the software and flash it.</li>
 </ol>
-<p>The whole procedure may also be done with <a href="https://platformio.org/">PlatformIO</a>. It should be easy to find out the analogous steps for yourself.</p>
+<p>The whole procedure may also be done with <a href="https://platformio.org/">PlatformIO</a>. It should be easy to find out the analogous steps for yourself. A platformio.ini is provided but must be adapted.</p>
 <p><img src="/img/sonoff_pinout.png" alt="Image of Sonoff S20 and Sonoff Basic without housing" class="inline"/> <a href="https://github.com/ct-Open-Source/info-graphics/blob/master/sonoff_pinbelegung.png">"Sonoff Pinout"</a> by <a href="https://github.com/ct-Open-Source">ct-Open-Source</a> licensed under CC Attribution Share Alike 4.0 International.</p>
 <h2>Use it</h2>
 <ol type="1">
 <li>Close the Sonoff S20. BE cautious! The device MUST be absolutely closed. You are working at your own risk here. If the device is open, you risk getting an electric shock or worse. If in doubt, ask an expert!</li>
 <li>Plug the Sonoff S20 into the mains.</li>
-<li>Press the button until it flashes the first time. Press the button of the router immediately after that. The WPS procedure starts.</li>
+<li>The LED will light green. An access point with the name "WIFIOnOff" will be started. Connect your mobile device and follow the captive portal. There you can enter your WiFi credentials or use WPS.</li>
 <li>Find the device with an mDNS mobile phone app.</li>
 <li>Open the web interface by entering the mDNS name into your browser.</li>
 <li>Configure MQTT, if wanted.</li>
 <li>Enjoy the web interface, MQTT and the physical button. Toggle the relay.</li>
 </ol>
-<h2>Last advice</h2>
-<p>Please read the manual(<a href="https://peastone.github.io/WIFIOnOff/">HTML</a>, <a href="https://peastone.github.io/WIFIOnOff/refman.pdf">PDF</a>). It is pretty detailed and should answer most of your questions. Only the latest version is provided. All versions can be generated with <a href="https://www.stack.nl/~dimitri/doxygen/">Doxygen</a>.</p>
-<h2>Also thanks to</h2>
-<ul>
-<li>Jeroen de Bruijn for his <a href="https://gist.github.com/vidavidorra/548ffbcdae99d752da02">gist</a> on how to auto-deploy Doxygen documentation on Github pages with Travis CI </li>
-</ul>
+<h2>Documentation</h2>
+<p>Please read the manual(<a href="https://peastone.github.io/WIFIOnOff/">HTML</a>, <a href="https://peastone.github.io/WIFIOnOff/refman.pdf">PDF</a>). It is pretty detailed and should answer most of your questions. Only the latest version is provided. All versions can be generated with <a href="https://www.stack.nl/~dimitri/doxygen/">Doxygen</a>. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
